@@ -1,0 +1,83 @@
+
+\documentclass[landscape,twocolumn,letterpaper]{book}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+
+
+\title{Real Analysis Notes}
+
+%\author{Nick Maxwell}
+
+\begin{document}
+
+
+\chapter{Basics}
+
+\begin{equation*}
+\cup_{E \in \mathcal{E} } \, E = \{ x : \, x\in E, \, \textrm{some} \, E \in \mathcal{E}  \}
+\end{equation*}
+
+\begin{equation*}
+\cap_{E \in \mathcal{E} } \, E = \{ x : \, x\in E, \, \textrm{all} \, E \in \mathcal{E}  \}
+\end{equation*}
+
+\begin{equation*}
+ \mathcal{E} = \{ E_\alpha : \, \alpha \in A \} = \{E_\alpha \}_{\alpha \in A}
+\end{equation*}
+
+\begin{equation*}
+\limsup E_n = \{ x : x \in E_n \, \textrm{for infinitely many} \, n \}
+\end{equation*}
+
+\begin{equation*}
+\limsup E_n = \{ x : x \in E_n \, \textrm{for infinitely many} \, n \}
+\end{equation*}
+
+\begin{equation*}
+\liminf E_n = \{ x : x \in E_n \, \textrm{for all but finitely many} \, n \}
+\end{equation*}
+\begin{equation*}
+\limsup E_n = \{ x : x \in E_n \, \textrm{for infinitely many} \, n \}
+\end{equation*}
+
+\begin{flushleft}
+Def: $E_n$ a sequence of sets, $n \in \mathbb{N}$. Take the statement ``$x \in E_n$ for all but finitely many $n$'' to precicely mean ``$\exists k \in \mathbb{N}$ s.t.$ \, x \in \cap_{n=k}^{\infty} E_n $''. Then, `` $x \in E_n$ for infinitely many $n$'' means ``$ x \in \cup_{n=k}^{\infty} E_n,\, \forall k \in \mathbb{N}$''.
+\end{flushleft}
+
+\begin{equation*}
+x \in \limsup E_n = \cap_{k=1}^{\infty} \cup_{n=k}^{\infty} E_n \Leftrightarrow \left( x \in \cup_{n=k}^{\infty} E_n, \; \forall k \in \mathbb{N} \right)
+\end{equation*}
+
+\begin{equation*}
+x \in \liminf E_n = \cup_{k=1}^{\infty} \cap_{n=k}^{\infty} E_n \Leftrightarrow \left( x \in \cap_{n=k}^{\infty} E_n, \; \textrm{some} \; k \in \mathbb{N} \right)
+\end{equation*}
+
+\chapter{Measure Theory}
+
+\chapter{Probability}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+

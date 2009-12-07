@@ -1,0 +1,482 @@
+h
+\documentclass{beamer}
+
+
+\usepackage{amsmath}  
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+
+\setbeamertemplate{navigation symbols}{}
+
+\usetheme{Montpellier}
+
+
+
+
+
+
+\newcommand{\pset}[1]{ \mathcal{P}(#1) }
+
+
+
+\newcommand{\nats}[0] { \mathbb{N}}
+\newcommand{\ints}[0] { \mathbb{Z}}
+\newcommand{\reals}[0] { \mathbb{R}}
+\newcommand{\exreals}[0] {  [-\infty,\infty] }
+\newcommand{\eps}[0] {  \epsilon }
+\newcommand{\id}[0] { \mathbb{I} }
+
+\newcommand{\A}[0] { \mathcal{A} }
+\newcommand{\B}[0] { \mathcal{B} }
+\newcommand{\C}[0] { \mathcal{C} }
+\newcommand{\D}[0] { \mathcal{D} }
+\newcommand{\E}[0] { \mathcal{E} }
+\newcommand{\F}[0] { \mathcal{F} }
+\newcommand{\G}[0] { \mathcal{G} }
+
+
+
+\newcommand{\IF}[0] { \; \textrm{if} \; }
+\newcommand{\THEN}[0] { \; \textrm{then} \; }
+\newcommand{\ELSE}[0] { \; \textrm{else} \; }
+\newcommand{\AND}[0]{ \; \textrm{ and } \;  }
+\newcommand{\OR}[0]{ \; \textrm{ or } \; }
+
+\newcommand{\rimply}[0] { \Rightarrow }
+\newcommand{\limply}[0] { \Lefttarrow }
+\newcommand{\rlimply}[0] { \Leftrightarrow }
+\newcommand{\lrimply}[0] { \Leftrightarrow }
+
+\newcommand{\cf}[1] { \chi_{_{#1}}  }
+
+
+
+
+
+\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
+
+
+\title{Overview of: \\ ``The Wavelet Transform, Time-Frequency Localization and Signal Analysis'' \\ By Ingrid Daubechies, 1990.}
+\author{Nick Maxwell    }
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+
+\begin{frame}
+\frametitle{Outline}
+
+\begin{itemize}
+\item Section I: Introduction
+\item Section II: Frame Questions \\
+    Will not cover this section, due to its length.
+\item Section III: Phase Space Localization
+\end{itemize}
+
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{Introduction}
+
+\begin{flushleft}
+This paper discusses several aspects of the representation (analysis and reconstruciton) of functions in the framework of frames, in contrast to orthonormal bases.
+\end{flushleft}
+
+\begin{flushleft}
+The frames consist of functions, $\phi_{m,n}$ indexed by two parameters, $(m,n) \in \ints^2$. Two major cases are discussed, one in which $\phi_{m,n}$ is the discretized version of the function $g^{(p,q)}(t)$ used in the windowed Fourier transform, and one in which $\phi_{m,n}$ are translated and dilated versions of a wavelet $h(t)$.
+\end{flushleft}
+
+\begin{flushleft}
+These are discussed in therms of phase space.
+\end{flushleft}
+
+\end{frame}
+
+
+
+\begin{frame}
+
+\begin{flushleft}
+The windowed FT case:
+\end{flushleft}
+
+\begin{equation*}
+c_{p,q} = \int_\reals e^{i p x} g(x-q)f(x) dt
+\end{equation*}
+
+\begin{flushleft}
+$g$ is a windowing function, $g(x) \approx 1$ when $x \approx 0$. So $c_{p,q}$ are the Fourier coefficients of $f$ times $g$, translated by $q$. Here $c:\reals^2 \rightarrow \mathbb{C}$, we refer to $\{ p \in \reals \} \times \{ q \in \reals \}$ as phase space.
+\end{flushleft}
+
+\begin{flushleft}
+In the discrete case, $p_m = m p_0$, and $q_n = n q_0$, and then $\{ p_m : m \in \ints \} \times \{ q_n :n \in \ints \}$ form a lattice in phase space.
+\end{flushleft}
+
+\end{frame}
+
+
+
+\begin{frame}
+
+\begin{flushleft}
+The wavelet case: we start with the general scaling equation
+\end{flushleft}
+
+\begin{equation*}
+h^{(a,b)}(x) = |a|^{-\frac{1}{2}} h \left( \frac{x-b}{a} \right)
+\end{equation*}
+
+\begin{flushleft}
+for a suitable wavelet $h$. In analogy with the windowed FT case, we construct a discrete lattice of wavelets, by letting $a=a_0^m$, $b=n b_0 a_0^m$.
+\end{flushleft}
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+
+\begin{flushleft}
+Since these lattices of $g_{m,n}$ and $g_{m,n}$ constitute frames, Section II discusses much of the relevant analysis. It mostly answeres these two questions,
+\end{flushleft}
+
+\begin{itemize}
+\item find a range $R$ for the parameters $(p_0, q_0)$ and $(a_0, b_0)$ so that the associated $g_{m,n}$ and $g_{m,n}$ constitute a frame under various circumstances.
+\item for the range of parameters in $R$, compute estimates on the frame bounts $A,B$.
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+\section{Phase Space Localization}
+
+
+
+
+\begin{frame}
+\frametitle{A: localization, the windowed Fourer transform case.}
+
+assumtions on $g$
+\begin{itemize}
+\item $ \int|g(x)|^2 dx = 1 $ (normalization) \\
+\item $ \int x |h(x)|^2 dx = 0 $ \\
+\indent expected position is 0, can shift $h$ to achieve this
+\item $ \int k |\hat h(k)|^2 dk = 0 $ \\
+\indent expected momentum is 1, can shift $\hat h$ to achieve this.
+\end{itemize}
+
+\begin{flushleft}
+These assure that if $g$ is localized in phase space, it will be so at (0,0).
+\end{flushleft}
+
+\begin{itemize}
+\item Then $g_{m,n}$ will be localized around $( m p_0,n q_0,  )$
+\end{itemize}
+
+\begin{equation*}
+g_{m,n} (t) := e^{-i m p_0 t} g(t - n q_0)
+\end{equation*}
+
+
+\end{frame}
+
+
+\begin{frame}
+
+assumtions on $f$
+\begin{itemize}
+\item $f$ is localized in phase space, so essentially limited to $[-T,T]$ in time, and essentially band limmited to $[-\Omega, \Omega]$.  \\
+\item $f \in L^2(\reals)$ \\
+\end{itemize}
+
+frame considerations
+\begin{itemize}
+\item $(g_{m,n})$ a frame, with frame bounds $A,B$ and dual $ \tilde{ ( g_{m,n}) } $\\
+\end{itemize}
+
+\begin{equation*}
+f = \sum_{m,n \in \ints} \tilde{ ( g_{m,n}) } < g_{m,n}, f>
+\end{equation*}
+
+We're interested in a discrete subset of phase space:
+\begin{equation*}
+B_\eps = [-(\Omega + \omega_\eps), (\Omega + \omega_\eps)] \times [ -(T+t_\eps),(T+t_\eps)]
+\end{equation*}
+
+so $B_\eps$ is an extension of the essential support of $f$ in phase space.
+
+\end{frame}
+
+
+
+
+\begin{frame}
+
+Theorem 3.1: 
+
+suppose:
+
+\begin{equation*}
+|\hat g (k) | \le C  (1 + k^2)^{-\alpha }
+\end{equation*}
+
+\begin{equation*}
+|g(t)| \le C (1+t^2)^{-\alpha} 
+\end{equation*}
+
+for some $C>0, \alpha > \frac{1}{2}$, \\
+then there exists $t_\eps, \omega_\eps >0$ such that 
+
+\begin{equation*}
+||  f - \sum_{(m,n) \in B_\eps} \tilde( g_m,n)  <g_{m,n}, f > || \le 
+\end{equation*}
+
+\begin{equation*}
+(B/A)^{\frac{1}{2}} \left[ ||(1-\cf{[-T,T]}) f|| + ||(1-\cf{[-\Omega, \Omega]})f||+  \eps ||f|| \right]
+\end{equation*}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+
+Theorem 3.1 remarks:
+
+\begin{itemize}
+\item The important point here is that $t_\eps, \omega_\eps$ are independent of $T$, $\Omega$, so the extension of the essential support of $f$ depends only on $\eps$.
+\item For a fixed $\eps$, $N_eps(T,\Omega) := 4(T + t_\eps)(\Omega + \omega_\eps)/(p_0 q_0)$, so taking the limit as $T,\Omega \rightarrow \infty,$ of $N_\eps/(4 T \Omega)$ gives $(p_0 q_0)^{-1}$, independent of $\eps$. prolate spheroidal functions are obtained as eigen functions of $P_\Omega Q_T P_\Omega$, which is the by operator that time limits to $[-T,T]$ then band limits to $[-\Omega,\Omega]$, and then again time limits. If we expend $f$ in these functions, then the above limit becomes $1/(2 \pi)$, which is the nyquist density. continued...
+\end{itemize}
+
+
+
+\end{frame}
+
+
+
+\begin{frame}
+
+Theorem 3.1 remarks continued:
+
+By results from section II, all frames have a density $p_0 q_0 \le 2 \pi$. The oversampling rate $2 \pi (p_0 q_0)^{-1} > 1$, is due to the frame not being orthonormal, so there are `too many vectors', but the upshot is better phase space localization.
+
+
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+\frametitle{B: localization, the wavelet case.}
+
+assumtions on $h$
+\begin{itemize}
+\item $ \int|h(x)|^2 dx = 1 $ (normalization) \\
+\item $ \int x |h(x)|^2 dx = 0 $ \\
+\indent expected position is 0, can shift $h$ to achieve this
+\item $ \int k |\hat h(k)|^2 dk = 1 $ \\
+\indent expected momentum is 1, can dilate $h$ to achieve this.
+\item $ | \hat{h} |$ is even \\
+\indent see notes
+\end{itemize}
+
+\begin{flushleft}
+These assure that if $h$ is localized in phase space, it will be so at (0,0).
+\end{flushleft}
+
+\begin{itemize}
+\item Then $h_{m,n}$ will be localized around $( \pm a_0^{-m}, a_0^{-m} n b_0,  )$
+\end{itemize}
+
+\begin{equation*}
+h_{m,n} (t) := a_0^{-m/2} \, h(a_0^{-m} \, t - n b_0)
+\end{equation*}
+
+
+\end{frame}
+
+
+\begin{frame}
+
+assumtions on $f$
+\begin{itemize}
+\item $f$ is localized in phase space, so essentially limited to $[-T,T]$ in time, and $[\Omega_0, \Omega_1]$, $[-\Omega_0, -\Omega_1]$ in frequency.  \\
+\item $f \in L^2(\reals)$ \\
+\end{itemize}
+
+frame considerations
+\begin{itemize}
+\item $(h_{m,n})$ a frame, with frame bounds $A,B$ and dual $ \tilde{ ( h_{m,n}) } $\\
+\end{itemize}
+
+\begin{equation*}
+f = \sum_{m,n \in \ints} \tilde{ ( h_{m,n}) } < h_{m,n}, f>
+\end{equation*}
+
+We're interested in a discrete subset of phase space:
+\begin{equation*}
+B_\eps \supset  \{ (m,n) \in \ints^2:  a_0^{-m} \in [ \Omega_0, \Omega_1],   n b_0 a_0^{-m} \in [ -T, T ]   \}
+\end{equation*}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+
+Theorem 3.2: 
+
+suppose:
+
+\begin{equation*}
+|\hat h (k) | \le C |k|^\beta (1 + k^2)^{-(\alpha + \beta)/2}
+\end{equation*}
+
+\begin{equation*}
+\int (1+t^2)^\gamma |h(t)|^2 < \infty
+\end{equation*}
+
+for some $C>0, \beta>0, \alpha > 1, \gamma > \frac{1}{2}$, \\
+then there exists a finite subset $B_\eps \subset \ints^2$ such that 
+
+
+\begin{equation*}
+||  f - \sum_{(m,n) \in B_\eps} \tilde(h_m,n)  <h_{m,n}, f > || \le 
+\end{equation*}
+
+\begin{equation*}
+(B/A)^{\frac{1}{2}} \left[ ||(1-\cf{[-T,T]})  f|| + ||(1-\cf{[\Omega_0, \Omega_1] \cup [-\Omega_0, -\Omega_1]}) f|| + \eps ||f|| \right]
+\end{equation*}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+
+Theorem 3.2 remarks:
+
+\begin{itemize}
+\item The construction of $B_\eps$ from $[-T,T]$ and $[\Omega_1,\Omega_2]$ is more complicated than in WH case; dependence is on $\Omega_1,\Omega_2$ in addition to just $\eps$. \\
+\item The shape of $B_\eps$ is non rectangular in phase space, as the number `n' points required increases as the dilation parameter, `m' increases. \\
+\item Limits on estimates of $B_\eps$ as $\Omega_0 \rightarrow 0, \Omega_1 \rightarrow \infty, T \rightarrow \infty$ are not independent on $\eps$. This leads to the concept that ``phase space denisty'' is not well suited to wavelet representation.\\
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{B: Extension of Reconstruction Precision.}
+
+\begin{flushleft}
+Reconstructing a function from a wavelet representation (or short windowed FT) can be done at a greater precision than that to which the coefficients were computed. This is due to phase space localization and oversampling.
+\end{flushleft}
+
+\begin{flushleft}
+Phase space locallization is nescesary so that we're only dealing with a finite number of coefficients ($N_\eps$, from the previous slide).
+\end{flushleft}
+
+\begin{flushleft}
+As for oversampling, we write $T:L^2(\reals) \rightarrow \ell^2(\ints^2)$, $(T f)_{m,n} = <\phi_{m,n}, f>$. $T$ is bounded and has bounded inverse on its closed range. The range of $T$ is the whole of $\ell^2(\ints^2)$ if and only if $(\phi_{m,n})$ is a basis. 
+\end{flushleft}
+
+\end{frame}
+
+
+
+\begin{frame}
+
+For arbitrary $c_{m,n}$ the reconstrution, 
+
+\begin{equation*}
+\sum_{m,n} \tilde \phi_{m,n} c_{m,n}
+\end{equation*}
+
+\begin{flushleft}
+consists of first a projection of $c_{m,n}$  onto the range of $T$, and then an inversion $T$ on its range (see beginning of secion II). \\
+\end{flushleft}
+
+\begin{flushleft}
+We model numerical error as noise added to the coefficients: $c_{m,n} = (Tf)_{m,n} + $ noise. So by the previous reslut, this noise will be reduced in norm in the reconstruciton step.
+\end{flushleft}
+
+\end{frame}
+    
+
+\begin{frame}
+
+\begin{flushleft}
+If we assume a model of the noise as $\gamma_{m,n}$, identically distributed random variables, mean zero and variance $\alpha^2$, then can show that the term in the reconstruction error involving this noise is $A^{-2} \alpha^2 N_\eps$.
+\end{flushleft}
+
+\begin{flushleft}
+In the windowed FT case, if the frame is snug, then by a result from section II, $A \approx \frac{2 \pi}{p_0 q_0}$, yielding $N_\eps \approx \frac{ T \Omega }{2 \pi p_0 q_0}$ . If instead we used an orthonormal basis, $N_\eps \approx \frac{ 2 T \Omega }{ \pi }$, so the frame yields a net gain of $\frac{2 \pi}{ p_0 q_0}$.
+\end{flushleft}
+
+\begin{flushleft}
+In the wavelet case, similar results can be obtained, but we lack a simple expression for $N_\eps$, by previous remarks.
+\end{flushleft}
+
+\begin{flushleft}
+These results suggest that a frame based reconstruction will be more numerically stable.
+\end{flushleft}
+
+
+\end{frame}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

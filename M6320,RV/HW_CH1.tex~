@@ -1,0 +1,175 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}  
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+
+\setlength\topmargin{-1in}
+\setlength{\oddsidemargin}{-0.5in}
+%\setlength{\evensidemargin}{1.0in}
+
+%\setlength{\parskip}{3pt plus 2pt}
+%\setlength{\parindent}{30pt}
+%\setlength{\marginparsep}{0.75cm}
+%\setlength{\marginparwidth}{2.5cm}
+%\setlength{\marginparpush}{1.0cm}
+\setlength{\textwidth}{7.5in}
+\setlength{\textheight}{10in}
+
+
+\begin{document}
+
+
+\begin{flushleft}
+Nicholas Maxwell\\
+Math 6320 - Dr. Blecher\\
+Homework
+\end{flushleft}
+
+\begin{flushleft}
+\addvspace{5pt} \hrule
+\end{flushleft}
+
+\section{chapter 1}
+
+\begin{flushleft}
+\underline{Folland problem 1.8:}
+\end{flushleft}
+
+
+
+\begin{flushleft}
+$(X,\mathcal{A},\mu)$ a measure space, $E_n$ a sequence of sets, $E_n \in \mathcal{A}$. Let $A_k = \cap_{n=k}^{\infty} E_n$, then $A_k = E_k \cap A_{k+1}$, then $x \in A_k \Rightarrow x \in E_k \cap A_{k+1} \Rightarrow x \in A_{k+1} \Rightarrow A_k \subset A_{k+1}$, and $A_k \in \mathcal{A}$. Then by continuity from below, $\mu \left( \cup_{k=1}^\infty A_k \right) = \lim_{k \rightarrow \infty} \mu (A_k)$, $\mu \left( \cup_{k=1}^\infty \cap_{n=k}^{\infty} E_n \right) = \lim_{k \rightarrow \infty} \mu (\cap_{n=k}^{\infty} E_n)$, 
+$\mu \left( \liminf E_n \right) = \lim_{k \rightarrow \infty} \mu (\cap_{n=k}^{\infty} E_n)$, 
+(not complete)
+\end{flushleft}
+
+
+
+
+\begin{flushleft}
+\underline{supplementary problem 6:}
+\end{flushleft}
+
+\begin{flushleft}
+Def: $E_n$ a sequence of sets, $n \in \mathbb{N}$. Take the statement `` $x \in E_n$ for all but finitely many $n$'' to precicely mean ``$\exists k \in \mathbb{N}$ s.t.$ \, x \in \cap_{n=k}^{\infty} E_n $''. Then, `` $x \in E_n$ for infinitely many $n$'' means ``$ x \in \cup_{n=k}^{\infty} E_n,\, \forall k \in \mathbb{N}$''.
+%Def: $E_n$ a sequence of sets, $n \in \mathbb{N}$. Take the statement `` $x \in E_n$ for all but finitely many $n$'' to precicely mean ``$\exists N \in \mathbb{N}$ s.t.$ \, x \in \cup_{n=1}^{N-1} \, $and$  \, x \not \in \cup_{n=N}^{\infty}$''. Then, `` $x \in E_n$ for infinitely many $n$'' means ``$ x \in \cup_{n=k}^{\infty} E_n,\, \forall k \in \mathbb{N}$''.
+\end{flushleft}
+
+\begin{flushleft}
+Prop 1: (Folland, p2) \\
+$\limsup E_n = \{ x : x \in E_n \,$for infinitely many$\, n \}$
+\end{flushleft}
+
+\vspace{-0.4in}
+
+\begin{equation*}
+x \in \limsup E_n = \cap_{k=1}^{\infty} \cup_{n=k}^{\infty} E_n \Leftrightarrow \left( x \in \cup_{n=k}^{\infty} E_n, \; \forall k \in \mathbb{N} \right) \; \; \left( \textrm{ by the definition of intersection} \right )
+\end{equation*}
+
+\begin{flushleft}
+Prop 2: (Folland, p2) \\
+$\liminf E_n = \{ x : x \in E_n \,$for all but finitely many$\, n \}$
+\end{flushleft}
+
+\vspace{-0.4in}
+
+\begin{equation*}
+x \in \liminf E_n = \cup_{k=1}^{\infty} \cap_{n=k}^{\infty} E_n \Leftrightarrow \left( x \in \cap_{n=k}^{\infty} E_n, \; \textrm{some} \; k \in \mathbb{N} \right) \; \; \left( \textrm{ by the definition of union} \right )
+\end{equation*}
+
+
+
+\begin{flushleft}
+$(X,\mathcal{A},\mu)$ a measure space, $E_n$ a sequence of sets, $E_n \in \mathcal{A}$, $\mu$ a finite measure, and $\mu(E_n)>\alpha>0$. Then we take $\limsup(E_n)$, by Folland problem 1.8, 
+\end{flushleft}
+
+\vspace{-0.2in}
+
+\begin{equation*} 
+\mu(\limsup(E_n)) \ge \limsup \mu(E_n) \ge \liminf \mu(E_n) \ge \inf \mu(E_n) \ge \alpha > 0,
+\end{equation*}
+\begin{equation*} 
+\textrm{so} \;  \mu(\limsup(E_n)) > 0 \Rightarrow \limsup(E_n) \not = \phi \Rightarrow \exists x \in \limsup(E_n) \Rightarrow \exists x \in E_n \subset X \; \textrm{for infinitely many} \; n
+\end{equation*}
+
+\begin{flushleft}
+\underline{supplementary problem 8:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal{A},\mu)$ a measure space. $f: Y \rightarrow X$. $f^{-1}(\mathcal{A}) = \{ f^{-1}(A): A \in \mathcal{A}   \}$, $f^{-1}(A) = \{ y \in Y: f(y) \in A \}$
+\end{flushleft}
+
+\begin{flushleft}
+Let $\mathcal{B} = f^{-1}(\mathcal{A})$. We have three functions here; $f: Y \rightarrow X$, maps elements in $Y$ to elements in $X$, $f^{-1}(\mathcal{A})$ maps sigma algebras to sigma algebras, and $f^{-1}(A): \mathcal{A} \rightarrow \mathcal{B}$ maps elements in one sigma algebra to elements in another. Write $F^{-1}: \mathcal{A} \rightarrow \mathcal{B}, \; F^{-1}(A) = \{ y \in Y : f(y) \in A \}$.
+\end{flushleft}
+
+\begin{flushleft}
+claim 1: $F^{-1}$ is injective\\
+Let $A,A' \in \mathcal{A}$ such that $F^{-1}(A) = F^{-1} (A')$. Let $B=F^{-1}(A), B' = F^{-1}(A')$, so $B=B'$. This means that $b \in B \Leftrightarrow b \in B'$, which is to say $b \in \{ y \in Y : f(y) \in A \} \Leftrightarrow b \in \{ y \in Y : f(y) \in A' \}$, which means $f(b) \in A \Leftrightarrow f(b) \in A'$, which means exactly $A=A'$.
+\end{flushleft}
+
+\begin{flushleft}
+claim 2: $F^{-1}$ is surjective\\
+$B \in \mathcal{B} \Rightarrow f(B) = A$, some $A \in \mathcal{A}$, by the definition of $f^{-1}(\mathcal{A})$, and preimages; $f(B) = \{ x \in X : x = f(y), y \in B \}$, so $F^{-1}$ is surjective.
+\end{flushleft}
+
+\begin{flushleft}
+Thus $F^{-1}$ is bijective. 
+\end{flushleft}
+
+\begin{flushleft}
+Lemma 1: $F^{-1}(A^c) = (F^{-1}(A))^c$\\
+$x \in (F^{-1}(A))^c \Leftrightarrow \left( x \not \in F^{-1}(A) \;\&\; x \in Y \right) $ 
+$\Leftrightarrow \left(  x \in Y \;\&\; x \not \in \{ y \in Y: f(y) \in A \} \right) $
+$ \Leftrightarrow \left( x \in Y \;\&\; f(x) \not \in A \right) $
+$ \Leftrightarrow \left( x \in Y, f(x) \in X, f(x) \not \in A \right) $
+$ \Leftrightarrow \left(  f(x) \in A^c  \right) $
+$ \Leftrightarrow \left(  x \in \{ y \in Y: f(y) \in A^c   \}  \right) $
+$ \Leftrightarrow \left(  x \in F^{-1}(A^c) \right) $
+\end{flushleft}
+
+
+\begin{flushleft}
+1a) $\phi \in \mathcal{A}, \not \exists f(y) \in \phi \Rightarrow f^{-1}(\phi) = \phi \Rightarrow \phi \in \mathcal{B}$.
+\end{flushleft}
+
+\begin{flushleft}
+1b) $B \in \mathcal{B} \Rightarrow f(B) = A$, some $A \in \mathcal{A}$. $A \in \mathcal{A} \Rightarrow A^c \in \mathcal{A} \Rightarrow (f(B))^c \in \mathcal{A}$. Then by the definition of $\mathcal{B}, F^{-1}(f(B))^c) \in \mathcal{B}$, and by Lemma 1, $F^{-1}(f(B))^c) = F^{-1}(f(B)))^c \in \mathcal{B} \Rightarrow B^c \in \mathcal{B}.$ We've used that $F^{-1}(f(B)) = B  \Leftrightarrow F^{-1}( \{ f(x): x \in B \} ) = B \Leftrightarrow$
+$  \{ y \in Y : f(y) \in \{ f(x): x \in B \} \} = B$.
+\end{flushleft}
+
+\begin{flushleft}
+1c) $B_k$ a sequence in $\mathcal{B}$. $x \in f(\cup_{k \in \mathbb{N}} B_k) \Leftrightarrow$	
+$ \left( x \in f(B_k), \; \textrm{some} \; k \in \mathbb{N} \right)$
+$\Leftrightarrow x \in \cup_{k \in \mathbb{N}} f(B_k)$. Thus $f(\cup_{k \in \mathbb{N}} B_k) = \cup_{k \in \mathbb{N}} f(B_k)$. Now, $f(B_k) \in \mathcal{A}$, which is a sigma algebra, so $f(\cup_{k \in \mathbb{N}} B_k) = \cup_{k \in \mathbb{N}} f(B_k)  \in \mathcal{A}$, so $f(\cup_{k \in \mathbb{N}} B_k) \in \mathcal{B}$ by the definition of $\mathcal{B}$
+\end{flushleft}
+
+
+\begin{flushleft}
+Thus, $\mathcal{B}$ is a sigma algebra
+\end{flushleft}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

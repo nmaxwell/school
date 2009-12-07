@@ -1,0 +1,781 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+\setlength\topmargin{-1in}
+\setlength{\oddsidemargin}{-0.5in}
+%\setlength{\evensidemargin}{1.0in}
+
+%\setlength{\parskip}{3pt plus 2pt}
+%\setlength{\parindent}{30pt}
+%\setlength{\marginparsep}{0.75cm}
+%\setlength{\marginparwidth}{2.5cm}
+%\setlength{\marginparpush}{1.0cm}
+\setlength{\textwidth}{7.5in}
+\setlength{\textheight}{10in}
+
+
+\newcommand{\pset}[1]{ \mathcal{P}(#1) }
+
+
+
+\newcommand{\nats}[0] { \mathbb{N}}
+\newcommand{\reals}[0] { \mathbb{R}}
+\newcommand{\exreals}[0] {  [-\infty,\infty] }
+\newcommand{\eps}[0] {  \epsilon }
+\newcommand{\A}[0] { \mathcal{A} }
+\newcommand{\B}[0] { \mathcal{B} }
+\newcommand{\C}[0] { \mathcal{C} }
+\newcommand{\D}[0] { \mathcal{D} }
+\newcommand{\E}[0] { \mathcal{E} }
+\newcommand{\F}[0] { \mathcal{F} }
+\newcommand{\G}[0] { \mathcal{G} }
+
+\newcommand{\IF}[0] { \; \textrm{if} \; }
+\newcommand{\THEN}[0] { \; \textrm{then} \; }
+\newcommand{\ELSE}[0] { \; \textrm{else} \; }
+\newcommand{\AND}[0]{ \; \textrm{ and } \;  }
+\newcommand{\OR}[0]{ \; \textrm{ or } \; }
+
+\newcommand{\rimply}[0] { \Rightarrow }
+\newcommand{\limply}[0] { \Lefttarrow }
+\newcommand{\rlimply}[0] { \Leftrightarrow }
+\newcommand{\lrimply}[0] { \Leftrightarrow }
+
+\begin{document}
+
+\begin{flushleft}
+Nicholas Maxwell\\
+Math 6320 - Dr. Blecher\\
+Homework
+\end{flushleft}
+
+\begin{flushleft}
+\addvspace{5pt} \hrule
+\end{flushleft}	
+
+
+
+\section*{chapter 1}
+
+
+
+\begin{flushleft}
+\underline{Folland problem 1.1:}
+\end{flushleft}
+
+\begin{flushleft}
+A family of sets $\mathcal{R} \subset \mathcal{P}(X)$ is called a ring if it is clused under finite unions and differences. A ring that is closed under countable unions is called a $\sigma$-ring. By definition, a ring is also closed under symmetric differences.\\
+a.) $A,B,E_n \in \mathcal{R}, n\in \mathbb{N}$. \\
+ $ B \cap A = \left[ B \cup ( B \cap A ) \right] \cap \left[ A \cup ( A \cap B ) \right] =
+\left[ B \cup ( B \cup ( B \cap A )) \right] \cap \left[ A \cup ( A \cup ( A \cap B )) \right] = 
+\left[ B \cup ( B \cup ( B \cap A )) \right] \cap \left[ A \cup ( A \cup ( A \cap B )) \right] = 
+ \left[ B \cup ( ( B \cap A ) \cup ( B \cap B ) ) \right] \cap \left[ A \cup ( ( A \cap B ) \cup ( A \cap A ) ) \right] = 
+ \left[ ( B \cap ( A \cup B ) ) \cup ( ( B \cap A ) \cup ( B \cap B ) ) \right] \cap \left[ ( A \cap ( A \cup B ) ) \cup ( ( A \cap B ) \cup ( A \cap A ) ) \right] = 
+ \left[ ( B \cap ( A \cup B ) ) \cup ( ( B \cap A ) \setminus A ) \right] \cap \left[ ( A \cap ( A \cup B ) ) \cup ( ( A \cap B ) \setminus B ) ) \right] =  
+ \left[ ( A \cup B ) \setminus ( A \setminus B ) \right] \cap \left[ ( a \cup B  ) \setminus ( B \setminus A ) \right] = 
+  ( A \cup B ) \setminus (( A \setminus B) \cup ( B \setminus A ) )  = ( A \cup B ) \setminus ( A \Delta B ) \in \mathcal{R} $\\
+Let $P_n = \cap_{k=1}^n E_k$. $P_1 = E_1 \in \mathcal{R}$. Suppose $P_n \in \mathcal{R}, P_n \cap E_{n+1} = P_{n+1} \in \mathcal{R}$, as we have shown that $A,B \in  \mathcal{R} \Rightarrow A \cap B \in \mathcal{R}, $ and $ E_{k+1} \in \mathcal{R}, $ thus $ \cap_{k \in \mathbb{N}} E_k \in \mathcal{R}$. \\
+b.) $A,B,E_n \in \mathcal{R}, n\in \mathbb{N}$. Then $A \setminus A = \phi \in \mathcal{R}$. This satisfies (1) in the definition of an ($\sigma$)-algebra. The ($\sigma$)-ring is already closed under (countable) unions, satisfying (3). If $A,X \in \mathcal{R}$, where $\mathcal{R} \subset \mathcal{P}(X)$, then $A \subset X$, and then by definition, $A^c = X \setminus A \in \mathcal{R}$, satisfying condition (2), and thus $\mathcal{R}$ is a ($\sigma$)-algebra if it contains $X$. If it does not, the complement of $A$ may reach outside of $\cup_{E\in\mathcal{R}} E$. 
+If $\mathcal{R}$ is a ($\sigma$)-algebra, $\phi \in \mathcal{R}$, and $\phi^c = X \in \mathcal{R}$, the closure under (countable) union requirement is again automatic. Let $A,B \in \mathcal{R}$, the same ($\sigma$)-algebra, then $A \setminus B = A \cap B^c \in \mathcal{R} \Leftarrow \mathcal{R}$ closed under intersections, via De Morgan's laws. Thus a ($\sigma$)-algebra is a ($\sigma$)-ring, containing its parent set, $X$.\\
+So, $\mathcal{R}$ a ($\sigma$)-ring, $X \in \mathcal{R}$ $\Leftrightarrow$ $\mathcal{R}$ a ($\sigma$)-algebra.\\
+c.) $\mathcal{R}$ a $\sigma$-ring over $X$, $\mathcal{A} = \{ E \subset X: E \in \mathcal{R} $ or $ E^c \in \mathcal{R} \}$. We've already shown that any $\sigma$-ring contains $\phi$. If $A \in \mathcal{A},$ then $A^c  \in \mathcal{A}$, as this still satisfies the ``or'' condition in the definition of $\mathcal{A}$. If that condition was an exclusive or, then this would be false. Let $A_n \in \mathcal{A}$, then $\cup_{n\in\mathbb{N}} A_n \in $	
+% And so $\mathcal{R} \subset \mathcal{P}(X), \mathcal{R} \Rightarrow $
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\underline{Folland problem 1.4:}
+\end{flushleft}
+
+\begin{flushleft}
+$\mathcal{A}$ an algebra.\\
+$\mathcal{A}$ a $\sigma$-algebra $\Rightarrow$ if $E_k \in \mathcal{A}, k \in \mathbb{N}$. Let $B_k = \cup_{j=1}^k E_j$. Then by construction $B_k \subset B_{k+1}$.
+\end{flushleft}
+
+
+
+
+\begin{flushleft}
+\underline{Folland problem 1.7:}
+\end{flushleft}
+
+\begin{flushleft}
+$\mu_1,\mu_2,...,\mu_n$ measures on $(X,\mathcal{A})$, and $a_1,a_2,...,a_n \in [0,\infty)$.
+Let $\mu(A) = \sum_{k=1}^n \, a_k \, \mu_k(A)$, for $A \in \mathcal{A}$.\\
+a) $\mu(\phi) = \sum_{k=1}^n \, a_k \, \mu_k(\phi) = \sum_{k=1}^n \, 0 = 0.$\\
+b) $A_j \in \mathcal{A}, j \in \mathbb{N}, A_j$ disjoint. $\mu(\cup_{j\in \mathbb{N}} \, A_j) = \sum_{k=1}^n \, a_k \, \mu_k(\cup_{j\in \mathbb{N}} \, A_j) = \sum_{k=1}^n \, a_k \, \sum_{j\in \mathbb{N}} \mu_k( A_j)= $
+$ \sum_{k=1}^n \, \sum_{j \in \mathbb{N}} a_k \, \mu_k(A_j)= $ $ \sum_{j \in \mathbb{N}} \, \sum_{k=1}^n \, a_k \, \mu_k(A_j)= $ $ \sum_{j \in \mathbb{N}} \, \mu(A_j)$. 
+% \cup_{j\in \matbb{N}} \, A_j
+\end{flushleft}
+
+\begin{flushleft}
+\underline{Folland problem 1.12:}
+\end{flushleft}
+
+\begin{flushleft}
+a) $(X,\mathcal{A},\mu)$ a finite measure space, $A,B \in \mathcal{A}$. 
+$\mu( A \Delta B) = 0  \Rightarrow $ 
+$\mu( (A \setminus B) \cup (B \setminus A) ) = 0  \Rightarrow $ 
+$\mu( A \setminus B ) +\mu( B \setminus A )=0 $, by $(A \setminus B) \cap (B \setminus A) = $
+$A \cap B^c \cap B \cap A^c = \phi$. Let $x = \mu( A \setminus B ), y = \mu( B \setminus A )$, then $x+y=0$. Now $\mu$ is finite on $\mathcal{A}$, so $x,y \in [0,\infty)$. Then $x=-y$. Now because $x,y$ are positive or zero, the only solutions to $x=-y$ are $x=y=0$, so $\mu( A \setminus B )=0, \mu( B \setminus A )=0$. And again becuase $\mu$ is finite on $\mathcal{A}$ we can rearange Caratheodory to get $\mu(A \setminus B) = \mu(A) - \mu(A \cap B) = 0 \Rightarrow \mu(A) = \mu(A \cap B)$, and also $\mu(B) = \mu(B \cap A)$, then by subtracting these equations, we have $\mu(A) = \mu(B)$.
+% and because $\mu$ is finite on $\mathcal{A}$
+%Caratheodory to get $\mu(A \cap B^c) = \mu(A) - \mu(A \cap B)$, then
+%$\mu( A \setminus B ) = \mu( B \setminus A )  \Rightarrow $
+%$\mu(A) - \mu(A \cap B) = \mu(B) - \mu(B \cap A)  \Rightarrow $
+%$\mu(A)  = \mu(B).$
+\end{flushleft}
+
+
+\begin{flushleft}
+\underline{Folland problem 1.8:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal{A},\mu)$ a measure space, $E_n$ a sequence of sets, $E_n \in \mathcal{A}$. Let $A_k = \cap_{n=k}^{\infty} E_n$, then $A_k = E_k \cap A_{k+1}$, then $x \in A_k \Rightarrow x \in E_k \cap A_{k+1} \Rightarrow x \in A_{k+1} \Rightarrow A_k \subset A_{k+1}$, and $A_k \in \mathcal{A}$. Then by continuity from below, $\mu \left( \cup_{k=1}^\infty A_k \right) = \lim_{k \rightarrow \infty} \mu (A_k)$, $\mu \left( \cup_{k=1}^\infty \cap_{n=k}^{\infty} E_n \right) = \lim_{k \rightarrow \infty} \mu (\cap_{n=k}^{\infty} E_n)$, 
+$\mu \left( \liminf E_n \right) = \lim_{k \rightarrow \infty} \mu (\cap_{n=k}^{\infty} E_n)$, 
+(not complete)
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\underline{Folland problem 1.9:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal{A},\mu)$ a measure space, $A,B \in \mathcal{A}$. If either $\mu(A)=\infty$ or $\mu(B)=\infty$ or both, then $\mu(A) + \mu(B)=\infty$, and $\mu(A \cup B)=\infty$, and thus, in these cases, $\mu(A) + \mu(B)= \mu(A \cup B) + \mu(A \cap B)$. Otherwise, $\mu(A)<\infty$ and $\mu(B)<\infty$, and hence $\mu(A \cup B) < \infty$ by subaditivity, and then $A \cap B \subset A \cup B,$ so by monotonicity, $\mu(A \cap B) < \infty$. Then we need that $A \cup B = A \Delta B \cup A \cap B$, $A = A \cap B \cup A \cap B^c$, $B = B \cap 
+A \cup B \cap A^c$. Then $\mu(A \cup B) = \mu(A \Delta B) + \mu( A \cap B)$, $\mu(A) = \mu(A \cap B)+ \mu(A \cap B^c)$, $\mu(B) = \mu( B \cap A) + \mu(B \cap A^c)$, and $\mu(A \Delta B) = \mu(A \cap B^c)+\mu(B \cap A^c)$. Then we add, $\mu(A) + \mu(B) = 2 \, \mu(A \cap B)+ \mu(A \Delta B)$, and rearange $\mu(A \cup B)-\mu( A \cap B) = \mu(A \Delta B)$, which is valid becuase we verified that $\mu( A \cap B) < \infty.$ Then adding these two, $\mu(A) + \mu(B) = \mu(A \cap B)+ \mu(A \cup B)$.\\
+Thus, for any $A,B \in \mathcal{A}$, $\mu(A) + \mu(B) = \mu(A \cap B)+ \mu(A \cup B)$.
+\end{flushleft}
+
+
+
+
+\begin{flushleft}
+\underline{Folland problem 1.13:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal{A},\mu)$ $\sigma$-finite. Suppose $E \in \mathcal{A}$, $\mu(E) = \infty$, then $E \not = \phi$. $\sigma$-finite implies $X = \cup_{k \in \mathbb{N} } \, E_k $, $E_k \in \mathcal{A},$ $\mu(E_k) < \infty$. Let $B_k = E_k \cap E$. Let $K = \{ k \in \mathbb{N}: \mu(B_k) > 0 \}$. Clearly $K \not = \phi$; if it was then all $\mu(B_k) = 0$, in which case $\mu(X \cap E) = \mu ( \cup_{k \in \mathbb{N} } \, B_k) \le \sum_{k \in \mathbb{N} } \, \mu(B_k ) = 0$, which is false, because $E = E \cap X$, $\mu(E) > 0$. Also, for all $k \in \mathbb{N}$, $\mu(B_k) < \infty$; $B_{k} = E_{k} \cap E \subset E_{k} \Rightarrow $ $ \mu(B_{k}) \le \mu(E_{k}) < \infty,$ by monotonicity. So, for any $E \in \mathcal{A}, \mu(E) = \infty$, $\exists B_k \in \mathcal{A} ,$ $0 < \mu(B_k) < \infty$, $B_k \in \mathcal{A},$ $B_k \subset E$, for any $k \in K \not = \phi$. Thus $\sigma$-finite  $\Rightarrow$ semifinite. 
+
+
+%$ \left( \phi \not = E, \phi \not = X, E \subset X  \right) \Rightarrow $ $\phi \not = E \cap X = E \cap \, \cup_{k \in \mathbb{N} } \, E_k =$ $ \cup_{k \in \mathbb{N} } \, E \cap E_k$ $= \cup_{k \in \mathbb{N} } \, B_k \not = \phi.$ 
+%$\cup_{k \in \mathbb{N} } \, B_k \not = \phi \Leftrightarrow B_{j} \not = \phi,$ some $j \in \mathbb{N}.$ Then $B_{j} = E_{j} \cap E \subset E_{j} \Rightarrow $ $ \mu(B_{j}) \le \mu(E_{j}) < \infty,$ by monotonicity.  
+\end{flushleft}
+
+
+
+\begin{flushleft}
+\underline{supplementary problem 3:}
+\end{flushleft}
+
+\begin{flushleft}
+c) $A \subset \mathbb{R}^n, A$ open. Let $j,k_1,k_2,...,k_n \in \mathbb{Z}$, write $(k_1,k_2,...,k_n) = (k_i)$ , using $\Pi$ for cartesian pruducts, define $R_{j,(k_i)} = \Pi_{i=1}^n [ k_i \, 2^{-j}, (k_i+1) \, 2^{-j} )$, Then $\mathbb{R}^n = \cup_{(k_i) \in \mathbb{Z}^n } \, R_{j,(k_i)}$ for any $j$. Let $\Gamma_{j,(k_i)} = R_{j,(k_i)}$ if $ R_{j,(k_i)} \subset A$, $\Gamma_{j,(k_i)} = \phi,$ otherwise.
+Let $\Omega_j = \cup_{(k_i) \in \mathbb{Z}^n } \, \Gamma_{j,(k_i)}  $
+Let $\Upsilon_0 = \Omega_0, \Upsilon_j = \Omega_j \setminus \cap_{j'=0}^{j-1} \Upsilon_{j'}$. 
+Then define $\tilde{A} = \cup_{j \in \mathbb{N} } \, \Upsilon_j $.  
+    Then, $\tilde{A}$ is a countable union of finite cartesian products of half open intervals, which are disjoint. Also, $\Upsilon_j \subset \Upsilon_{j+1}$ by construction; the $R_{j,(k_i)}$ are dyadic intervals.
+If $x \in \tilde{A}$ then $x \in \Gamma_{j,(k_i)} \subset A$, some $j,(k_i)$, so $\tilde{A} \subset A.$ \\
+Proposition: If we have a ball, $B(\epsilon,x) \subset \mathbb{R}^n$, the $n$-cubes ( the $R_{j,(k_i)}$ above ) we could fit in it would have as the length of one of their sides $\ell$, such that $\epsilon \ge \sqrt{\sum_{i=1}^n \, (\ell/2)^2} \rightarrow \ell \le \frac{2 \epsilon}{ \sqrt{n}}  $. Now, due to alignment problems, the center of such a cube and the ball may different; the distance between the two centers in any direction may be up to $\frac{1}{2} \ell$ by periodicity, so we half the size of the cubes. Then we'll always be able to fit in the ball, some cube from the mesh $\cup_{(k_i) \in \mathbb{Z}^n } \, R_{j,(k_i)} = \mathbb{R}^n $, with 
+$2^{-j} \le \frac{\epsilon}{\sqrt{n}} \rightarrow j \ge \textrm{ceil} \left( \frac{1}{2} \, \log_2{n} - \log_2{\epsilon} \right)$. \\
+If $x \in A$, then by $A$ open, there exists a ball, $B(\epsilon,x) \subset A \subset \mathbb{R}^n, \epsilon>0$. By the proposition above, we can always find a $j,(k_i)$ such that $x \in R_{j,(k_i)} \subset B(\epsilon,x)$, which means we'll be able to find a $\Gamma_{j,(k_i)}$ with $x \in \Gamma_{j,(k_i)} \subset B(\epsilon,x)$, because that $R_{j,(k_i)}$ is contained in the $\epsilon$ ball, which is contained in $A$, which means by contruction that $\Gamma_{j,(k_i)} = R_{j,(k_i)}$. This being the case we can claim by the construction of $\tilde{A}$, that $\Gamma_{j,(k_i)} \subset \tilde{A}$. So we have that $x \in A \Rightarrow x \in \tilde{A}$, so $A \subset \tilde{A}.$ We've already shown that $\tilde{A} \subset A$, so we can say that $A = \tilde{A}.$
+%Need to show that for some eventual $j_0,$ $\tilde{A}_{j_0} \not = \phi$.
+%Given $x \in A$, by $A$ open, $\exists \epsilon >0$ so that $B(x,\epsilon) \subset A$.
+\end{flushleft}
+
+%All $ \Gamma_{j,(k_i)} \subset A \Rightarrow \tilde{A}_j \subset A$. 
+
+
+\begin{flushleft}
+\underline{supplementary problem 6:}
+\end{flushleft}
+
+\begin{flushleft}
+Def: $E_n$ a sequence of sets, $n \in \mathbb{N}$. Take the statement `` $x \in E_n$ for all but finitely many $n$'' to precicely mean ``$\exists k \in \mathbb{N}$ s.t.$ \, x \in \cap_{n=k}^{\infty} E_n $''. Then, `` $x \in E_n$ for infinitely many $n$'' means ``$ x \in \cup_{n=k}^{\infty} E_n,\, \forall k \in \mathbb{N}$''.
+%Def: $E_n$ a sequence of sets, $n \in \mathbb{N}$. Take the statement `` $x \in E_n$ for all but finitely many $n$'' to precicely mean ``$\exists N \in \mathbb{N}$ s.t.$ \, x \in \cup_{n=1}^{N-1} \, $and$  \, x \not \in \cup_{n=N}^{\infty}$''. Then, `` $x \in E_n$ for infinitely many $n$'' means ``$ x \in \cup_{n=k}^{\infty} E_n,\, \forall k \in \mathbb{N}$''.
+\end{flushleft}
+
+\begin{flushleft}
+Prop 1: (Folland, p2) \\
+$\limsup E_n = \{ x : x \in E_n \,$for infinitely many$\, n \}$
+\end{flushleft}
+
+\vspace{-0.4in}
+
+\begin{equation*}
+x \in \limsup E_n = \cap_{k=1}^{\infty} \cup_{n=k}^{\infty} E_n \Leftrightarrow \left( x \in \cup_{n=k}^{\infty} E_n, \; \forall k \in \mathbb{N} \right) \; \; \left( \textrm{ by the definition of intersection} \right )
+\end{equation*}
+
+\begin{flushleft}
+Prop 2: (Folland, p2) \\
+$\liminf E_n = \{ x : x \in E_n \,$for all but finitely many$\, n \}$
+\end{flushleft}
+
+\vspace{-0.4in}
+
+\begin{equation*}
+x \in \liminf E_n = \cup_{k=1}^{\infty} \cap_{n=k}^{\infty} E_n \Leftrightarrow \left( x \in \cap_{n=k}^{\infty} E_n, \; \textrm{some} \; k \in \mathbb{N} \right) \; \; \left( \textrm{ by the definition of union} \right )
+\end{equation*}
+
+
+
+\begin{flushleft}
+$(X,\mathcal{A},\mu)$ a measure space, $E_n$ a sequence of sets, $E_n \in \mathcal{A}$, $\mu$ a finite measure, and $\mu(E_n)>\alpha>0$. Then we take $\limsup(E_n)$, by Folland problem 1.8, 
+\end{flushleft}
+
+\vspace{-0.2in}
+
+\begin{equation*} 
+\mu(\limsup(E_n)) \ge \limsup \mu(E_n) \ge \liminf \mu(E_n) \ge \inf \mu(E_n) \ge \alpha > 0,
+\end{equation*}
+\begin{equation*} 
+\textrm{so} \;  \mu(\limsup(E_n)) > 0 \Rightarrow \limsup(E_n) \not = \phi \Rightarrow \exists x \in \limsup(E_n) \Rightarrow \exists x \in E_n \subset X \; \textrm{for infinitely many} \; n
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+\begin{flushleft}
+\underline{supplementary problem 8:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal{A},\mu)$ a measure space. $f: Y \rightarrow X$. $f^{-1}(\mathcal{A}) = \{ f^{-1}(A): A \in \mathcal{A}   \}$, $f^{-1}(A) = \{ y \in Y: f(y) \in A \}$
+\end{flushleft}
+
+\begin{flushleft}
+Let $\mathcal{B} = f^{-1}(\mathcal{A})$. We have three functions here; $f: Y \rightarrow X$, maps elements in $Y$ to elements in $X$, $f^{-1}(\mathcal{A})$ maps sigma algebras to sigma algebras, and $f^{-1}(A): \mathcal{A} \rightarrow \mathcal{B}$ maps elements in one sigma algebra to elements in another. Write $F^{-1}: \mathcal{A} \rightarrow \mathcal{B}, \; F^{-1}(A) = \{ y \in Y : f(y) \in A \}$.
+\end{flushleft}
+
+\begin{flushleft}
+8a) $\phi \in \mathcal{A}, \not \exists f(y) \in \phi \Rightarrow f^{-1}(\phi) = \phi \Rightarrow \phi \in \mathcal{B}$.
+\end{flushleft}
+
+\begin{flushleft}
+8b) $B \in \mathcal{B} \Rightarrow f(B) = A$, some $A \in \mathcal{A}$. $A \in \mathcal{A} \Rightarrow A^c \in \mathcal{A} \Rightarrow (f(B))^c \in \mathcal{A}$. Then by the definition of $\mathcal{B}, F^{-1}(f(B))^c) \in \mathcal{B}$, and the commutativity of complements and inverse images, $F^{-1}(f(B))^c) = F^{-1}(f(B)))^c \in \mathcal{B} \Rightarrow B^c \in \mathcal{B}.$ We've used that $F^{-1}(f(B)) = B  \Leftrightarrow F^{-1}( \{ f(x): x \in B \} ) = B \Leftrightarrow$
+$  \{ y \in Y : f(y) \in \{ f(x): x \in B \} \} = B$.
+\end{flushleft}
+
+\begin{flushleft}
+8c) $B_k$ a sequence in $\mathcal{B}$. $x \in f(\cup_{k \in \mathbb{N}} B_k) \Leftrightarrow$	
+$ \left( x \in f(B_k), \; \textrm{some} \; k \in \mathbb{N} \right)$
+$\Leftrightarrow x \in \cup_{k \in \mathbb{N}} f(B_k)$. Thus $f(\cup_{k \in \mathbb{N}} B_k) = \cup_{k \in \mathbb{N}} f(B_k)$. Now, $f(B_k) \in \mathcal{A}$, which is a sigma algebra, so $f(\cup_{k \in \mathbb{N}} B_k) = \cup_{k \in \mathbb{N}} f(B_k)  \in \mathcal{A}$, so $f(\cup_{k \in \mathbb{N}} B_k) \in \mathcal{B}$ by the definition of $\mathcal{B}$.
+\end{flushleft}
+
+\begin{flushleft}
+Thus, $\mathcal{B}$ is a sigma algebra on $Y$. Let $f$ be bijective and $\nu(B) = \mu(f(B)), B \in \mathcal{B}$. Then $\nu(\phi) = \mu(f(\phi)) = \mu(\{ f(x): x \in \phi \}) = \mu(\phi) = 0$.\\
+$B_k \in \mathcal{B}, k\in \mathbb{N}, B_k$ disjoint, then $ f(B_k) = A_k \in \mathcal{A}, $ $ \nu( \cup_{k\in \mathbb{N}} B_k ) = \mu( f( \cup_{k\in \mathbb{N}} B_k) ) = \mu(  \cup_{k\in \mathbb{N}} f( B_k) ) = \mu(  \cup_{k\in \mathbb{N}} A_k ) =  \sum_{k\in \mathbb{N}} \mu( A_k )$ $ = \sum_{k\in \mathbb{N}} \mu( f(B_k) ) = \sum_{k\in \mathbb{N}} \nu( B_k )$. We've used that the direct images of $f$ commutes with unions (Folland, p.8). We also needed that the $A_k$ are disjoint; let $g: X \rightarrow Y$, $A,B \subset Y, A \cap B = \phi$, then $f^{-1}(A) \cap f^{-1}(B) = f^{-1} ( A \cap B ) = f^{-1} (\phi) = \phi $, using commutativity of inverse images and intersections, thus the $A_k$ inherit their disjointedness from the $B_k$.
+ Thus, $(Y,\mathcal{B},\nu)$ is a measure space.
+\end{flushleft}
+
+
+
+
+\begin{flushleft}
+\underline{supplementary problem 9:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal{A},\mu)$ a measure space. $f: X \rightarrow Y$. $\mathcal{B} = \{ B \subset Y: f^{-1}(B) \in \mathcal{A} \}$.
+\end{flushleft}
+
+\begin{flushleft}
+9a) $\phi \in \mathcal{A}, f(\phi) = \{ f(x): x \in \phi \} = \phi \Rightarrow \phi \in \mathcal{B}$.
+\end{flushleft}
+
+\begin{flushleft}
+9b) $B \in \mathcal{B} \Leftrightarrow A=f^{-1}(B) \in \mathcal{A}.$ $A^c \in \mathcal{A} \Leftrightarrow (f^{-1}(B))^c \in \mathcal{A} \Rightarrow f^{-1}(B^c) \in \mathcal{A} \Leftrightarrow B^c \in \mathcal{B}$.
+\end{flushleft}
+
+\begin{flushleft}
+9c) $B_k \in \mathcal{B}, k \in \mathbb{N} \Leftrightarrow A_k=f^{-1}(B_k) \in \mathcal{A}.$ $\cup_{k \in \mathbb{N}} A_k \in \mathcal{A} \Leftrightarrow \cup_{k \in \mathbb{N}} f^{-1}(B_k)\in \mathcal{A}   \Leftrightarrow f^{-1} (\cup_{k \in \mathbb{N}} B_k)\in \mathcal{A} \Leftrightarrow \cup_{k \in \mathbb{N}} B_k \in \mathcal{B},$ using the commutativity of unions and inverse images.
+\end{flushleft}
+
+\begin{flushleft}
+Thus, $\mathcal{B}$ is a $\sigma$-algebra. Let $\nu(B) = \mu(f^{-1}(B))$. We showed in problem 8 that $f^{-1}(\phi) = \phi$, so $\nu(\phi) = \mu(\phi) = 0.$ \\
+
+$B_k \in \mathcal{B}, k\in \mathbb{N}, B_k$ disjoint, then $ f^{-1}(B_k) = A_k \in \mathcal{A}, $ $ \nu( \cup_{k\in \mathbb{N}} B_k ) = \mu( f^{-1}( \cup_{k\in \mathbb{N}} B_k) ) = \mu(  \cup_{k\in \mathbb{N}} f^{-1}( B_k) ) = \mu(  \cup_{k\in \mathbb{N}} A_k ) =  \sum_{k\in \mathbb{N}} \mu( A_k )$ $ = \sum_{k\in \mathbb{N}} \mu( f^{-1}(B_k) ) = \sum_{k\in \mathbb{N}} \nu( B_k )$. We've used that the inverse images of $f$ commutes with unions, and we  needed that the $A_k$ are disjoint; let $g: X \rightarrow Y$, $A,B \subset Y, A \cap B = \phi$, then $f^{-1}(A) \cap f^{-1}(B) = f^{-1} ( A \cap B ) = f^{-1} (\phi) = \phi $, using commutativity of inverse images and intersections, thus the $A_k$ inherit their disjointedness from the $B_k$.
+ Thus, $(Y,\mathcal{B},\nu)$ is a measure space.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\underline{supplementary problem 10:}
+\end{flushleft}
+
+\begin{flushleft}
+Let $\mathcal{B}(X)$ denote the Borel sets on $X$, $X = \mathbb{R}^n, X = \mathbb{R}^m$, $f: X \rightarrow Y$.
+\end{flushleft}
+
+\begin{flushleft}
+i) $f$ continuous, $B \in \mathcal{B}(Y) $ write $B = \cup $
+\end{flushleft}
+
+
+
+
+
+
+
+
+\begin{flushleft}
+\underline{supplementary problem 11:}
+\end{flushleft}
+
+\begin{flushleft}
+$\mathcal{A}$ a sigma algebra on $X$, $E \subset X$, $\mathcal{C}$ a sigma algebra on $E$. $\mathcal{A}_E = \{ A \cap E: A \in \mathcal{A} \} $, $\mathcal{F} = \{ A \in \mathcal{A}: A \cap E \in \mathcal{C} \}$. 
+\end{flushleft}
+
+\begin{flushleft}
+a.1) Let $A_k \in \mathcal{A}_E$, $k \in \mathbb{N}$, $A_{k+1} \subset A_{k} $. Then $A_k = B_k \cap E$, some $B_k \in \mathcal{A}.$ $ \cap_{k \in \mathbb{N} } A_k = \cap_{k \in \mathbb{N} } (B_k \cap E) = E \cap( \cap_{k \in \mathbb{N} } B_k)$ by associativity of intersection. $A_{k+1} \subset A_{k} \Rightarrow B_{k+1}\cap E \subset B_{k}\cap E \Rightarrow B_{k+1}  \subset B_{k} $ as intersection ditributes over set inclusion. Now, by supplementary problem 5.i, $\cap_{k \in \mathbb{N} } B_k \in \mathcal{A} \Rightarrow E \cap (\cap_{k \in \mathbb{N} } B_k ) \in \mathcal{A}_E \Rightarrow \cap_{k \in \mathbb{N} } ( E \cap B_k ) \in \mathcal{A}_E$ $ \Rightarrow \cap_{k \in \mathbb{N} } A_k \in \mathcal{A}_E$, then again by supplementary problem 5.i, $\mathcal{A}_E$ is a sigma algebra.\\
+a.2) Let $A_k \in \mathcal{F}$, $k \in \mathbb{N}$, $A_{k+1} \subset A_{k} $. Then $ \exists B_k = A_k \cap E \in \mathcal{C}$, $x \in A_{k+1} \Rightarrow x \in A_k$, 
+$x \in A_{k+1} \cap E = B_{k+1} \Rightarrow ( x \in A_{k+1} \textrm{ and } x \in E ) \Rightarrow ( x \in A_{k} \textrm{ and } x \in E )  \Rightarrow ( x \in A_{k}\cap E = B_{k} ),$  so $B_{k+1} \subset B_{k}.$ Because $\mathcal{C}$ is a $\sigma$-algebra, by 5.i, $\cap_{k \in \mathbb{N}} B_k \in \mathcal{C},$ $\cap_{k \in \mathbb{N}} (A_k \cap E ) \in \mathcal{C},$ $ E \cap (\cap_{k \in \mathbb{N}} A_k)  \in \mathcal{C}.$ Then also, $A_k \in \mathcal{F} \Rightarrow A_k \in \mathcal{A},$ then because $A_{k+1} \subset A_{k}$, and by 5.i, $\cap_{k \in \mathbb{N}} A_k \in \mathcal{A}$, this with $ E \cap (\cap_{k \in \mathbb{N}} A_k)  \in \mathcal{C}$ implies $\cap_{k \in \mathbb{N}} A_k \in \mathcal{F},$ and then by 5.i $\mathcal{F}$ is a sigma algebra.\\
+b) $(X,\mathcal{A},\mu)$ a measure space, $\mu_E(A) = \mu(A \cap E)$. Already shown that $\mathcal{A}_E$ is a sigma algebra. $\mu_E (\phi) = \mu(\phi \cap E) = \mu(\phi) = 0$. $A_k \in \mathcal{A}_E = \{ A \cap E: A \in \mathcal{A} \} , k\in \mathbb{N},  A_k$ disjoint. $\mu_E( \cup_{k \in \mathbb{N}} A_k )  = \mu( E \cap (\cup_{k \in \mathbb{N}} A_k )) = \mu( \cup_{k \in \mathbb{N}}(E \cap A_k))$. $(E \cap A_{k1}) \cap (E \cap A_{k2}) = E \cap A_{k1} \cap A_{k2} = \phi$ when $k1 \not = k2$, so $E \cap A_k$ are also disjoint. Then, $\mu( \cup_{k \in \mathbb{N}}(E \cap A_k)) = \sum_{k \in \mathbb{N}} \mu(E \cap A_k) = \sum_{k \in \mathbb{N}} \mu_E(A_k)$. Thus $(E,\mathcal{A}_E,\mu_E)$ is a measure space.
+\end{flushleft}
+
+
+
+
+
+
+
+
+\begin{flushleft}
+\underline{supplementary problem 15:}
+\end{flushleft}
+
+\begin{flushleft}
+$E \subset \mathbb{R}^n$. Let $\Upsilon = \{ \Pi_{i=1}^n \, [a_i,b_i]:\,  a_i,b_i \in \mathbb{R}, b_i 	\ge a_i  \}$. Let $\Gamma = \{ \mathcal{E} \subset \Upsilon:  \mathcal{E} \textrm{ countable } \}$. For $\mathcal{C} \in \Gamma$, let $\lambda(\mathcal{C}) = \sum \{ \Pi_{i=1}^n \, (b_i-a_i): \Pi_{i=1}^n \, [a_i,b_i] \in \mathcal{C} \}$, where $\sum A$ denotes the sum of all elements in $A$. 
+Define $C(E)$ such that $ C(E) = \{ \lambda(X): X \in \Gamma \AND  E \subset \cup X \} $, for any $E \subset \mathbb{R}^n$, where $\cup X$ denotes the union of all elements in $X$. Then $\lambda^*(E) = \inf C(E)$.\\
+If $X$ is a set of objects which can be multiplied by a real number, let $k \, X = \{ k\, x: x \in X\}$, for any $k\in \mathbb{R}$, and $k \, [a,b] = [k \, a, k \, b]$, and $ k \, \Pi_{i=1}^n \, [a_i,b_i] = \Pi_{i=1}^n \, [k \, a_i, k \, b_i]$. Then for any $\mathcal{C} \in \Gamma$, 
+$\lambda{(k \, \mathcal{C})} = \sum \{ \Pi_{i=1}^n \, (k \, b_i - k \, a_i): \Pi_{i=1}^n \, [a_i,b_i] \in \mathcal{C} \} =$ $k^n \, \sum \{ \Pi_{i=1}^n \, (b_i - a_i): \Pi_{i=1}^n \, [a_i,b_i] \in \mathcal{C} \},$ so $ \lambda{(k \, \mathcal{C})} = k^n \, \lambda(\mathcal{C}) $. Then, $ C( k \, E) = \{ \lambda(k \, X): X \in \Gamma \AND  E \subset \cup X \} = \{ k^n \, \lambda( X): X \in \Gamma \AND  E \subset \cup X \}$. \\
+Then finally, $\lambda^*(k \, E) = \inf C( k \, E) = k^n \, \inf C(E) = k^n \, \lambda^*(E) $.
+\end{flushleft}
+
+
+
+
+
+
+
+\section*{chapter 2}
+
+
+\begin{flushleft}
+\underline{supplementary problem 2:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal A, \mu )$ a measure space. \\
+1.) Let $A \in \mathcal A$, and $B \subset X, B \not \in \mathcal A$, and $A \cap B = \phi$. Then let $f^+ = \chi_{_A}$, clearly $f^+$ is meaurable, let $f^- = \chi_{_B}$, clearly $f^-$ is not $\mathcal A$-meaurable. Then $f = f^+ - f^-$ is well defined on $X$, and not $\mathcal A$-measurable, but $|f| = |f^+ - f^-|$  is measurable. \\
+2.) Let $N$ be a non measurable set and $N^c$ measurable, let $f(x) = x \, \chi_{_{N}}$, then $f^{-1}$\\
+3.) $f:X \rightarrow [-\infty,\infty], \mathcal A-$measurable, $E \in \mathcal A$, let $f_E$ be $f$ restricted to $E$. By Supp. problem 11 on HW1 $\mathcal A_E = \{ A \cap E, A \in \mathcal A \}$ is a sigma algebra, with measure $\mu_E(A) = \mu(A \cap E)$. Then for any $t \in \reals$, $B_t = (t,\infty]$, we have $f^{-1}(B_t) \in \mathcal A$, and we take $f_E^{-1}(B_t) = E \cap f^{-1}(B_t)$. Then by $f^{-1}(B_t) \in \mathcal A$ we see that $E \cap f^{-1}(B_t) \in \mathcal A_E$, so that $f_E$ inherits it's $\mathcal A_E$-measurability from the $\mathcal A$-measurability of $f$. \\
+4.) $f:E \rightarrow [-\infty,\infty], \mathcal A_E-$measurable, $\tilde f:X \rightarrow [-\infty,\infty]$, $\tilde f(x) = 0, x \not \in E, \tilde f(x) = f(x),$ else. Then $f$ is the restriction of $\tilde f$ to $E$, so $\tilde f$ $\mathcal A-$measurable  implies $f$ $\mathcal A_E-$measurable, by (3). 
+Let $B_t = (t,\infty]$, then for $t > 0$, $\tilde f^{-1}(B_t) \in \mathcal A_E \subset \mathcal A$ if $ f$ is $\mathcal A_E-$measurable. If $t \le 0$, 
+$\tilde f^{-1}(B_t) \in \mathcal A_E \cup \{ E^c \} \subset \mathcal A$, by closure under complements. So, $f$ $\mathcal A_E-$measurable  iff $\tilde f$ $\mathcal A-$measurable. \\
+5.) $g:X \rightarrow [-\infty,\infty]$, $\mathcal A-$measurable, $E \in \mathcal A$. Let $\tilde g(x) = f(x)$ if $x \in E, \tilde g(x) = 0$, else. Then we may take $\tilde g = \tilde f$ in (4), and $f$ be $g$ restricted to $E$. By (3), $f$ is $\mathcal A_E-$measurable, which by (4) implies $\tilde g = \tilde f$ is $\mathcal A-$measurable
+\end{flushleft}
+
+
+\begin{flushleft}
+\underline{supplementary problem 4:}
+\end{flushleft}
+
+\begin{flushleft}
+Lemma1: Given a sequence of sets in a sigma algebra, $\mathcal{A}$ over a set $X$, $(A_k)_{k \in \nats}$, we can find a sequence also in $\mathcal{A}$, $(E_k)_{k \in \nats}$, such that $\cup_{k \in \nats} A_k$ = $\cup_{k \in \nats} E_k$ and the $E_k$ are disjoint. \\
+Lemma2: Given a simple function, $f = \sum_{k \in \mathbb{N}} a_k \, \chi_{_{A_k}}$, with $(A_k)$ not nescesarily disjoint, and $A_k \in \mathcal{A}$, a sigma algebra on $X$, we can find a sumple funciton $g = \sum_{k \in \mathbb{N}} e_k \, \chi_{_{E_k}}$, such that $E_k$ are disjoing and $f=g$, and the $e_k$ are unique. \\
+construction: First, using lemma 1, generate $(B_k)_{k \in \nats}$, so that $\cup_{k \in \nats} A_k$ = $\cup_{k \in \nats} B_k$, $B_k$ disjoint, and $B_k \in \mathcal{A}$. Let $b_k = f(x)$, choosing any $x \in B_k$.  Now, generate the sequences $e_k, E_k$ as follows, let $e_1 = b_1$, for subsequent $e_k, k \in \nats$, let $e_k = b_j$, with $j = \min \{  i \in \nats: b_i \not = e_l, l \in \{  1,2,...,k-1 \} \}$, then let $E_k = \cup \{ B_j: b_j = e_k, j \in \nats \}$.\\
+proof: to do
+\end{flushleft}
+\begin{flushleft}
+Sum of simple functions is simple. First, assume we have two simple functions, $f,g$ on $(X,\mathcal{A})$, $f = \sum_{k \in \mathbb{N}} f_k $, $g = \sum_{k \in \mathbb{N}} g_k $, with $f_k = a_k \, \chi_{_{A_k}}$, $g_k = b_k \, \chi_{_{B_k}}$. Define $h = \sum_{k \in \mathbb{N}} h_k $, where $h_k = f_{k/2}$ for even $k$, and $h_k = g_{(k-1)/2}$ for odd $k$, clearly $h$ is a simple function on $\mathcal{A}$. Now apply lemma 2 to $h$. Then, given a sequence $(s_k)_{k \in \nats}$ of simple functions on $(X,\mathcal{A})$, let $s = s_1 + s_2$, we've just shown that this is a simple function on $(X,\mathcal{A})$. Then starting with $k=3$, redefine $s = s+s_k$, then again, s a simple function on $(X,\mathcal{A})$. Do this for all $k \in \nats$, and so, inductively, $s$ is a simple function on $(X,\mathcal{A})$, $s = \sum_{k \in \nats} s_k$, and $s$ is defined on disjoint intervals, and it's coefficients are unique.
+\end{flushleft}
+\begin{flushleft}
+Product of simple functions is simple. First, assume we have two simple functions, $f,g$ on $(X,\mathcal{A})$, $f = \sum_{k \in \mathbb{N}} a_k \, \chi_{_{A_k}}$, $g = \sum_{j \in \mathbb{N}} b_j \, \chi_{_{B_j}} $. Now, clearly $\chi_{_A} \, \chi_{_B} = \chi_{_{A \cap B}}$, 
+$f \, g = \sum_{k \in \mathbb{N}} \left( \sum_{j \in \mathbb{N}} b_j \, \chi_{_{B_j}} \right) a_k \, \chi_{_{A_k}} =  \sum_{k \in \mathbb{N}}  \sum_{j \in \mathbb{N}} b_j \, \chi_{_{B_j}} a_k \, \chi_{_{A_k}}  $ $=  \sum_{k \in \mathbb{N}}  \sum_{j \in \mathbb{N}} b_j \, a_k \, \chi_{_{A_k \cap B_j}}$. Then, using a bijective map $M: \nats \rightarrow \nats \times \nats$, let $e_i = a_k \, b_j, (k,j) = M(i)$, $E_i = A_k \cap B_j, (k,j) = M(i)$, and $E_i \in \mathcal{A}$ by closure under intersections of sets in sigma algebras. We need to be carefull with the product $e_i = a_k \, b_j, (k,j) = M(i)$; if we are workign with the extended real numbers, this product may be ill-defined, such as $a_k = 0, b_j = + \infty$. In such a case, the function $f \, g$ is ill-defined on $A_k \cap B_j$, and we omit $e_i,E_i$ from the sequence, so that now $f \, g$ is undefined on $A_k \cap B_j$. Now $f \, g = \sum_{k \in \mathbb{N}} e_k \, \chi_{_{E_k}}$, a simple function on $\mathcal{A}$, and we may again pass it through Lemma 2. Using the same inductive arguement as for countable sums of simple functions, countable products of simple functions are simple.
+\end{flushleft} 
+
+
+\begin{flushleft}
+\underline{supplementary problem 5:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal A, \mu )$, $ \{ f_k \}:X \rightarrow \exreals$, each $f_k$ is finite a.e., so letting $F_k =  \{x \in X: f_k(x) = \pm \infty \}$, $\mu{(F_k)}=0$. Then by subadditivity, $\mu( \cup_{k \in \nats} F_k) = 0$,  but $ \cup_{k \in \nats} F_k = \{ x \in X: f_k(x) = \pm \infty, \textrm{some } k \in \nats \}$, so $( \cup_{k \in \nats} F_k)^c = \{ x \in X: |f_k(x)| < \infty, \textrm{for all } k \in \nats \}$, and $\mu( \cup_{k \in \nats} F_k)^c = 1$, so for a.e. $x \in X$, $f_k(x)$ is finite for all $k \in \nats$.
+\end{flushleft}
+
+\begin{flushleft}
+\underline{supplementary problem 6:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal A, \mu )$ a complete measure space, $\mathcal A$ contains the Borel sets in $X$, $f:X \rightarrow \reals$, continuous a.e. Then let $D = \{ x \in X: f\textrm{ continuous at } x\}$.
+%, $\mu(D^c) = 0 \Rightarrow D^c,D \in \mathcal A$ by completeness.
+Let $A = f^{-1} (B)$, $B$ any open set in $\reals$, then $A = (A \cap D)\cup(A \cap D^c)$, $\mu(A \cap D^c) \le \mu(D^c) = 0 \Rightarrow A \cap D^c \in \mathcal A$ by completeness. Then for any $x \in A \cap D$, $f(x) \in U$, an open subset of a neighborhood of $f(x)$ in $B$, then $x \in f^{-1}(U)$ which is open in $A$. Using this, for each $x \in A \cap D$, find an open subset of $A$, $V_x$, with $x \in V_x$. Then we may take the arbitrary union $W = \cup_{x \in A \cap D} V_x$, by $X$ a topology, and $W$ is an open Borel set, with $ A \cap D \subset W$. Now let $A' = A \cap W$, clearly $A \cap D = A' \cap D$, $A' \in \mathcal A$, $D \in \mathcal A \rimply A \cap D \in \mathcal A$, thus $A \in \mathcal A$, and so $f$ is measurable.
+\end{flushleft}
+
+
+\begin{flushleft}
+\underline{supplementary problem 8:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal A, \mu )$ a measure space, $\{ f_n\}_{n \in \nats}:X \rightarrow [0,\infty]$, converging pointwise to $f$, not nescesarily integrable, $f_n \le f$. Generate the increasing sequence $\{ g_n \}_{n \in \nats}$ by $g_n = \inf \{ f_k \}_{k \ge n}$, then $f_n \ge g_n$, for all $n \in \nats$. $\lim_{n} g_n = \lim_{n} f_n = f$, so we can use LMCT to get $\lim_{n} \int_X g_n = \int_X f$. By 2.2.2.c, $\int_X g_n \le \int_X f_k  \le \int_X f$, $k \ge n$, and $\int_X g_n \le \int_X g_{n+1}$, so by the squeezing lemma, $\lim_{n} \int_X f_n = \int_X f$.
+\end{flushleft}
+
+
+\begin{flushleft}
+\underline{supplementary problem 13:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal A, \mu )$ a measure space, $f:X \rightarrow [0,\infty]$  integrable, with respect to $\mu$. Given $\epsilon > 0$, show that there exists a $\delta > 0$, so that if $E \in \mathcal A, \mu(E)<\delta$ , then $\int_E f < \epsilon$ \\
+1.) $f = \sum_{k \in \nats} a_k \chi_{_{A_k}}$, with $A_k$ disjoint and $a_k \in (0,\infty]$, unique, then by definition $\int_X f = \sum_{k \in \nats} a_k \mu({A_k})$. Now $\chi_{_{E}}$ is a simple function, and by problem 4, $\chi_{_{E}} \, f$ is also simple, with $\chi_{_{E}} \,f = \sum_{k \in \nats} a_k \chi_{_{E \cap A_k}}$, and thus $\int_E f = \int_X f \chi_{_{E}}= \sum_{k \in \nats} a_k  \mu(E \cap A_k)$. Then, $A_k \cap E \subset E \Rightarrow \mu(A_k \cap E) \le \mu(E)$, and $A_k \cap E \subset A_k \Rightarrow \mu(A_k \cap E) \le \mu(A_k)$. Then we can see that $\sum_{k \in \nats} a_k \, \mu(E \cap A_k)$ converges when $\sum_{k \in \nats} a_k \, \mu(A_k)$ does, which does because $f$ is integrable. This is by due to the $M$-test, $a_k \, \mu(A_k \cap E ) \le a_k \, \mu(F_k )$. 
+
+%$\int_X f = \sum_{k \in \nats} a_k \chi_{_{A_k}} \chi_{_{E}} = \sum_{k \in \nats} a_k \chi_{_{A_k \cap E}}$
+\end{flushleft}
+
+
+\begin{flushleft}
+\underline{supplementary problem 15:}
+\end{flushleft}
+
+
+\begin{flushleft}
+
+$(X,\mathcal A, \mu )$ a measure space. Let $X = \cup_{k \in \nats} \, E_k$, with $E_k \in \mathcal A$ disjoint, $f$ integrable on $X$.
+We can write $\chi_{_X} = \chi_{_{\cup E_k}} = \sum_n \chi_{_{E_k}}$, then $\int_X f = \int \chi_{_X} \, f = \int  \sum_n \chi_{_{E_n}} \, f = \sum_n \int \chi_{_{E_n}} \, f = \sum_n \int_{E_n}  f$. We need to justify $ \int  \sum_n \chi_{_{E_n}} \, f = \sum_n \int \chi_{_{E_n}} \, f$, let $F_n = \sum_{k \le n} \chi_{_{E_k}} \, f$, then $ \lim_{n} \, F_n \rightarrow F = \sum_{k \in \nats} \chi_{_{E_k}}$. Let $G = |f|$, $G \ge 0$, clearly $G \ge F_n$, all $n \in \nats$, and $G$ is integrable by 2.2.11. Then by LDCT, $\lim_n \int_X F_n = \int_X F$ $\rimply \lim_n \int_X \sum_{k \le n} \chi_{_{E_k}} \, f = \int_X \sum_{k \in \nats} \chi_{_{E_k}} \, f = \sum_{k \in \nats} \int_X  \chi_{_{E_k}} \, f$.
+
+
+%\\1.) $f = \sum_{k \in \nats} a_k \chi_{_{A_k}}$, with $A_k$ disjoint, then by definition $\int_X f = \sum_{k \in \nats} a_k \mu({A_k})$. Then, $\int_{E_n} f =  \int_X \chi_{_{E_n}}  =  
+%\int_X \chi_{_{E_n}}  \sum_{k \in \nats} a_k \chi_{_{A_k}} =
+%\int_X \sum_{k \in \nats} a_k \chi_{_{E_n \cap A_k}} =
+%\sum_k a_k \mu(A_k \cap E_n)$. Then, $\sum_n \sum_k a_k \mu(A_k \cap E_n) =  \sum_k a_k \sum_n \mu(A_k \cap %E_n) =  \sum_k a_k \, \mu( A_k ) $, using that $\mu$ is a meausre, and the $E_n$ are disjoint, which implies $A_k \cap E_n$ are disjoint, $  \sum_n \mu(A_k \cap E_n) = \mu( \cup_n (A_k \cap E_n)) = \mu( A_k \cap X) = \mu( A_k ) $. Thus $\sum_n \int_{E_n} f = \int_{X} f$ for $f$ simple.
+%\\2.) Let $f:X \rightarrow [0,\infty]$, then $ f = \sup \{s_{j}, j \in \nats \}$, $s_{j}$ non-negative simple functions constructed as in 2.1.6. Then, $\int_X f = \sup \{ \int_X s_j, j\in \nats \} = \sup \{ \sum_n \, \int_{E_n} s_j, j\in \nats \}$ by (1). $\sup \{ \sum_n \, \int_{E_n} s_j, j\in \nats \} =  \sum_n \, \sup \{ \int_{E_n} s_j, j\in \nats \} = \sum_n \, \int_{E_n} f $.
+%\\3.) $f$ being integrable implies that $\int_X f^+$ and $\int_X f^-$ exist and are finite, by (2), $\int_X f^\pm = \sum_n \, \int_{E_n} f^\pm$. Then clearly $\int_X f = \int_X (f^+-f^-) = \int_X (f^+) - \int_X (f^-)
+%=\sum_n \, \int_{E_n} f^+ -  \sum_n \, \int_{E_n} f^-
+% =  \sum_n \, (\int_{E_n} f^+-\int_{E_n} f^-)= \sum_n \,\int_{E_n} f $.\\
+
+\end{flushleft}
+
+\begin{flushleft}
+Lemma: convergent sequences in a normed space are cauchy sequences.\\
+pf: Suppose $||x_n - x|| \rightarrow 0$ as $n \rightarrow \infty$, then given $\eps > 0$, $\exists n \in \nats$ s.t. $||x_n - x|| < \eps/2$, and $\exists m \in \nats$ s.t. $||x_n - x|| < \eps/3$. then by the triangle inequality, $||x_n - x_m|| = ||(x_n - x) + (x- x_m)|| \le ||x_n - x|| + ||x - x_m|| < \eps /2 + \eps / 3 < \eps $ 
+\end{flushleft}
+
+
+
+\begin{flushleft}
+\underline{supplementary problem 21:}
+\end{flushleft}
+
+\begin{flushleft}
+Lemma: fix any $\vec{y} \in \reals^n$, and $E \subset \reals^n$, then $\chi_{_E}(\vec{x} + \vec{y}) = \chi_{_{E - \vec{y}}}(\vec{x} ) $. This follows from $\vec{x} + \vec{y} \in E \lrimply \vec{x} \in E - \vec{y}$
+\end{flushleft}
+
+
+\begin{flushleft}
+$f:\reals^n \rightarrow [-\infty,\infty] $, fix any $\vec{y} \in \reals^n$, and let $g(\vec{x}) = f(\vec{x} + \vec{y})$ \\
+\end{flushleft}
+
+$ \int_{\reals^n} f(\vec{x} + \vec{y}) = \int_{\reals^n} f(\vec{x}) $ \\
+
+\begin{flushleft}
+f Lebesgue measurable, then $A_t := f^{-1}([t,\infty]) $, $ A_t \in \mathcal{L}(\reals^n)$; $B_t := g^{-1}([t,\infty])$, clearly $B_t = A_t + \vec{y}$, as $g(B_t) = f(A_t + \vec{y})$, and by theorem 1.5.5, $B_t \in \mathcal{L}(\reals^n)$. If $f(\vec{x}) \ge 0 \; \forall \vec{x}$ then $f(\vec{x}+\vec{y}) \ge 0 \; \forall \vec{x}+\vec{y}$. \\
+\end{flushleft}
+
+\begin{flushleft}
+By the remark after theorem 2.2.6, we may use the construction at the end of section 2.1 of simple functions, $s_n \le s_{n+1} \in S_+; \lim_n s_n = f$, and by LMCT $\int f = \lim_n \int s_n$ as the definition of the integral for non-negative functions. Thus, if we can show translation invariance for these $ \{ s_n \}$, then we can use the usual arguement of taking $f = f^+ - f^-$ to show translation invariance for general functions.
+\end{flushleft}
+
+\begin{flushleft}
+If $s \in S_+$, and $s(\vec{x}) = \sum_{k=1}^n c_k \chi_{_{E_k}}(\vec{x})$ in the standard representation, then $s(\vec{x}+ \vec{y}) = \sum_{k=1}^n c_k \chi_{_{E_k}}(\vec{x} + \vec{y})$ $ =\sum_{k=1}^n c_k \chi_{_{E_k-\vec{y}}}(\vec{x})$ by the lemma, and $E_k-\vec{y} \in \mathcal{L}(\reals^n)$ as noted before. Then $ \lambda (E_k-\vec{y}) = \lambda (E_k)$ by 1.5.5. and thus $ \int s(\vec{x}) d\vec{x} =  \int s(\vec{x}+\vec{y}) d\vec{x}$
+\end{flushleft}
+
+\begin{flushleft}
+\underline{supplementary problem 22:}
+\end{flushleft}
+
+\begin{flushleft}
+Let $\mu$ denote the couting measure on $(X,\mathcal{A})$. For $E \in \mathcal{A}$, $\mu(E) := \sum_{x \in E} \, 1$.
+\end{flushleft}
+
+\begin{flushleft}
+a) Let $f,g :X \rightarrow \reals$. $f=g \; \;  \mu -$a.e. $\Leftrightarrow \mu{ (E) } = 0, E= \{x \in X: f(x) \not = g(x) \}$. $\mu(E) = \sum_{x \in E} \, 1 = 0 \Leftrightarrow E = \phi$, then $f(x) = g(x) \; \; \forall x \in X \Leftrightarrow f \equiv g$.\\
+Thus $[f] := \{ g:X \rightarrow \reals, \textrm{s.t.} \, f=g \; \;  \mu - \textrm{a.e.} \} = \{ f \}$, and so $L^p(X,\mu) = \mathcal {L}^p(X,\mu)$.
+\end{flushleft}
+
+\begin{flushleft}
+b) $f \in \ell^1(X) \Leftrightarrow  \int_X  |f| \, d \mu < \infty \Leftrightarrow  \int_X  f \, d \mu < \infty $ by 2.2.11.\\
+$ \int_X  f \, d \mu  = \sup \{ \int_X  \sum_{k=1}^n \, c_k \chi_{_{E_k}} \, d \mu: c_k>0, \{ c_k \}_{k=1}^n \textrm{distinct},  \{ E_k \}_{k=1}^n \subset X \,\textrm{disjoint},   \sum_{k=1}^n \, c_k \chi_{_{E_k}}  \le f   \} < \infty   $ \\
+$ \int_X  f \, d \mu  = \sup \{ \sum_{k=1}^n \, c_k \sum_{x \in {E_k}} 1.: c_k>0, \{ c_k \}_{k=1}^n \textrm{distinct},  \{ E_k \}_{k=1}^n \subset X \, \textrm{disjoint},   \sum_{k=1}^n \, c_k \chi_{_{E_k}}  \le f   \} < \infty   $ \\
+Now, if any $E_k$ in this set contains infinitely many elements, then the corresponding sum, $\sum_{x \in {E_k}} 1 = \infty$, and then $  \int_X  f \, d \mu = \infty$  a contradiction; thus all $E_k$ are finite. Given this, we relax the requirment that $\{ c_k \}_{k=1}^n$ are distinct, which allows us to write\\
+$ \int_X  f \, d \mu  = \sup \{ \int_X  \sum_{k=1}^n \, c_k \chi_{x_k} \, d \mu: c_k>0, \{ x_k \}_{k=1}^n \in X \textrm{unique},    \sum_{k=1}^n \, c_k \chi_{x_k}  \le f   \} < \infty   $ \\
+$ \int_X  f \, d \mu  = \sup \{ \sum_{k=1}^n \, c_k  : c_k>0, \{ x_k \}_{k=1}^n \in X \textrm{unique},     \sum_{k=1}^n \, c_k \chi_{x_k}  \le f   \} < \infty   $ \\
+Next, for the sake of notation, intruduce the set $S$, and the indexing set $A$, so that\\
+$ \int_X  f \, d \mu  = \sup_{\alpha \in A } \{ \int_X \, s_\alpha \, d \mu: s_\alpha \in S \} < \infty $, $S = \{ s_\alpha : s_\alpha =  \sum_{k=1}^{n_\alpha} \, c_{\alpha,k} \chi_{x_{\alpha,k}}$, $c_{\alpha,k}>0, \{ x_{\alpha,k} \}_{k=1}^{n_\alpha} \in X \textrm{unique} \}$ So $S$ is the set of approximating simple functions of $f$, and the integral of $f$ is the sup of their integrals, and $A$ indexes $S$. \\
+$\bullet$ Now, pick an $\alpha \in A$; if $0 < c_{\alpha,k} < f(x_{\alpha,k}), $ then $\exists \, \beta \in A$ s.t. $n_\alpha = n_\beta,$ for $k_1,k_2 \le n_\alpha$ s.t. $x_{\alpha,k1}= x_{\alpha,k2}$, $c_{\alpha,k1} < c_{\beta,k2} \le f(x_{\beta,k_2})$, becasue it is always possible to find such an $s_\beta \in S$, given that $c_{\alpha,k} \not =  f(x_{\alpha,k})$ . 
+Then it is clear that $\int_X s_\alpha  \, d \mu < \int_x a_\beta \, d \mu$, so $\int_X s_\alpha \not =  \int_X  f \, d \mu$, and hence we may delete this particular $\alpha$ from $A$.
+Carrying this on, we can see that we can define $B \subset A$, such that $B$ indexes the set $\{ s_\beta : s_\beta =  \sum_{k=1}^{n_\beta} \, c_{\beta,k} \chi_{x_{\beta,k}}$, $c_{\beta,k} = f(x_{\beta,k}), \{ x_{\beta,k} \}_{k=1}^{n_\beta} \in X \textrm{unique}  \}$.
+
+%$\bullet$ Now, pick an $\alpha \in B$; if there exists $x_0 \in X$ s.t. $f(x_0) > 0$ and $x_0 \not \in \{ x_{\alpha,k} \}_{k=1}^{n_\alpha}$, so $s_\alpha(x_0) = 0$, the we can again find a $\beta \in B$ s.t. $n_\beta = n_\alpha+1$, $\{ x_{\alpha,k} \}_{k=1}^{n_\alpha} \cup \{ x_{\beta,k_0} \}  = \{ x_{\beta,k} \}_{k=1}^{n_\beta}$, and $x_0 = x_{\beta,k_0}$, so that $f( x_0 ) = s_\beta(x_0)$.
+%$k \in \{1,2,...,n_\alpha \}$
+
+%$ \int_X  f \, d \mu  = \sup_{\alpha \in B } \{ \int_X \, s_\alpha \, d \mu \} < \infty $, $s_\alpha = \sum_{k=1}^{n_\alpha} \, c_{\alpha,k} \chi_{x_{\alpha,k}}$, $c_{\alpha,k}>0, \{ x_{\alpha,k} \}_{k=1}^{n_\alpha} \in X \textrm{unique}$ \\
+%Introduce an indexing set, $A$, s.t. 
+\end{flushleft}
+
+
+\begin{flushleft}
+b) $f \in \ell^1(X) \Leftrightarrow  \int_X  |f| \, d \mu < \infty \Leftrightarrow \sup \{  \int_X  s \, d \mu: s \textrm{ simple}, 0 < s \le |f|  \} < \infty $ \\
+$\Leftrightarrow \sup \{  \sum_{k=1}^n \, c_k  \sum_{x \in E_k} 1: s = \sum_{k=1}^n \, c_k  \chi_{_{ E_k }}, s \textrm{ simple}, 0 < s \le |f|  \} < \infty $. \\
+Now, if $E_k$ is infinite, then $\sum_{x \in E_k} 1= \infty$ and then $\int_X  |f| \, d \mu = \infty$, a contradiction.
+\end{flushleft}
+
+\begin{flushleft}
+c) For $X = \nats$, $a:\nats \rightarrow \reals$, then $a$ can be written as $\sum_{k \in \nats} a(k) \chi_{_{ \{ k \} }}$, so that $a$ is simple by default. Thus $\int_X a \, d \mu$ $= \sum_{k \in \nats} a(k) \mu(\{ k \}) = \sum_{k \in \nats} a(k)  $, and ordinary sum.
+\end{flushleft}
+
+\begin{flushleft}
+d) $X$ uncountable. Say $(\alpha_x)_{x \in X} \in \ell^p(X)$. Then suppose $\alpha_x \not = 0$ for uncountably many 
+\end{flushleft}
+
+
+\begin{flushleft}
+?) If $\textrm{card}(X) \ge \textrm{card}(\nats)$, $a:X \rightarrow \reals$ measurable, then $a$ can be written as $\sum_{x \in X} a(x) \chi_{_{ \{ x \} }}$. Suppose $a \ge 0$, then $\int_X a \, d \mu$ $= \sup \{ \int_X  s \, d \mu: s \textrm{ simple}, 0 < s \le a \} $. Now $s = \sum_{k=1}^n \, c_k  \chi_{_{ E_k }}$, $c_k > 0$ unique and $E_k$ disjoint;
+$\int_X s \, d \mu  = \sum_{k=1}^n \, c_k  \sum_{x \in E_k} 1$. If any $E_k$ is infinite then $\mu(E_k) = \infty$, and then $\int_X a \, d \mu = \infty$.
+\end{flushleft}
+
+
+
+
+\begin{flushleft}
+\underline{supplementary problem 24:}
+\end{flushleft}
+
+\begin{flushleft}
+$f_n \in \mathcal{L}^\infty(X,\mu)$. $f_n \rightarrow f$ in $|| \cdot ||_\infty \Leftrightarrow f_n \rightarrow f$ uniformly a.e.\\
+pf: $f_n \rightarrow f$ in $|| \cdot ||_\infty $ $\Leftrightarrow \forall \eps>0,  \exists N \in \nats$ s.t. $\forall n > N, ||f-f_n||_\infty < \eps $\\
+$\Leftrightarrow ||f-f_n||_\infty = \inf\{ K \ge  0: |f_n(x)-f(x)|\le K, \, \forall x \in E \} < \eps$, with $E \subset X, \mu(E^c) = 0$\\
+$\Leftrightarrow |f_n(x)-f(x)| < K_0 < \eps, \, \forall x \in E, \; K_0 := \frac{1}{2}(\eps - ||f-f_n||_\infty )$\\
+$\Leftrightarrow \sup \{ |f_n(x)-f(x)| : x \in E \} < \eps $ \\
+$\Leftrightarrow \forall \eps>0,  \exists N \in \nats$ s.t. $\forall n > N, \; \sup \{ |f_n(x)-f(x)| : x \in E \} < K_0 < \eps $, $\mu(E^c) = 0$  \\
+$\Leftrightarrow f_n \rightarrow f$ uniformly a.e.
+%   \\
+%$(\Leftarrow)$: Let $E \subset X$, $\mu(E^c)=0$, and $f_n \rightarrow f$ uniformly on $E$. By 2.5.3 prop 4, $f_n \in \mathcal{L}^\infty(X,\mu)$ is a banach space, so cauchy sequences converge, thus for 
+%$\epsilon > 0$, $\exists N \in \nats$ s.t. $||f_m - f_n||_\infty < \epsilon$ for $m,m>N$.
+\end{flushleft}
+
+
+
+\begin{flushleft}
+\underline{supplementary problem 26:}
+\end{flushleft}
+
+\begin{flushleft}
+Lemma: $(a_k) \in \reals$, if $\sum_{k=1}^\infty |a_k| < \infty$ then $\sum_{k=1}^\infty  |a_k|^n < \infty$ for $\infty > n \ge 1$, $n \in \reals$. \\
+pf: by undergrad math, $\sum_{k=1}^\infty |a_k| < \infty \rimply \lim_{k \rightarrow \infty} |a_k| = 0 \rimply \exists \, K \in \nats $ s.t. $|a_k| < 1$ $\; \forall k \ge K$.
+Then, by properties of $\reals$, $|a_k| < 1 \rimply |a_k|^n \le  |a_k|$ for $n \ge 1$. ( $ x^1 \le x$, and for $x \in (0,1), \eps \in \reals, \AND \eps > 0, $ $  -\infty < \log(x) < 0, $ $x^\eps = e^{\eps \log x} < 1 \rimply x^{1 + \eps} < x$ ). So by the Weierstrass M-test, $\sum_{k=K}^\infty |a_k| < \infty \rimply$  $\sum_{k=K}^\infty  |a_k|^n < \infty$ for $n \ge 1$, and that $\sum_{k=1}^{K-1} |a_k| < \infty  \rimply \sum_{k=1}^{K-1}  |a_k|^n < \infty $ is obvious if $n < \infty$.
+\end{flushleft}
+
+
+\begin{flushleft}
+$ (X, \A, \mu )$, $\ell^p \subset \ell^q$ for $p \le q$.\\
+pf: By problem 22 and comments in class, if $X$ is uncounable and $f \in \ell^p (X)$, then $f(x) = 0$ for all but countably many $x$, and so write $f(x) = \{ f(x_k) \IF x=x_k \in (x_1, x_2, ... ); 0 \ELSE \}$. \\
+Clearly then for any $X$, $p \le q < \infty $ and $ f \in \ell^p (X) $, $ (|| f ||_p)^p = \int_X |f|^p \, d\mu = \sum_{k \in \nats} |f(x_k)|^p < \infty$ and then by the lemma (using $n = q-p \ge 1$), $ (|| f ||_p)^p  < \infty \rimply \sum_{k \in \nats} |f(x_k)|^q = (|| f ||_q)^q< \infty$ \\
+For any $X$, $p < q = \infty $ and $ f \in \ell^p (X) $, $ (|| f ||_p)^p = \int_X |f|^p \, d\mu = \sum_{k \in \nats} |f(x_k)|^p < \infty \rimply |f(x_k)|^p < \infty \; \forall k \in \nats  $ and $ \lim _{k \rightarrow \infty}|f(x_k)|^p = 0$  $\rimply \sup_{k \in \nats} \{ {|f(x_k)|}  \} = ||f||_\infty < \infty \rimply f \in \ell^\infty (X) $
+\end{flushleft}
+
+
+\begin{flushleft}
+\underline{Folland problem 5:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal A, \mu )$, $X=A \cup B, A,B \in \mathcal A$, $f:X \rightarrow [-\infty,\infty]$, let $B_t = [\infty,t)$. If $f$ is measurable on $X$, then $E_t = f^{-1} (B_t) \in \mathcal A$, taking intersections, $A \cap E_t \in \mathcal A , B \cap E_t \in \mathcal A$, by closure under intersection. Then $A \cap E_t$ is $f^{-1} (B_t)$ with $f$ restricted to $A$, and $B \cap E_t$ is $f^{-1} (B_t)$ with $f$ restricted to $B$. Conversely, if $f$ is measurable if restriced to $A$, $f^{-1} (B_t) \in A$, and to $B$, $f^{-1} (B_t) \in B$, combining the two and taking unions, $f^{-1} (B_t) \in A \cup B = X$, with $f$ unrestricted.
+\end{flushleft}
+
+\begin{flushleft}
+\underline{Folland problem 14:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal A, \mu )$, $f \in L^+$, for  any $E \in \mathcal A$, define $\lambda (E) = \int_E f$. Then, $\lambda(\phi) = \int \chi_\phi f = 0$ as $\chi_\phi \equiv 0$. Let $\cup_{k \in \nats} E_k = E$, $E)k$ disjoint. Then, by supplementary problem 15, $\int_E f = \sum_{k \in \nats} \int_{E_k} f \rimply $$ \mu(E) = \sum_{k \in \nats} \mu(E_k)$, this was for arbitrary $E \in \mathcal A$, so $\mu$ is a measure on $\mathcal A$.\\
+Suppose $s = \sum_{k \le n} a_k \chi_{_{A_k}}$, in the standard representation, then $\int s \, d\lambda =  \sum_{k \le n} a_k \lambda(A_k) =    \sum_{k \le n} a_k \int \chi_{_{A_k}} f d\mu $ 
+$ = \int f \sum_{k \le n} a_k \chi_{_{A_k}} d\mu = \int f s d\mu$.\\
+Suppose $g:X \rightarrow [0, \infty]$, by remark 2.2.6 and construction 2.1.6, we may find a sequence, $s_k$ of simple functions, $0 \le s_k \le s_{k+1} \le g$, and $s_k \rightarrow f$ uniformly, and by LMCT $\int_X g \, d \lambda = \lim_k \int_X s_k \, d \lambda = \lim_k \int_X s_k f \, d \mu $. Then, clearly $\lim_k s_k\, f = g \, f$, and with both $f,g \in L^+$, and with $f \, s_k \le f \, s_{k+1}$, we can again use LMCT to have $\int_X g \, d \lambda = \lim_k \int_X s_k f \, d \mu = \int_X f g \, d\mu$.
+\end{flushleft}
+
+
+
+\begin{flushleft}
+\underline{Folland problem 20:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal A, \mu )$.  $f_n,g_n,f,g:X \rightarrow [-\infty,\infty]$, if these are complex valued on the other hand, following step 4 in the definition of integration, take the real and imaginary parts seperatly. then further $g_n \rightarrow g$, $f_n \rightarrow g$ a.e. $\int g_n \rightarrow \int g$, and $|f| \le g$, show that $\int f_n \rightarrow \int f$. Now, if $|f_k| = 0$ for $k \ge$ some $n$, then the problem is trivial, i.e. $\int 0 \rightarrow \int 0$, so we may safely delete the $n$ for which $|f_n| = 0$, and then we have $0 < |f_n| \le g_n$ for all $n \in \nats$. Following the proof of 2.2.13, we may assume the convergences are everywhere, not just a.e. and that $f,g$ are finite everywhere, by redefining all the functions to be $0$ on the set where these are not true, which, having measure zero, does not affect the integrals. \\
+Then, as $g_n \ge |f_n|,$ $f_n + g_n \ge 0$, as the only way this could fail is if $-f_n > g_n$, which is false, similarly, $ g_n - f_n \ge 0$. Then $g_n \pm f_n \ge 0$, measurable, and $g_n \pm f_n \rightarrow g+f$, as limits may be added, and using Fatou and 2.2.10, $ \int (g \pm f) \le \liminf_n \int (g_n \pm f_n)$ $ =\liminf_n \int g_n +\liminf_n \pm  \int f_n$ $= \int g + \liminf_n \pm \int f_n$, because if a limit exists, it equals the correspoinding lim inf and lim sup. Subtracting $\int g$ then   $\pm \int f \le  \liminf_n  \pm  \int f_n$ $\rimply \limsup_n \int f_n \le \int f \le  \liminf_n \int f_n \rimply \lim_n \int f_n = \int f$.
+\end{flushleft}
+
+
+\begin{flushleft}
+\underline{Folland problem 40:}
+\end{flushleft}
+
+\begin{flushleft}
+Show that $``\mu(X) < \infty$ '' can be replaced with $``|f_n| \le h $ $\forall n \in \nats, g \in L^1(\mu)$ '' in Egoroff's theorem. 
+%We mix the constructions in Folland and class:
+%Following the same construciton in class:
+Following the construction in Folland:
+\end{flushleft}
+
+\begin{flushleft}
+Folland constructs the sets $E_n$, and uses that $E_n \supset E_{n+1}$, $\cap_{n \in \nats} E_n=\phi$, and that for all $n$, $\mu(E_n) \le \mu(X) < \infty$, then by continuity from below, $\mu(\cap_{n \in \nats} E_n)= \lim_{n \rightarrow \infty} \mu(A_n)$ = 0.
+\end{flushleft}
+
+\begin{flushleft}
+Folland constructs the sets $E_n$, and uses that $E_n \supset E_{n+1}$, $\cap_{n \in \nats} E_n=\phi$, and that for all $n$, $\mu(E_n) \le \mu(X) < \infty$, then by continuity from below, $\mu(\cap_{n \in \nats} E_n)= \lim_{n \rightarrow \infty} \mu(A_n)$ = 0.
+\end{flushleft}
+
+\begin{flushleft}
+$g_n(x) := \sup_{j>n} \{ |f_j(x) - f(x) | \}$, then $g_n \rightarrow 0$ a.e. and monotonically, $g_n \ge 0$. $E_n(k) := \cup_{m=n}^\infty \{ x \in X: g_n(x) \ge k^{-1} \}$
+\end{flushleft}
+
+\begin{flushleft}
+Then, Folland uses the fact that $E_n \supset E_{n+1}$, because $g_n \rightarrow 0$ monotonically.
+\end{flushleft}
+
+\begin{flushleft}
+Let $\eps>0$ given. $g_n(x) := \sup_{j>n} \{ |f_j(x) - f(x) | \}$, then $g_n \rightarrow 0$ a.e. and monotonically, which implies by 2.6.2 that given $k \in \nats$ (this is equivalent to picking an $\eps' \ge \eps \, k^{-1}$), we can find an integer $n_k$ so that $\mu(B_k) < \eps \, k^{-1}$ with $B_k := \{ x \in X: g_{n_k}(x) \ge k^{-1} \}$ $ \rimply B_k^c = \{ x \in X: g_{n_k}(x) < k^{-1} \}$. Then clearly $B_k \supset B_{k+1}$, and $\cap_{k \in \nats} B_k = \phi$, because $y < \frac{1}{k+1} \rimply y < \frac{1}{k}$, and 
+
+%Then let $E := \cap_{k \in \nats} B_k^c,$ then $\mu(E^c) = \mu(\cup_{k \in \nats} B_k)$ $< \sum_{k \in \nats} \eps \, 2^{-k} = \eps$ by geometric series. 
+\end{flushleft}
+
+
+
+
+\begin{flushleft}
+\underline{Folland problem 6.9:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal A, \mu )$. $1 \le p < \infty$, $||f_n - f||_p \rightarrow 0$ then $f_n \rightarrow f$ in measure, and some subsequence converges to $f$ a.e.\\
+Conversely, $f_n \rightarrow f$ in measure, $|f_n| \le f \in L^p$ $\; \forall n$ then $||f_n - f||_p \rightarrow 0$.
+\end{flushleft}
+
+\begin{flushleft}
+pf: Choose $\eps > 0$, $E_{n,\eps} = \{ x \in X : |f_n(x) - f(x)| \ge \eps > 0 \}$, then $\eps \chi_{_{E_{n,\eps}}} \le |f_n - f| \rimply$ $\eps \, \mu (E_{n,\eps}) \le \int_X \, |f_n - f|^p \, d\mu$ $ \rimply \, \mu (E_{n,\eps}) \le \frac{1}{\eps} ||f_n - f||_p^p $. Then, 
+$||f_n - f||_p \rightarrow 0 \rimply$ $\frac{1}{\eps} ||f_n - f||^p_p \rightarrow 0 \rimply \lim_{n \rightarrow \infty} \mu (E_{n,\eps}) = 0$. That there exists a convergent a.e. subsequence then follows by applying 2.6.4.\\
+
+\end{flushleft}
+
+
+\begin{flushleft}
+\underline{Folland problem 6.10:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\mathcal A, \mu )$. $1 \le p < \infty$, $f_n,f \in L^p$, $f_n \rightarrow f$ a.e, then  $||f_n - f||_p \rightarrow 0 $ $\rlimply$ $||f_n ||_p \rightarrow ||f||_p$
+\end{flushleft}
+
+\begin{flushleft}
+The triangle inequality is $||x|| + ||y|| \ge ||x + y||$, by letting $a = x+y$, $y = a-b$, $x = b$, we get $||a-b|| \ge ||a|| - ||b||$, when $||a|| > ||b||,$ more generally, $||x - y|| \ge | (||x|| - ||y||) | \rimply $ \\ 
+  $-||x - y|| \le | (||x|| - ||y||)| \le  ||x - y||  $, for a normed space. \\
+\end{flushleft}
+
+\begin{flushleft}
+pf: By the above, $||f_n - f||_p \rightarrow 0 \; \& -||f_n - f||_p \le | (||f_n||_p - ||f||_p)| \le  ||f_n - f||_p $ $\rimply | (||f_n||_p - ||f||_p)| \rightarrow 0 \rimply ||f_n||_p \rightarrow ||f||_p$. \\
+
+\end{flushleft}
+
+
+
+
+\newpage
+
+
+
+\section*{Chapter 3}
+
+\begin{flushleft}
+\underline{supplementary problem 3:}
+\end{flushleft}
+
+\begin{flushleft}
+Lemma: $A_k \times B_k \not = \phi \; \forall k \in \nats$ \& $A \times B = \cup_{k \in \nats} A_k \times B_k \rimply A = \cup_{k \in \nats} A_k$ \& $B = \cup_{k \in \nats} B_k$.\\
+pf: for any $x \in A, \; \exists \; y \in B $ s.t. $(x, y ) \in A \times B \rimply (x, y ) \in \cup_{k \in \nats} A_k \times B_k \rimply $ $ (x, y ) \in A_k \times B_k, $ some $k \in \nats \rimply $ $x \in A_k \rimply x \in \cup_{k \in \nats} A_k$, so $ A \subset \cup_{k \in \nats} A_k$. \\
+If $x \in \cup_{k \in \nats} A_k, $ then $ x \in A_k$, some $k \in \nats$. Then again by $A_k \times B_k \not = \phi$, $\exists \; y \in B_k$ s.t. $(x,y) \in A_k \times B_k \subset \cup_{k \in \nats} A_k \times B_k = A \times B,$ so $(x,y) \in A \times B \rimply x \in A.$ This completes $ A = \cup_{k \in \nats} A_k$. That $B = \cup_{k \in \nats} B_k$ follows from symmetry. \\
+Corrollary: $A_k \times B_k \not = \phi \; \forall k \in \nats$ \& $A \times B = \cup_{k \in \nats} A_k \times B_k \rimply $ $\cup_{k \in \nats} A_k \times B_k = \cup_{k \in \nats} A_k \times \cup_{k \in \nats} B_k $
+\end{flushleft}
+
+
+\begin{flushleft}
+$ (X, \A, \mu )$, $ (Y, \B, \nu )$  sigma finite measure spaces. If $ \phi \not = E \subset \A \times \B$, then $E = \cup_{k \in \nats} A_k \times B_k $, with $A_k \in \A$ $B_k \in \B$, $A_k \times B_k$ disjoint, so far by definition, then we may impose that $A_k \times B_k \not = \phi$, otherwise we could delete this entry from the union. If $E = X \times Y$, with $A \in X, B \in Y$, then $ A \times B = \cup_{k \in \nats} A_k \times B_k$, and then by the lemma $ A = \cup_{k \in \nats} A_k$ \& $B = \cup_{k \in \nats} B_k$, then by closure under countable union, $A \in \A$ and $B \in \B$. If $A = \phi$, then $A \in \A$ automatically, similarly for $B$.
+\end{flushleft}
+
+
+
+
+\begin{flushleft}
+\underline{supplementary problem 3:}
+\end{flushleft}
+
+\begin{flushleft}
+Lemma: $ (X, \A, \mu )$, $g: X \rightarrow \reals$ measureable, then $G(x, \cdot ) := g(x)$, $G$ is $\A \times \B$ measurable, where $\B$ is any signa algebra over any measure space $ (Y, \B, \nu )$. \\
+pf: Writing $B_t = [ t,  \infty ]$, then $g^{-1} (B_t) = \{ x \in X: g(x) < t \} \in \A$. Then $G^{-1} (B_t) = \{ (x,y) \in X \times Y: G(x,y) < t  \} = \{ (x,y) \in X \times Y: g(x) < t  \} $ = 
+$  \{ x \in X: g(x) < t  \} \times Y $ = $g^{-1} (B_t) \times Y$ $ \in \A \times \B$, because $g^{-1} (B_t) \in \A$, and $Y \in \B$.
+\end{flushleft}
+
+
+\begin{flushleft}
+$ (X, \A, \mu )$, $ (Y, \B, \nu )$, $h \in L^1( X, \mu )$, $g \in L^1( Y, \nu )$, then $f(x,y) := h(x) g(y)$, $f$ is $\A \times \B$ measurable. \\
+pf: By the lemma, $h$ and $g$ are both $\A \times \B$ measurable ( by taking $H(x, \cdot) := h(x) $, and $G(\cdot, y) := g(y) $), then $f$ is the product of two $\A \times \B$ measurable functions, and is thus $\A \times \B$ measurable by 2.1.3 (k).
+\end{flushleft}
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
