@@ -35,6 +35,7 @@
 \newcommand{\F}[0] { \mathcal{F} }
 \newcommand{\G}[0] { \mathcal{G} }
 
+
 \newcommand{\IF}[0] { \; \textrm{if} \; }
 \newcommand{\THEN}[0] { \; \textrm{then} \; }
 \newcommand{\ELSE}[0] { \; \textrm{else} \; }
@@ -750,6 +751,22 @@ $  \{ x \in X: g(x) < t  \} \times Y $ = $g^{-1} (B_t) \times Y$ $ \in \A \times
 \begin{flushleft}
 $ (X, \A, \mu )$, $ (Y, \B, \nu )$, $h \in L^1( X, \mu )$, $g \in L^1( Y, \nu )$, then $f(x,y) := h(x) g(y)$, $f$ is $\A \times \B$ measurable. \\
 pf: By the lemma, $h$ and $g$ are both $\A \times \B$ measurable ( by taking $H(x, \cdot) := h(x) $, and $G(\cdot, y) := g(y) $), then $f$ is the product of two $\A \times \B$ measurable functions, and is thus $\A \times \B$ measurable by 2.1.3 (k).
+\end{flushleft}
+
+
+
+
+\begin{flushleft}
+\underline{Folland problem 54:}
+\end{flushleft}
+
+\begin{flushleft}
+Folland 2.44 for non-invertible $T$ \\
+b.) $T \in \textrm{Lin}(\reals^n)$, non-invertible, then $\textrm{Ker}(T) \not = \{ 0 \}$, $m := \textrm{dim}(\textrm{Ker}(T))$, $n = m + \textrm{dim}(\textrm{Ran}(T))$, $0 < m \le n$.
+$\textrm{Ran}(T)$ is a subspace of $\reals^n$, and can write $\reals^n = \textrm{Ran}(T) \oplus \textrm{Ran}(T) ^ \perp$. We can apply a unitary operator, $Q$, which rotates and interchanges coordinates with $T = QT'Q^*$ so that  $\textrm{Ran}(T') = \{ x \in \reals^n: x= (x_k), 0 = x_{m+1} = x_{m+2} = ... = x_{n} \}$. Let $S \in \textrm{Lin}(\reals^m)$ such that with $x = (x_k)$, $S( (x_1, x_2, ..., x_m)) = T'(( x_1, x_2, ..., x_m, 0, ..., 0 ))$ for all $x \in \reals ^m$. Then $\textrm{Ran}(S) = \reals^m$, $\textrm{Ker}(S) = \{0 \} $, and thus $S$ is invertible. However, the Lebesgue measure here is $\lambda_n$, defined on $\reals^n$, so for $E \subset \mathcal{L}^n$, $T' (E ) =    \{ T'(x): x \in E \}  = $ $  \{ S( (x_1, ..., x_m) ): x \in E \} \times \{ (0_1, 0_2, ..., 0_{n-m})\}$. Clearly $ \{ S( (x_1, ..., x_m) ): x \in E \} \in \mathcal{L}^m$, by Folland 2.44 applied to $S$, invertible, that $ \{ (x_1, ..., x_m) : x \in E\} \in \mathcal{L}^m$ can be seen by taking $E$ to be a countable union of measurable rectangles, and $\{ (0_1, 0_2, ..., 0_{n-m})\}$ is just a zero vector. So $T'(E)$ this is the product of two Lebesgue measurable sets, so $T'(E) \in \mathcal{L}^n$. Now, $\lambda(A \times \{ \vec{0} \}) = 0$ for any measurable set $A$, so $\lambda_n(T'(E)) = 0$, even though $ \lambda_m( \{ S( (x_1, ..., x_m) ): x \in E \} )$ is not nescesarily 0. To get these results for $T$ is easy, as $Q$ is unitary so Folland 2.44 applies to $Q$ with $\det(Q)=1$. Then $ \lambda(T(E)) = 0 = |\det(QT'Q^*)| \lambda(E) = |\det(T)| \lambda(E)$; the Lebesgue measure is invariant under unitary transformaitons.\\
+a.) $f$ Lebesgue measurable on $\reals^n$, $(f \circ T )^{-1} (B) = (f \circ Q T' Q^* )^{-1} (B) = (T' Q^* )^{-1} (  Q^*(f^{-1}(B)))$, for Borel $B$. 
+Then $ T'^{-1}(B) = \{ x \in \reals^n: S(x_1, ..., x_m) \in B \}$
+
 \end{flushleft}
 
 
