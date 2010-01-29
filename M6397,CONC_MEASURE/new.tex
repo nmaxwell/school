@@ -1,0 +1,240 @@
+\documentclass[12pt]{article}
+\usepackage{geometry,amsthm,amsmath, amscd,amssymb, graphicx, natbib, float, enumerate}
+\geometry{margin=1in}
+\renewcommand{\familydefault}{cmss}
+%\usepackage{charter}
+\restylefloat{table}
+\restylefloat{figure}
+
+%%%%%%%%%%%% MODIFY LECTURE DATE AND AUTHOR %%%%%%%%%%%%%%%%%
+
+\newcommand\lecdat{Jan 26, 2010% INSERT LECTURE DATE HERE
+}
+\newcommand\notesby{Nick Maxwell% INSERT NOTE TAKER HERE
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\date{} % not needed
+\author{} % not needed
+
+%%%%%%%%%%% SOME MACROS BELOW %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\swapnumbers
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conclusion}{Conclusion}
+
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{remarks}[thm]{Remarks}
+%\newtheorem{rem}[thm]{Remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exc}[thm]{Exercise}
+%\newtheorem{fact}[thm]{Fact}
+\newtheorem{facts}[thm]{Facts}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{question}[thm]{Question}
+\newtheorem{answer}[thm]{Answer}
+\newtheorem{conj}[thm]{Conjecture}
+
+\renewcommand{\thethm}{\thesubsection.\arabic{thm}}
+
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\cl}[1]{\mathcal{#1}}
+\newcommand{\ff}[1]{\mathfrak{#1}}
+
+\newcommand{\norm}[1]{\|#1\|}
+\newcommand{\abs}[1]{|#1|}
+\def\eps{\epsilon}
+\def\del{\delta}
+
+\def\Sn{\mathbb S^n}
+\def\Snm1{\mathbb S^{n-1}}
+
+\def\R{\mathbb R}
+\def\Rn{\mathbb R^n}
+
+%%%%%%%%%%% PUT YOUR MACROS HERE %%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\pset}[1]{ \mathcal{P}(#1) }
+
+\newcommand{\nats}[0] { \mathbb{N}}
+\newcommand{\reals}[0] { \mathbb{R}}
+\newcommand{\exreals}[0] {  [-\infty,\infty] }
+%\newcommand{\eps}[0] {  \epsilon }
+\newcommand{\A}[0] { \mathcal{A} }
+\newcommand{\B}[0] { \mathcal{B} }
+\newcommand{\C}[0] { \mathcal{C} }
+\newcommand{\D}[0] { \mathcal{D} }
+\newcommand{\E}[0] { \mathcal{E} }
+\newcommand{\F}[0] { \mathcal{F} }
+\newcommand{\G}[0] { \mathcal{G} }
+\newcommand{\cO}[0] { \mathcal{O} } % curly O
+
+\newcommand{\om}[0] { \omega }
+\newcommand{\Om}[0] { \Omega }
+
+\newcommand{\Bl}[0] { \mathcal{B} \ell } %borel
+
+\newcommand{\st}[0]{ \; \textrm{s.t.} \; } 
+
+\newcommand{\IF}[0] { \; \textrm{if} \; }
+\newcommand{\THEN}[0] { \; \textrm{then} \; }
+\newcommand{\ELSE}[0] { \; \textrm{else} \; }
+\newcommand{\AND}[0]{ \; \textrm{ and } \;  }
+\newcommand{\OR}[0]{ \; \textrm{ or } \; }
+
+\newcommand{\rimply}[0] { \Rightarrow }
+\newcommand{\limply}[0] { \Lefttarrow }
+\newcommand{\rlimply}[0] { \Leftrightarrow }
+\newcommand{\lrimply}[0] { \Leftrightarrow }
+
+\newcommand{\rarw}[0] { \rightarrow }
+\newcommand{\larw}[0] { \leftarrow }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{{\bf High-Dimensional Measures and Geometry}\\
+Lecture Notes from \lecdat\\[0.1cm] \small taken by \notesby}
+
+\begin{document}
+\maketitle
+
+%\setcounter{section}{-1}
+
+
+Denote by $G_k( \reals^n )$ the Grassmanian, which is the collection of $k$-dimensional subspaces of $\reals^n$.
+Define a distance on $G_k( \reals^n )$ by the operator norm of the difference between corresponding orthogonal projections.
+That is, $P_1 : \reals^n \rarw V_1$, $P_2 : \reals^n \rarw V_2$, with $V_1, V_2$ k-dimensional, then $d(V_1, V_2) = ||P1-P2||$.
+This distance is invariant under the orthogonal group. So, $||P_1-P_2|| = ||  O P_1 O^* - O P_2 O^* || = ||  O (P_1 - P_2) O^* ||$, $O \in \cO(n)$, the set of unitary operators on $\reals^n$.
+
+Also, $\cO(n)$ acts transitively on projections, for all rank-$k$ $P_1, P_2$, $\exists O \in \cO(n) \st P_2 = O P_1 O^*$ $\rimply \exists !$ Borel probability measure on $G_k( \reals^n )$, invaraint under $\cO(n)$, we denote this measure by $\mu_{n,k}$.
+
+This measure can be obtained from the left-invariant haar measure $\nu_n$ on $\cO(n)$ by the map
+
+$$
+    \Psi: \cO \rarw O P_{V_1} O^*
+$$
+
+$P_{V_1}$ an orthogonal projection onto some fixed $k$-dimensional substapce.
+
+In terms of subspaces, we have 
+
+$$
+	\mu_{n,k}(V) = \nu_n ( \{  U \in \cO(n): U(V_1) \in V \} ), V \in G_k( \reals^n )
+$$
+
+Why is this identity true? This is because the image measure is invariant under the action of $\cO(n)$, by the commutative diagram below.
+
+
+
+
+\begin{equation}
+\begin{CD}
+\cO(n) @>{ O \mapsto O'O \; \; ^{[1]}  }>> \cO(n) \\
+@VV{ \Psi }V         @VV{\Psi  }V \\
+G_k(\reals^n) @>{ V \mapsto O' V  \; \; ^{[1]} }>> G_k(\reals^n)
+\end{CD}
+\end{equation}
+
+[1] This is left mupltiplication by $O'$, some fixed $O' \in \cO(n)$\\
+
+The ``effective map'' between $G_k( \reals^n)$ is because $ O'O P_{V_1} O^*(O')^*$ and this projection has range $ O'(O(V_1)) = (O'O)(V_1)$
+
+
+
+\begin{lemma}
+
+Let $x \in \reals^n, x \not = 0$, let $\mu_{n,k}$ be the $\cO(n)$-invariant measure on $G_k(\reals^n)$, and for each $V\in G_k(\reals^n)$, let $P_V$ denote orthogonal projection onto $V$. Then, for $0 < \eps < 1$,
+
+$$
+	\mu_{n,k} ( \{ V \in G_k( \reals^n) ; \sqrt{\frac{n}{k}}  || P_V(x)|| \ge \frac{1}{1- \eps} ||x||  \} )   \le  \exp{( - \eps^2 k /4 )} + \exp{( - \eps^2 n /4 )}
+$$
+
+and 
+
+$$
+	\mu_{n,k} ( \{ V \in G_k( \reals^n) ; \sqrt{\frac{n}{k}}  || P_V(x)|| \le (1- \eps) ||x||  \} )   \le  \exp{( - \eps^2 k /4 )} + \exp{( - \eps^2 n /4 )}
+$$
+
+\begin{proof} 
+
+	Without loss of generality, choose $||x||=1$, choose any $k$-dimensional subspace, $V_1$, and if $U \in \cO(n)$, let $V=U(V_1)$, $P_V$ the orthogonal projection onto $V_1$, and use the fact that the measure $\nu_n$ on $\cO(n)$ induces the Grassmanian measure $\nu_{n,k}$.
+	
+	This implies, 
+	
+$$
+	\mu_{n,k} ( \{ V \in G_k( \reals^n) ; \sqrt{\frac{n}{k}}  || P_V(x)|| \ge \frac{1}{1- \eps}   \} )   = \nu_n( \{  U \in \cO(n) ; \sqrt{\frac{n}{k}} || P_{U(V_1)} (x) || \ge \frac{1}{1-\eps} \} )
+$$
+	and
+	
+$$
+	\mu_{n,k} ( \{ V \in G_k( \reals^n) ; \sqrt{\frac{n}{k}}  || P_V(x)|| \le (1- \eps)  \} )   = \nu_n( \{  U \in \cO(n) ; \sqrt{\frac{n}{k}} || P_{U(V_1)} (x) || \le \frac{1}{1-\eps} \} )
+$$
+
+The projected length of $x$ is
+
+$$
+	||P_{U(V_1)}(x)|| = || U^* P_{U(V_1)} U U^* x || = || P_{V_1} U^* x ||
+$$
+
+and the image measure induced by $\nu_n$ under $\Phi_x: \cO(n) \rarw S^{n-1} U \mapsto U^*x$ is the surface measure on sphere, $\mu_n$.
+
+Thus,
+
+$$
+	\nu_n( \{  U \in \cO(n) ; \sqrt{\frac{n}{k}} || P_{U(V_1)} (x) || \ge \frac{1}{1-\eps} \} ) = \mu_{n} ( \{ y \in S^{n-1} ; \sqrt{\frac{n}{k}}  || P_V(y)|| \ge \frac{1}{1- \eps}   \} ) 
+$$
+	and
+	
+$$
+	\nu_n( \{  U \in \cO(n) ; \sqrt{\frac{n}{k}} || P_{U(V_1)} (x) || \le (1-\eps) \} ) = \mu_{n} ( \{ y \in S^{n-1} ; \sqrt{\frac{n}{k}}  || P_V(y)|| \le (1- \eps)  \} ) 
+$$
+
+now applyying the corollary in section 2.3 (Gaussian v.s. surface measure), finishes the proof.
+
+\end{proof}
+
+\end{lemma}
+
+Summary: Now reduction for vectors ib $S_{n-1}$ under fixed program is ``mostly'' by factor $\sqrt{\frac{k}{n}}(1 \pm \eps )$, same is true for fixed vector under projections onto ``many subspaces'', in $G_k(\reals^n)$.
+
+Question: what about more than one vector?
+
+\begin{thm}
+
+(Johnson-Lindenstrauss, Part II)
+
+Let $a_1, ..., a_N$ be points in $\reals^n$, given $\eps>0$, choose $k \in \nats \st$
+
+$$
+	N(N+1) ( \exp(-k \eps^2/4) + \exp(-n \eps^2/4) ) \le \frac{1}{3}
+$$
+
+and let $G_k( \reals^n )$ be the set of $k$-dimensional subspaces, then
+
+$$
+	\mu_{n,k} (\{ V \in G_k( \reals^n ) ; (1-\eps) || a_i - a_j|| \le \sqrt{\frac{k}{n}} || P_V(a_i - a_j)|| \le \frac{1}{1-\eps} || a_i - a_j||  \; \forall \; 1 \le i \le j \le N \}) \ge \frac{2}{3}
+$$
+
+proof:
+
+Let $c_{ij} = a_i-a_j, i>j$, we count $N \choose 2 = N(N-1)/2$ such differences, and $ ||P_V c_{ij}|| = ||P_V a_i - P_V a_j ||$ the set of subspaces $V$ for which $\sqrt{\frac{k}{n}} || P_V c_{ij} || \ge \frac{1}{1-\eps} ||c_{ij}||$ or $\sqrt{\frac{k}{n}} || P_V c_{ij} || \le (1-\eps) ||c_{ij}||$ has by assumption and union bound over choices $i,j \in \{ 1,2,...,N\}, i \not = j$ measure at most $\frac{1}{3}$.
+
+Thus by taking the complement, gives the desired estimate of thge measure.
+
+\end{thm}
+
+Question:
+
+What about infinitely many vector, i.e. $ \textrm{span} \{ a_1, ..., a_T \}$, for some $T \in \nats$ ? ``restriced isometry property''
+
+Need to choose set of points $Q \subset \{ x \in \textrm{span} \{ a_1, ..., a_T \};  ||x|| =1 \}$  ``sufficiently dense '', apply Johnson-Lindenstrauss to $Q$, combine this with triangle inequality to get estimate for all points. 
+
+
+\end{document}

@@ -1,0 +1,268 @@
+\documentclass[12pt]{article}
+\usepackage{geometry,amsthm,amsmath,amssymb, graphicx, natbib, float, enumerate}
+\geometry{margin=1in}
+\renewcommand{\familydefault}{cmss}
+%\usepackage{charter}
+\restylefloat{table}
+\restylefloat{figure}
+
+%%%%%%%%%%%% MODIFY LECTURE DATE AND AUTHOR %%%%%%%%%%%%%%%%%
+
+\newcommand\lecdat{Jan 19, 2010% INSERT LECTURE DATE HERE
+}
+\newcommand\notesby{Bernhard Bodmann% INSERT NOTE TAKER HERE
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\date{} % not needed
+\author{} % not needed
+
+%%%%%%%%%%% SOME MACROS BELOW %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\swapnumbers
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conclusion}{Conclusion}
+
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{remarks}[thm]{Remarks}
+%\newtheorem{rem}[thm]{Remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exc}[thm]{Exercise}
+%\newtheorem{fact}[thm]{Fact}
+\newtheorem{facts}[thm]{Facts}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{question}[thm]{Question}
+\newtheorem{answer}[thm]{Answer}
+\newtheorem{conj}[thm]{Conjecture}
+
+\renewcommand{\thethm}{\thesubsection.\arabic{thm}}
+
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\cl}[1]{\mathcal{#1}}
+\newcommand{\ff}[1]{\mathfrak{#1}}
+
+\newcommand{\norm}[1]{\|#1\|}
+\newcommand{\abs}[1]{|#1|}
+\def\eps{\epsilon}
+\def\del{\delta}
+
+\def\Sn{\mathbb S^n}
+\def\Snm1{\mathbb S^{n-1}}
+
+\def\R{\mathbb R}
+\def\Rn{\mathbb R^n}
+
+%%%%%%%%%%% PUT YOUR MACROS HERE %%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\mynewcommand{use often}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{{\bf High-Dimensional Measures and Geometry}\\
+Lecture Notes from \lecdat\\[0.1cm] \small taken by \notesby}
+
+\begin{document}
+\maketitle
+
+\setcounter{section}{-1}
+
+\section{Course Information}
+
+\begin{description}
+\item[Text:] Michel Ledoux, The Concentration of Measure Phenomenon, American Mathematical Society, Providence, Rhode Island, 2001.
+\item[Office:] Tu 1-2pm, Th 11-12 or by appointment
+\item[Email:] bgb@math.uh.edu
+\item[Grade:] Based on preparation of class notes in LaTeX, rotating note-takers 
+\end{description}
+
+\section{Introduction}
+
+Informally, the phenomenon of measure concentration is that in a given ``high-dimensional'' probability space, any
+``well-behaved'' function is ``almost'' constant. We will study how to make this statement quantitative and precise and what consequences can be derived from this measure concentration. To get a taste of this subject, we start with a simple example,
+concentration on high-dimensional spheres.
+
+\subsection{Measure concentration on high-dimensional spheres}
+
+Consider the {\em unit sphere} $\Snm1 = \{x \in \Rn: \|x\|=1\}$, containing each vector $x \in \mathbb R^n$
+with {\em Euclidean norm} $\|x\|=(\sum_{i=1}^n x_i^2 )^{1/2}=1$. We also define the {\em canonical inner
+product} between two vectors $x, y \in \Rn$ by $\langle x,y\rangle =\sum_{i=1}^n x_i y_i$. Define the 
+{\em metric distance} between $x,y \in \Snm1$ by
+$$
+    d(x,y) = \arccos \langle x, y \rangle \in [0,\pi] \, .
+$$
+
+\begin{question} Why is the function $d: \Snm1 \times \Snm1 \to \mathbb R^+$ a metric?
+\end{question}
+
+Symmetry and positive definiteness are elementary.
+The distance $d(x,y)$ is the length of the shortest geodesic (great arc) between $x$ and $y$. A direct proof of
+the triangle inequality can be found in M. Berger, Geometry II, Springer, N.Y., 1996. Otherwise, we can 
+appeal to the fact that the shortest geodesic between two points minimizes length among all piecewise differentiable
+paths, and thus if the path had to pass through another point in between, then the length can only increase.
+
+We also define the {\em rotation-invariant probability measure} $\mu$ on $\Snm1$. This is induced on the sphere by 
+the (left) Haar measure on the Lie group of all orientation-preserving rotations. For a given continuous function
+$f: \Snm1 \to \R$, we define the {\em median} $m_f$ with respect to $\mu$ by the two properties
+$$
+   \mu(\{x \in \Snm1: f(x) \ge m_f\} \ge \frac 1 2
+$$ 
+and
+$$
+    \mu(\{x \in \Snm1: f(x) \le m_f\} \ge \frac 1 2 \, .
+$$
+
+\begin{question} Why is this median well defined?\end{question}
+
+For each $\alpha\in \mathbb R$, define $L_\alpha = \{x \in \Snm1: f(x) < \alpha\}$ and
+$U_\alpha = \{x \in \Snm1: f(x) \ge \alpha\}$,
+then $g(\alpha)=\mu(L_\alpha)$ and $h(\alpha)=\mu(U_\alpha)$ are by definition monotonic in $\alpha$ and
+$g+h=1$. Let the median $m_f$
+be given by $m_f=\inf\{ \alpha: g(\alpha)\ge 1/2\}$, then it satisfies the second of the two claimed inequalities
+by the regularity of $\mu$. Moreover, we also have $m_f = \sup\{ \alpha:  h(\alpha) \ge 1/2\}$, otherwise we would
+get a contradiction to $g+h=1$. Using the regularity of $\mu$, the first inequality follows.
+
+\begin{defn} A function $ f : \Snm1 \to \R$ is $M$-Lipshitz if
+$$
+    |f(x) - f(y)| \le M d(x,y)
+$$
+for all $x, y \in \Snm1$.
+\end{defn}
+
+We can now state a first result in the context of  measure concentration.
+
+\begin{prop} \label{prop:consnm1}Let $\Snm1$ be the unit sphere in $\mathbb R^n$ and $\mu$ the
+rotation-invariant probability measure on $\Snm1$. If $f: \Snm1 \to \R$ is 1-Lipshitz and $m_f$ is its
+median with respect to $\mu$, then for $\eps\ge 0$,
+$$
+    \mu(\{x \in \Snm1: |f(x) - m_f| \le \eps\}) \ge 1 - \sqrt{\frac{\pi}{2}} e^{- \eps^2 (n-2)/2} \, . 
+$$
+\end{prop}
+\begin{proof} Later. \end{proof}
+
+Note, the inequality gives no information for $\eps\to 0$ when $n$ is held fixed. However, if we choose a sequence $\{\eps_n\}_{n \in \mathbb N}$ and let $\epsilon_n \to 0$ such that $\eps_n^2 n \to \infty$, then the measure 
+$\mu(\{x \in \Snm1: |f(x) - m_f| \le \eps\}) \to 1 .$
+
+We will consider an example of a function $f$ which is natural for the metric. 
+
+\begin{question} Why is the function the function $f(x)=\langle x, a\rangle$,
+for $a \in \Snm1$,
+ $1$-Lipshitz?
+\end{question}
+We have
+$$
+    |f(x)-f(y)| = |\langle x- y, a\rangle | \le \|x-y\| \|a \| = \|x-y\| \le d(x,y) \, , 
+$$
+because $\|x-y\|$ is the chordal distance, the length of the geodesic in $\Rn$ between $x$ and $y$,
+whereas $d(x,y)$ measures the length of the shortest geodesic in the subset $\Snm1 \subset \Rn$.
+
+\begin{exc} Derive a concentration inequality of the form stated in \ref{prop:consnm1} in the special case $f(x) = \langle x, a\rangle$
+for any $ a \in \Snm1$.
+\end{exc}
+
+%\begin{proof}
+Without loss of generality, we can choose $a=(1, 0, 0, \dots, 0)$ after a suitable rotation of the sphere.
+The median of $f$ is then identified as $m_f=0$, because the ``northern'' hemisphere
+$$
+  \{ x \in \Snm1: \langle x,a\rangle \ge 0\} =  \{ x \in \Snm1: x_1 \ge 0\}
+$$
+has measure $1/2$ and so does its reflection about the origin.
+
+Consider the image measure $\rho_n$ on $[-1,1]$ induced by the projection of $\mu$ with $f$.
+It is absolutely continuous with respect to the Lebesgue measure and has a Radon-Nikodym derivative
+$$
+   d\rho_n(t) = A_n (1-t^2)^{(n-3)/2} dt \, ,
+$$
+with the normalization constant $A_n = \frac{\Gamma(n/2)}{\sqrt \pi \Gamma((n-1)/2)}$.
+We compute
+$$
+    \mu (\{ x \in \Snm1: |\langle x,a\rangle| \le \eps\}) = \rho_n([-\eps,\eps]) \, ,
+$$
+and use normalization and symmetry
+$$
+  \rho_n([-\eps,\eps]) = \int_{-\eps}^\eps A_n (1-t^2 )^{(n-3)/2} dt 
+  = 1 - 2 \int_\eps^1 A_n (1-t^2)^{(n-3)/2} dt \, . 
+$$
+The integrand is estimated on the interval $[\eps,1]$ by
+$$
+   1-t^2 \le e^{- t^2} \le e^{-(n-3)\eps^2/2} e^{-(n-3)(t-\eps)}
+$$
+where the exponent has been linearized about $t=\eps$.
+Further, extending the domain  to $[\eps, \infty)$ (if $n>3$) and performing the integration gives
+$$
+   \rho_n([-\eps,\eps]) \ge 1 - \frac{2 A_n}{n-3} e^{-(n-3)\eps^2/2}  \, .
+$$
+This bound is of the same exponential type as in \ref{prop:consnm1}.
+Now the constant $2A_n/(n-3)$ can be estimated with the help of Stirling's approximation,
+$$
+   \frac{2 A_n}{n-3} \approx \sqrt{\frac{2 e}{ n \pi }}
+$$
+which vanishes as $n \to \infty$. Thus, this estimate is asymptotically slightly better than the result for the general
+case in \ref{prop:consnm1}.
+%\end{proof}
+
+We summarize this  exercise informally by saying that the surface measure of the unit sphere in $\Rn$ is
+concentrated near the equator, or in any set containing the vicinity of a great arc.
+
+As we can see from the exercise, integration on the sphere is not straightforward. Fortunately, 
+we can derive many concentration results with a detour through Gaussian measures in $\Rn$.
+
+We will see that the Gaussian measure is in high dimensions close to the surface measure of an appropriately scaled sphere.
+
+\section{Wrapping the sphere in a Gaussian measure}
+
+The standard Gaussian measure $\gamma_1$ on $\mathbb R^1$ has the density
+$
+   \frac{1}{\sqrt{2\pi}} e^{-t^2/2} \, .
+$
+It can be verified that this is a probability measure, and so is the standard Gaussian measure $\gamma_n$ on $\Rn$
+with density 
+$$
+  \frac{1}{(2\pi)^{n/2}} e^{-\|x\|/2} \, ,
+$$
+so for a measurable set $A \subset \Rn$,
+$$
+  \gamma_n(A) = \int_A  \frac{1}{(2\pi)^{n/2}} e^{-\|x\|/2} dx \, .
+$$
+
+We will find that the function $x \mapsto \|x\|$ is almost constant with respect to the Gaussian measure,
+with value $\|x\|\approx \sqrt n$.
+This means, with respect to the standard Gaussian measure, most vectors are close to the sphere of radius $\sqrt n$. 
+
+\subsection{The Laplace transform}
+
+\begin{question} How do we estimate $\mu(\{x: f(x) \ge a\})$, $a \in \mathbb R$
+for some probability space $(X,\mathcal A, \mu)$?
+\end{question}
+
+We use a trick: Let $\lambda>0$, then 
+$$
+   f(x) \ge a \Leftrightarrow \lambda f \ge \lambda a \Leftrightarrow e^{\lambda f} \ge e^{\lambda a}\, .
+$$
+By positivity of the exponential function,
+$$
+   \int_X e^{\lambda f} d\mu \ge \int_{x\in X: f(x)\ge a} e^{\lambda f} d\mu
+$$
+and then using the lower bound for the exponential gives
+$$
+   \int_X e^{\lambda f} d\mu \ge \mu(\{x \in X: f(x) \ge a\}) e^{\lambda a} \, .
+$$
+Rearranging terms gives
+$$
+    \mu(\{x \in X: f(x) \ge a\}) \le e^{-\lambda a} \int_X e^{\lambda f} d\mu \, .
+$$
+The right hand side can often be computed for typical measures and functions. Finally,
+$\lambda$ can be chosen such that the right hand side becomes smallest. 
+
+Similarly,
+$$
+    \mu(\{x \in X: f(x) \le a\}) \le e^{\lambda a} \int_X e^{-\lambda f} d\mu \, .
+$$
+
+\end{document}
