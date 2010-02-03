@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.1.26)  28 JAN 2010 21:29
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.1.26)  3 FEB 2010 01:19
 entering extended mode
  file:line:error style messages enabled.
  %&-line parsing enabled.
@@ -240,30 +240,41 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 106.
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 133.
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
  []
 
 
-LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 151.
-
+Overfull \hbox (31.9522pt too wide) in paragraph at lines 149--150
+[]\OT1/cmss/m/n/12 The ``ef-fec-tive map'' be-tween $\OML/cmm/m/it/12 G[]\OT1/c
+mr/m/n/12 (\U/msb/m/n/12 R[]\OT1/cmr/m/n/12 )$ \OT1/cmss/m/n/12 is in-vari-ant 
+un-der $\OMS/cmsy/m/n/12 O\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 n\OT1/cmr/m/n/12 )$
+ \OT1/cmss/m/n/12 be-cause $\OML/cmm/m/it/12 O[]P[]\OT1/cmr/m/n/12 (\OML/cmm/m/
+it/12 O[]\OT1/cmr/m/n/12 )[] = \OML/cmm/m/it/12 O[]OP[]O[]\OT1/cmr/m/n/12 (\OML
+/cmm/m/it/12 O[]\OT1/cmr/m/n/12 )[]$
+ []
 
 [1
 
 {/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <8> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 213.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 215.
 
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <6> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 213.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 215.
 
 
 [2]
-Overfull \hbox (12.69035pt too wide) detected at line 223
+Overfull \hbox (12.69035pt too wide) detected at line 225
 \OML/cmm/m/it/12 ^^V[]\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 V \OM
 S/cmsy/m/n/12 2 \OML/cmm/m/it/12 G[]\OT1/cmr/m/n/12 (\U/msb/m/n/12 R[]\OT1/cmr/
 m/n/12 ); (1 \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^O\OT1/cmr/m/n/12 )\OMS/cms
@@ -279,7 +290,7 @@ y/m/n/12 g\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^U []
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 227.
+(amsmath)                 on input line 229.
 
 [3] (./new.aux) ) 
 Here is how much of TeX's memory you used:
@@ -289,7 +300,7 @@ Here is how much of TeX's memory you used:
  5610 multiletter control sequences out of 10000+200000
  15415 words of font info for 57 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 27i,17n,29p,439b,190s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 27i,17n,29p,366b,190s stack positions out of 5000i,500n,6000p,200000b,15000s
 </usr/share/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/shar
 e/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/bluesky
 /cm/cmmi8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/te
@@ -301,7 +312,7 @@ nts/type1/bluesky/cm/cmssi12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy1
 0.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy6.pfb></usr/share/texmf/font
 s/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti12.pf
 b></usr/share/texmf/fonts/type1/bluesky/ams/msbm10.pfb>
-Output written on new.pdf (3 pages, 84726 bytes).
+Output written on new.pdf (3 pages, 84714 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
