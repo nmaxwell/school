@@ -1,0 +1,287 @@
+    \documentclass[12pt]{article}
+\usepackage{geometry,amsthm,amsmath, amscd,amssymb, graphicx, natbib, float, enumerate}
+\geometry{margin=1in}
+\renewcommand{\familydefault}{cmss}
+%\usepackage{charter}
+\restylefloat{table}
+\restylefloat{figure}
+
+%%%%%%%%%%%% MODIFY LECTURE DATE AND AUTHOR %%%%%%%%%%%%%%%%%
+
+\newcommand\lecdat{Feb 11, 2010% INSERT LECTURE DATE HERE
+}
+\newcommand\notesby{Nick Maxwell% INSERT NOTE TAKER HERE
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\date{} % not needed
+\author{} % not needed
+
+%%%%%%%%%%% SOME MACROS BELOW %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\swapnumbers
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conclusion}{Conclusion}
+
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{remarks}[thm]{Remarks}
+%\newtheorem{rem}[thm]{Remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exc}[thm]{Exercise}
+%\newtheorem{fact}[thm]{Fact}
+\newtheorem{facts}[thm]{Facts}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{question}[thm]{Question}
+\newtheorem{answer}[thm]{Answer}
+\newtheorem{conj}[thm]{Conjecture}
+
+\renewcommand{\thethm}{\thesubsection.\arabic{thm}}
+
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\cl}[1]{\mathcal{#1}}
+\newcommand{\ff}[1]{\mathfrak{#1}}
+
+\newcommand{\norm}[1]{\|#1\|}
+\newcommand{\abs}[1]{|#1|}
+\def\eps{\epsilon}
+\def\del{\delta}
+
+\def\Sn{\mathbb S^n}
+\def\Snm1{\mathbb S^{n-1}}
+
+\def\R{\mathbb R}
+\def\Rn{\mathbb R^n}
+
+%%%%%%%%%%% PUT YOUR MACROS HERE %%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\pset}[1]{ \mathcal{P}(#1) }
+
+\newcommand{\nats}[0] { \mathbb{N}}
+\newcommand{\reals}[0] { \mathbb{R}}
+\newcommand{\exreals}[0] {  [-\infty,\infty] }
+%\newcommand{\eps}[0] {  \epsilon }
+\newcommand{\A}[0] { \mathcal{A} }
+\newcommand{\B}[0] { \mathcal{B} }
+\newcommand{\C}[0] { \mathcal{C} }
+\newcommand{\D}[0] { \mathcal{D} }
+\newcommand{\E}[0] { \mathcal{E} }
+\newcommand{\F}[0] { \mathcal{F} }
+\newcommand{\G}[0] { \mathcal{G} }
+\newcommand{\cO}[0] { \mathcal{O} } % curly O
+
+\newcommand{\om}[0] { \omega }
+\newcommand{\Om}[0] { \Omega }
+
+\newcommand{\Bl}[0] { \mathcal{B} \ell } %borel
+
+\newcommand{\st}[0]{ \; \textrm{s.t.} \; } 
+
+\newcommand{\IF}[0] { \; \textrm{if} \; }
+\newcommand{\THEN}[0] { \; \textrm{then} \; }
+\newcommand{\ELSE}[0] { \; \textrm{else} \; }
+\newcommand{\AND}[0]{ \; \textrm{ and } \;  }
+\newcommand{\OR}[0]{ \; \textrm{ or } \; }
+
+\newcommand{\rimply}[0] { \Rightarrow }
+\newcommand{\limply}[0] { \Lefttarrow }
+\newcommand{\rlimply}[0] { \Leftrightarrow }
+\newcommand{\lrimply}[0] { \Leftrightarrow }
+
+\newcommand{\rarw}[0] { \rightarrow }
+\newcommand{\larw}[0] { \leftarrow }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{{\bf High-Dimensional Measures and Geometry}\\
+Lecture Notes from \lecdat\\[0.1cm] \small taken by \notesby}
+
+\begin{document}
+\maketitle
+
+%\setcounter{section}{-1}
+
+
+We will rexamine the application of the martingale technique, with $\{ f_0, f_1, ..., f_n \}$. \\
+
+Let $f_k$ depend only on the first $k$ coordinates, so
+
+$$
+    f_k(x_1, x_2, ..., x_k, x_{k+1}, ..., x_n) = \int f_k(x_1, x_2, ..., x_k, x_1', x_2', ..., x'_{n-k}) d\mu_{n-k}(x') = 
+$$
+$$ 
+     \int f_k(x_1, x_2, ..., x_k, x_1', x_2', ..., x'_{n-k}) d\mu_{n-k}(x') = \sum_{i=1}^k x_i + (n-k) p
+$$
+
+Computing $E_{n-k} [ e^{\lambda g_k} ]$, $g_k = f_k - f_{k-1}$, instead of estimating, gives, by
+
+$$
+    g_k(x_1, ..., x_n) = f_k(x_1, ..., x_n) - f_{k-1}( x_1, ..., x_n) = x_k - p.
+$$
+
+that
+
+\begin{displaymath}
+   e^{\lambda g_k} = \left\{
+     \begin{array}{lr}
+       e^{\lambda(1-p)}, &  x_k=1\\
+       e^{-\lambda p}, &  x_k = 0
+     \end{array}
+   \right.
+\end{displaymath} 
+
+which gives,
+
+$$
+    E_{k-1} [ e^{\lambda g_k} ] = p e^{\lambda (1-p)} + (1-p) e^{- \lambda p }.
+$$
+
+Iterating as before, $n$ times,
+
+$$
+    E[ e^{\lambda ( f - a)} ] = \left( p e^{\lambda (1-p)} + (1-p) e^{- \lambda p } \right)^n.
+$$
+
+
+Now using the Laplace transform method,
+
+$$
+\mu_n( \{  x \in I_n; f(x) - np \ge t \} ) \le e^{-\lambda t}  \left( p e^{\lambda (1-p)} + (1-p) e^{-\lambda p } \right)^n.
+$$
+
+Aslo, switching $f \rarw -f$, $np \rarw -np$ gives
+
+$$
+\mu_n( \{  x \in I_n; f(x) - np \le t \} ) \le e^{-\lambda t}  \left( p e^{-\lambda (1-p)} + (1-p) e^{\lambda p } \right)^n.
+$$
+
+Choosing least $\lambda$ gives,
+
+$$
+\frac{t}{np(1-p)} = 1-e^{-\lambda} \rimply \lambda = -\log \left( 1- \frac{t}{np(1-p)} \right).
+$$
+
+If we now fix $np = \beta^2$, $p \rarw 0$, and as $t = \alpha \sqrt{ np(1-p)} \rarw \alpha \beta $  and $\lambda \rarw - \log(a-\frac{\alpha}{\beta})$, inserting this RHS estimate gives that
+
+$$
+\mu_n( \{  x \in I_n; f(x) - np \ge t \} ) \le e^{-\lambda t}  \left( (1-p) e^{\lambda p} + p e^{-\lambda (1-p) } \right)^n.
+$$
+
+Denote the RHS of this inequality as  `` $ e^{- \lambda t} \, *$ ''.
+
+Consider $*$ as $p \rarw 0$, $n \rarw \infty$, $p = \beta^2/n$ 
+
+$$
+\left( p e^{\lambda (1-p)} + (1-p) e^{-\lambda p } \right)^n =  \left( p e^{-\log(1-\alpha/\beta)} + 1 - p + \log(1-\alpha / \beta) p + C_n \, p^2 \right)^n,
+$$
+
+where $C_n$ stays constnt in $n$. So,
+
+$$
+* \rarw e^{\beta^2} (e^{- \log (1- \alpha / \beta)} + \log(1- \alpha / \beta ) )
+$$
+
+
+now, for small $\alpha_k$ and large $n$, 
+
+$$
+ * \approx e^{ \beta^2 ( \log(1- \alpha / \beta) )^2 /2 } \approx e^{ \alpha^2 /2}
+$$
+
+
+together with $ e^{\alpha \beta \lim (1- \alpha / \beta) } \approx e^{- \alpha^2}$. So, RHS is $\approx e^{- \alpha ^2 /2}$.
+
+
+
+\section{General result in product spaces}
+
+
+\begin{defn} If $g: \reals \rarw \reals$ is convex, then define its Legendre transform, $g^*$, by $g^*(x) = \sup_{\lambda \in \reals} \{t \lambda - g(\lambda) \}$. Note, $( t \lambda - g(\lambda) )$ is concave. If $g \in C^2(\reals)$ and $g$ is strictly convex, then this supremum is attained, and $\lambda^*$ solves $g'(\lambda^*) = t$ uniquely. So, $\lambda t$ and $g(\lambda)$ have same slope at $\lambda^*$.
+
+ADD diagram.
+\end{defn}
+
+
+Examples: $g(\lambda) = \lambda^2$, $g^*(t) = t^2/4$
+
+
+We will apply the Legendre transform to the function $L_f(\lambda) = \log \int_X e^{\lambda f} d\mu$. And by Jensen's inequality, and by convexity of $\exp$, $\int_X e^{\lambda f} d \mu \ge \exp \left(        \lambda \int_X f d\mu \right)$. So, $\log \int_X e^{\lambda f} \ge \log \exp \lambda \int f d \mu   = \lambda E[f] \in \reals$, which is bounded below in the vicinity of $\lambda = 0$. 
+
+
+Also, assuming existance,
+
+$$
+L'_f(\lambda) = \frac{E[f e^{\lambda f})}{E(e^{\lambda f }]}
+$$
+
+and,
+
+$$
+L''_f(\lambda) = \frac{ E[f^2 e^{\lambda f}]E[e^{\lambda f}]-(E[f e^{\lambda f}])^2 }{ (E[e^{\lambda f }])^2 },
+$$
+
+using Cauchy-Schwartz,
+
+$$
+(E[f e^{\lambda f}])^2  \le E[f^2 e^{\lambda f}] E[ e^{\lambda f}] ,
+$$
+
+so $L''_f(\lambda) \ge 0$, meaning that $L'_f$ is convex, so it is in the domain of the Legendre transformation.
+
+
+\begin{thm} (Varadhan's Lemma) 
+Let $(X, \mu)$ be a probability space, $f:\reals \rarw \reals$ and $t \in \reals$ $\st$
+
+1) $E[f] = a_f$
+
+2) $L_f(\lambda) = \log E[ e^{\lambda f}]$ is finite near $\lambda = 0$
+
+3) $t>a_f$ and $\mu( \{ x; f(c) > t\})>0$\\
+
+Let $X_n = \prod_{k=1}^n X$, $\mu_n = \mu \times \mu \times ... \times \mu$, and let $h: X_n \rarw \reals$, $h(x) = f(x_1) + f(x_2) + ... + f(x_n)$. Then,
+
+$$
+\lim_{n \rarw \infty} \frac{1}{n} \log \left( \mu \left( \{ x \in X_n; h(x) > n t \} \right) \right) = - L^*_f(t),
+$$
+
+where $L_f(\lambda) = \log \int_X e^{ \lambda f} d \mu$. Moreover, for all $n \in \nats$, 
+
+$$
+\mu \left( \{ x \in X_n; h(x) > n t \} \right) \le e^{ -n L^*_f(t) }.
+$$
+
+\end{thm}
+
+
+\begin{proof} 
+
+Only inequality part.
+
+$$
+\mu_n \left \{ x \in X_n; h(x) > n t\} \right) \le e^{ -n t \lambda} E[e^{\lambda h}] = \left(  e^{-t \lambda} E_{X_1} [ e^{\lambda f}] \right)^n =
+ \left(  e^{-t \lambda} e^{\log E[ e^{\lambda f}]} \right)^n =   e^{ -n( t \lambda  -L_f(\lambda))} 
+$$
+
+Optimizing this with respect to $\lambda$ gives 
+
+$$
+\mu_n \left \{ x \in X_n; h(x) > n t\} \right)  \le e^{ -n L^*_f(t)  } 
+$$
+    
+\end{proof}
+
+
+
+
+
+
+
+
+\end{document}
+

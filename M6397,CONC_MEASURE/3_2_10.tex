@@ -1,0 +1,157 @@
+    \documentclass[12pt]{article}
+\usepackage{geometry,amsthm,amsmath, amscd,amssymb, graphicx, natbib, float, enumerate}
+\geometry{margin=1in}
+\renewcommand{\familydefault}{cmss}
+%\usepackage{charter}
+\restylefloat{table}
+\restylefloat{figure}
+
+%%%%%%%%%%%% MODIFY LECTURE DATE AND AUTHOR %%%%%%%%%%%%%%%%%
+
+\newcommand\lecdat{Mar 3, 2010% INSERT LECTURE DATE HERE
+}
+\newcommand\notesby{Nick Maxwell% INSERT NOTE TAKER HERE
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\date{} % not needed
+\author{} % not needed
+
+%%%%%%%%%%% SOME MACROS BELOW %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\swapnumbers
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conclusion}{Conclusion}
+
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{remarks}[thm]{Remarks}
+%\newtheorem{rem}[thm]{Remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exc}[thm]{Exercise}
+%\newtheorem{fact}[thm]{Fact}
+\newtheorem{facts}[thm]{Facts}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{question}[thm]{Question}
+\newtheorem{answer}[thm]{Answer}
+\newtheorem{conj}[thm]{Conjecture}
+
+\renewcommand{\thethm}{\thesubsection.\arabic{thm}}
+
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\cl}[1]{\mathcal{#1}}
+\newcommand{\ff}[1]{\mathfrak{#1}}
+
+\newcommand{\norm}[1]{\|#1\|}
+\newcommand{\abs}[1]{|#1|}
+\def\eps{\epsilon}
+\def\del{\delta}
+
+\def\Sn{\mathbb S^n}
+\def\Snm1{\mathbb S^{n-1}}
+
+\def\R{\mathbb R}
+\def\Rn{\mathbb R^n}
+
+%%%%%%%%%%% PUT YOUR MACROS HERE %%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\pset}[1]{ \mathcal{P}(#1) }
+
+\newcommand{\nats}[0] { \mathbb{N}}
+\newcommand{\reals}[0] { \mathbb{R}}
+\newcommand{\exreals}[0] {  [-\infty,\infty] }
+%\newcommand{\eps}[0] {  \epsilon }
+\newcommand{\A}[0] { \mathcal{A} }
+\newcommand{\B}[0] { \mathcal{B} }
+\newcommand{\C}[0] { \mathcal{C} }
+\newcommand{\D}[0] { \mathcal{D} }
+\newcommand{\E}[0] { \mathcal{E} }
+\newcommand{\F}[0] { \mathcal{F} }
+\newcommand{\G}[0] { \mathcal{G} }
+\newcommand{\cO}[0] { \mathcal{O} } % curly O
+
+\newcommand{\om}[0] { \omega }
+\newcommand{\Om}[0] { \Omega }
+
+\newcommand{\Bl}[0] { \mathcal{B} \ell } %borel
+
+\newcommand{\st}[0]{ \; \textrm{s.t.} \; } 
+
+\newcommand{\IF}[0] { \; \textrm{if} \; }
+\newcommand{\THEN}[0] { \; \textrm{then} \; }
+\newcommand{\ELSE}[0] { \; \textrm{else} \; }
+\newcommand{\AND}[0]{ \; \textrm{ and } \;  }
+\newcommand{\OR}[0]{ \; \textrm{ or } \; }
+
+\newcommand{\rimply}[0] { \Rightarrow }
+\newcommand{\limply}[0] { \Lefttarrow }
+\newcommand{\rlimply}[0] { \Leftrightarrow }
+\newcommand{\lrimply}[0] { \Leftrightarrow }
+
+\newcommand{\rarw}[0] { \rightarrow }
+\newcommand{\larw}[0] { \leftarrow }
+
+\newcommand{ \defeq }[0] { \colonequals }
+\newcommand{ \eqdef }[0] { \equalscolon }
+
+\usepackage{colonequals}
+
+\newcommand{ \Ex }[1] { E\left[ #1 \right ] }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{{\bf High-Dimensional Measures and Geometry}\\
+Lecture Notes from \lecdat\\[0.1cm] \small taken by \notesby}
+
+\begin{document}
+\maketitle
+
+%\setcounter{section}{-1}
+
+\begin{thm} 
+
+If $f: \reals \rarw \reals$ is differentiable with $\Ex{f} = 0$, then $\Ex{f} \le \Ex{\exp(\frac{\pi^2}{8} || \nabla f || ^2)}$, assuming this RHS is finite. 
+
+\end{thm}
+
+
+\begin{proof} 
+
+$$
+    F(x,y) \defeq f(x) - f(y)
+$$
+$$
+    \Ex{e^f} \le \Ex{e^F} = \Ex{\exp\left( - \int_0^{\pi/2} \frac{\partial}{\partial \theta} G(x,y,\theta) \, d\theta    \right)} =
+     \Ex{\exp\left( - \int_0^{\pi/2}    \nabla f(x(\theta)) \cdot x'(\theta)      \, d\theta    \right)}
+$$
+
+\noindent
+with $G(x,y,\theta) = f(x(\theta)) = f(x \cos \theta, y \cos \theta )$, and $x'(\theta) = -x \sin \theta + y \cos \theta = y(\theta)$, which looks like rotation.
+
+$$
+\Ex{e^F} = \Ex{ \exp \left( -\frac{2}{\pi} \int_0^{\pi/2} \frac{\pi}{2} \frac{\partial}{\partial \theta} G(x,y, \theta) \, d\theta \right) } \overset{\textrm{Jensen}}{ \underset{\textrm{Fubini}}{\le} }
+\frac{2}{\pi}  \int_0^{\pi/2} \Ex{ \exp \left( - \frac{\pi}{2} \nabla f(x(\theta)) \cdot x'(\theta)   \right) } \, d\theta.
+$$
+
+
+Fix $\theta$, and change variavles, 
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+\end{document}
+
