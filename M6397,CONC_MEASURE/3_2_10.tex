@@ -8,7 +8,7 @@
 
 %%%%%%%%%%%% MODIFY LECTURE DATE AND AUTHOR %%%%%%%%%%%%%%%%%
 
-\newcommand\lecdat{Mar 3, 2010% INSERT LECTURE DATE HERE
+\newcommand\lecdat{Mar 2, 2010% INSERT LECTURE DATE HERE
 }
 \newcommand\notesby{Nick Maxwell% INSERT NOTE TAKER HERE
 }
@@ -41,6 +41,7 @@
 \newtheorem{question}[thm]{Question}
 \newtheorem{answer}[thm]{Answer}
 \newtheorem{conj}[thm]{Conjecture}
+\newtheorem{idea}[thm]{Idea}
 
 \renewcommand{\thethm}{\thesubsection.\arabic{thm}}
 
@@ -139,14 +140,79 @@ $$
 \frac{2}{\pi}  \int_0^{\pi/2} \Ex{ \exp \left( - \frac{\pi}{2} \nabla f(x(\theta)) \cdot x'(\theta)   \right) } \, d\theta.
 $$
 
+\noindent
+Fix $\theta$, and change variavles, $\tilde{x}_j = x_j \cos \theta + y_j \sin \theta,$ $\tilde{y} = -x_j \sin \theta + y_j \cos \theta$. Then,
 
-Fix $\theta$, and change variavles, 
+$$
+\Ex{ g(x,y) } = \Ex{ g( \tilde{x}, \tilde{y} )  },
+$$
 
+\noindent
+invariant under rotation. Thus by invartiance of measure, 
 
+$$
+\Ex{ e^F } \le \frac{2}{\pi} \int_0^{\pi/2} \Ex{ \exp \left( - \frac{\pi}{2} \nabla f(x) \cdot y\right) } \, d\theta = 
+ \frac{2}{\pi} \int_0^{\pi/2} \Ex{ \exp \left( \frac{\pi^2} {4} || \nabla (x) || ^2 / 2 \right) } \,d\theta = 
+$$
+
+$$
+ \Ex{ \exp\left(\frac{\pi^2} {4} || \nabla (x) || ^2 / 2 \right) }
+$$
 
 \end{proof}
 
 
+
+\begin{cor}
+
+If $f: \reals \rarw \reals$ is differentiable, with $|| \nabla f || \le 1$, and $a \defeq \Ex{f}$, then $\gamma_n\left( \{ x \in \reals^n; |f(x) - a| \le t\} \right) \ge 1 - 2 e^{-2 \frac{t^2}{\pi^2}}$
+
+\end{cor}
+
+\begin{proof}
+
+Let $\lambda \ge 0$, use Laplace transform method,
+
+$$
+\gamma_n \left(  \{ x; f(x) - a \ge t  \} \right) \le e^{-\lambda t} \Ex{ e^{\lambda(f-a)} } \le e^{-\lambda t} e^{\lambda^2 \pi^2 / 8},
+$$
+
+\noindent
+choosing $\lambda = \frac{4t}{\pi^2}$ gives
+
+$$
+\gamma \left( \{ x; |f(x) - a| \le  t \} \right) \ge 1 - 2 e^{ - \frac{2 t^2}{ \pi^2 L^2 } }
+$$
+
+\end{proof}
+
+\begin{question}
+ Can we use result for $\gamma_n$, and $\Phi = x \mapsto \frac{x}{||x||}$, to obtain concentration about the mean on spheres?   
+\end{question}
+
+\begin{idea}
+Extend differentiable 1-Lipschitz funcitons $f: S^{n-1} \rarw \reals $ to $\reals^n$, consider $g(x) = ||x|| f(\frac{x}{ ||x|| }) $. Then $g$ is differentiable when $f$ is (except at $x=0$).
+
+$$
+D_u g(x) = \left( D_u || x || \right) f\left(\frac{x}{||x||} \right) + ||x|| D_u f\left( \frac{x}{||x||} \right)
+$$
+
+
+$$
+| D_u g(x) | \le (1) ||f||_\infty +  \underset{ ||u|| = 1, u \cdot x = 0 } {\max} ||x|| D_u f \left( \frac{x}{||x||}\right) \le  || f||_\infty + 1.
+$$
+
+\noindent
+Now, if $\int f \, d\mu_n = 0$, then $||f||_\infty \le \frac{\pi}{2}$ because
+
+$$
+|f(x) - 0| =  |f(x) - \int_{S^{n-1}} f(x') \, d\mu_n(x') | = | \int_{s^{n-1}} (f(x) - f(y) ) \, d\mu_n(y) |  \underset{1-\textrm{lip.}}{\le} \int_{s^{n-1}} d(x,y) \,d\mu_n(y) = \frac{\pi}{2}
+$$
+
+As a consequence, if $f$ is differentiable on $S^{n-a}$ and 1-Lipschitx, then $g$ as defined above is differentiable on $\reals^n \setminus \{0\}$, and is 3-lipschitz.
+
+
+\end{idea}
 
 
 

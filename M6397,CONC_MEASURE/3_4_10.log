@@ -1,9 +1,9 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.3.11)  12 MAR 2010 03:05
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.3.11)  12 MAR 2010 04:10
 entering extended mode
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**2_11_10.tex
-(./2_11_10.tex
+**3_4_10.tex
+(./3_4_10.tex
 LaTeX2e <2005/12/01>
 Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
 yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, german, ng
@@ -176,21 +176,24 @@ Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@float@every@figure=\toks32
 \c@thm=\count105
 \c@conclusion=\count106
- (./2_11_10.aux)
-\openout1 = `2_11_10.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
+(/usr/share/texmf/tex/latex/oberdiek/colonequals.sty
+Package: colonequals 2006/08/01 v1.0 Colon equals symbols (HO)
+) (./3_4_10.aux)
+\openout1 = `3_4_10.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
 -------------------- Geometry parameters
 paper: class default
 landscape: --
@@ -230,69 +233,74 @@ driver: pdftex
 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
-LaTeX Font Info:    Try loading font information for U+msa on input line 106.
+LaTeX Font Info:    Try loading font information for U+msa on input line 114.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 106.
+LaTeX Font Info:    Try loading font information for U+msb on input line 114.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
- []
+LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 119.
+
 
 [1
 
 {/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (53.83852pt too wide) detected at line 187
+\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c\OT1/cmr
+/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it
+/12 x\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 j \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 j\O
+ML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \OMS/cmsy/
+m/n/12 ^^@ [] [][] \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/cm
+r/m/n/12 ) \OML/cmm/m/it/12 dy\OMS/cmsy/m/n/12 j \OT1/cmr/m/n/12 = \OMS/cmsy/m/
+n/12 j[] [][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/
+12 x\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\
+OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )) \OML/cmm/m/it/12 dy\OMS/cmsy/m/n/12 j ^^T [
+] [][] j\OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) 
+\OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y\OT1/
+cmr/m/n/12 )\OMS/cmsy/m/n/12 j \OML/cmm/m/it/12 dy \OT1/cmr/m/n/12 = [] = []\OM
+L/cmm/m/it/12 :
+ []
 
-LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 205.
-
-
-[2]
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <8> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 239.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 232.
 
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <6> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 239.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 232.
 
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 245--246
-
- []
-
-[3] (./2_11_10.aux) ) 
+[2] [3] (./3_4_10.aux) ) 
 Here is how much of TeX's memory you used:
- 2339 strings out of 256216
- 27073 string characters out of 1917072
- 85763 words of memory out of 1500000
- 5611 multiletter control sequences out of 10000+200000
+ 2375 strings out of 256216
+ 27560 string characters out of 1917072
+ 87832 words of memory out of 1500000
+ 5643 multiletter control sequences out of 10000+200000
  15415 words of font info for 57 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 27i,7n,29p,442b,190s stack positions out of 5000i,500n,6000p,200000b,15000s
-</usr/share/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/
-share/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/blu
-esky/cm/cmmi6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi8.pfb></usr/shar
-e/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/texmf/fonts/type1/bluesky/
-cm/cmr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr8.pfb></usr/share/texmf
-/fonts/type1/bluesky/cm/cmss10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cms
-s12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmss17.pfb></usr/share/texmf/f
-onts/type1/bluesky/cm/cmssbx10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cms
-si12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/
-fonts/type1/bluesky/cm/cmsy6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8
-.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti12.pfb></usr/share/texmf/font
-s/type1/bluesky/ams/msbm10.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msbm7.
-pfb>
-Output written on 2_11_10.pdf (3 pages, 93270 bytes).
+ 27i,5n,29p,449b,190s stack positions out of 5000i,500n,6000p,200000b,15000s
+</usr/share/texmf/fonts/type1/bluesky/cm/cmex10.pfb></u
+sr/share/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/
+bluesky/cm/cmmi6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi8.pfb></usr/s
+hare/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/texmf/fonts/type1/blues
+ky/cm/cmr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr8.pfb></usr/share/te
+xmf/fonts/type1/bluesky/cm/cmss10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
+cmss12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmss17.pfb></usr/share/texm
+f/fonts/type1/bluesky/cm/cmssbx10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
+cmssi12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/tex
+mf/fonts/type1/bluesky/cm/cmsy6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cm
+sy8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti12.pfb></usr/share/texmf/f
+onts/type1/bluesky/ams/msbm10.pfb>
+Output written on 3_4_10.pdf (3 pages, 97633 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
+ 80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

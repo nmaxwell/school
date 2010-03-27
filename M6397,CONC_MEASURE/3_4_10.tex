@@ -1,0 +1,253 @@
+    \documentclass[12pt]{article}
+\usepackage{geometry,amsthm,amsmath, amscd,amssymb, graphicx, natbib, float, enumerate}
+\geometry{margin=1in}
+\renewcommand{\familydefault}{cmss}
+%\usepackage{charter}
+\restylefloat{table}
+\restylefloat{figure}
+
+%%%%%%%%%%%% MODIFY LECTURE DATE AND AUTHOR %%%%%%%%%%%%%%%%%
+
+\newcommand\lecdat{Mar 2, 2010% INSERT LECTURE DATE HERE
+}
+\newcommand\notesby{Nick Maxwell% INSERT NOTE TAKER HERE
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\date{} % not needed
+\author{} % not needed
+
+%%%%%%%%%%% SOME MACROS BELOW %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\swapnumbers
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conclusion}{Conclusion}
+
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{remarks}[thm]{Remarks}
+%\newtheorem{rem}[thm]{Remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exc}[thm]{Exercise}
+%\newtheorem{fact}[thm]{Fact}
+\newtheorem{facts}[thm]{Facts}
+\newtheorem{prob}[thm]{Problem}
+\newtheorem{question}[thm]{Question}
+\newtheorem{answer}[thm]{Answer}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{idea}[thm]{Idea}
+
+\renewcommand{\thethm}{\thesubsection.\arabic{thm}}
+
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\cl}[1]{\mathcal{#1}}
+\newcommand{\ff}[1]{\mathfrak{#1}}
+
+\newcommand{\norm}[1]{\|#1\|}
+\newcommand{\abs}[1]{|#1|}
+\def\eps{\epsilon}
+\def\del{\delta}
+
+\def\Sn{\mathbb S^n}
+\def\Snm1{\mathbb S^{n-1}}
+
+\def\R{\mathbb R}
+\def\Rn{\mathbb R^n}
+
+%%%%%%%%%%% PUT YOUR MACROS HERE %%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\pset}[1]{ \mathcal{P}(#1) }
+
+\newcommand{\nats}[0] { \mathbb{N}}
+\newcommand{\reals}[0] { \mathbb{R}}
+\newcommand{\exreals}[0] {  [-\infty,\infty] }
+%\newcommand{\eps}[0] {  \epsilon }
+\newcommand{\A}[0] { \mathcal{A} }
+\newcommand{\B}[0] { \mathcal{B} }
+\newcommand{\C}[0] { \mathcal{C} }
+\newcommand{\D}[0] { \mathcal{D} }
+\newcommand{\E}[0] { \mathcal{E} }
+\newcommand{\F}[0] { \mathcal{F} }
+\newcommand{\G}[0] { \mathcal{G} }
+\newcommand{\cO}[0] { \mathcal{O} } % curly O
+
+\newcommand{\om}[0] { \omega }
+\newcommand{\Om}[0] { \Omega }
+
+\newcommand{\Bl}[0] { \mathcal{B} \ell } %borel
+
+\newcommand{\st}[0]{ \; \textrm{s.t.} \; } 
+
+\newcommand{\IF}[0] { \; \textrm{if} \; }
+\newcommand{\THEN}[0] { \; \textrm{then} \; }
+\newcommand{\ELSE}[0] { \; \textrm{else} \; }
+\newcommand{\AND}[0]{ \; \textrm{ and } \;  }
+\newcommand{\OR}[0]{ \; \textrm{ or } \; }
+
+\newcommand{\rimply}[0] { \Rightarrow }
+\newcommand{\limply}[0] { \Lefttarrow }
+\newcommand{\rlimply}[0] { \Leftrightarrow }
+\newcommand{\lrimply}[0] { \Leftrightarrow }
+
+\newcommand{\rarw}[0] { \rightarrow }
+\newcommand{\larw}[0] { \leftarrow }
+
+\newcommand{ \defeq }[0] { \colonequals }
+\newcommand{ \eqdef }[0] { \equalscolon }
+
+\usepackage{colonequals}
+
+\newcommand{ \Ex }[1] { E\left[ #1 \right ] }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{{\bf High-Dimensional Measures and Geometry}\\
+Lecture Notes from \lecdat\\[0.1cm] \small taken by \notesby}
+
+\begin{document}
+\maketitle
+
+%\setcounter{section}{-1}
+
+\begin{proof} 
+
+Consider the extention, $g$, of $f$ to all of $\reals^n$, Let $G(x,y) = g(x) - g(y)$, then
+
+$$
+    E_{\mu_n \times \mu_n } \left[  e^{ f(x) - f(y) }   \right] = E_{ \tilde{\gamma}_{2n} } \left[  e^{G(x,y)}   \right],
+$$
+
+\noindent
+$\tilde{\gamma}_{2n} $ with density $ \frac{1}{\left( 2 \pi \sigma^2 \right)^n} e^{\frac{-||x||^2}{2 \sigma^2}} $, where $\sigma$ is chosen appropriately, `(so sum of random variables variance = 1)'. Then,
+
+$$
+ E_{ \tilde{\gamma}_{2n}} \left[  e^{G(x,y)}  \right] \le E_{ \tilde{\gamma}_{2n} } \left[ e^{ \frac{ \pi^2} { 8 } } || \nabla f||^2 \sigma^2  \right]
+$$
+
+\noindent
+so, if $|| \nabla g|| \le 3$, then we conclude that
+
+$$
+E_{\mu_n} \left[ e^{\lambda f} \right] \le e^{ 9 \pi^2 (\lambda \sigma ) ^2 / 8 },
+$$
+ 
+ \noindent
+ we know that as $n \rarw \infty$, $n \sigma^2 \rarw 1$. Using the Laplace transform method,
+ 
+ $$
+ \mu_n \left( \{ x\in S^{n-1}; f(x) \ge t \}   \right) \le e^{-\lambda t} \Ex{ e^{\lambda f}} \le e^{- t \lambda } \exp( 9 \pi^2 (\lambda \sigma) ^2 /8) \rimply 
+ $$
+
+$$
+ \mu \left( \{ x \in S^{n-1}; f(x) \ge t \} \right) \le e^{ \frac{-2t^2}{9 \pi^2 \sigma^2}}
+$$
+ 
+\end{proof}
+
+
+\begin{question}
+How much smaller is the set of differentiable functions with $|| \nabla f||^2 \le 1$ compared to 1-Lipschitz functions?
+\end{question}
+
+\begin{answer}
+Smaller by ``$\epsilon$''. Prove that any 1-Lipschitx function can be approximated uniformly by differentiable functions.
+\end{answer}
+
+\begin{thm}
+Let $f: \reals^n \rarw \reals$ be 1-Lipschitz, define the localized averages $f(x) = \frac{1}{|B_\epsilon|(x)} \int_{B_\epsilon|(x)} g(y) \, dy$, where $B_\epsilon|(x) = \{ y \in \reals^n; ||x-y \le \epsilon\}$. Then $f$ is differentiable, and for all $x \in \reals$, $|f(x) \ g(x)| \le \frac{ \epsilon n }{n+1} \le \epsilon$, and $|| \nabla f|| = 1$.
+
+\end{thm}
+
+\begin{proof}
+First, check $n=1$, then
+
+$$
+f(x) = \frac{1}{2 \epsilon} \int_{x-\epsilon}^{x+\epsilon} g(y) \, dy 
+$$
+
+\noindent
+and by the fundamental theorem of calculus, $f$ is differentiable:
+
+$$
+f'(x) = \frac{1}{2 \epsilon} \left[ g(x+ \epsilon) - g(x - \epsilon) \right], |f'(x)| = \frac{1}{2 \epsilon} | g(x+ \epsilon) - g(x - \epsilon) | \le \frac{1}{2 \epsilon} (2 \epsilon) = 1.
+$$
+
+\noindent
+Moreover,
+
+$$
+| f(c) - g(x)| = | g(x) -   \frac{1}{2 \epsilon} \int_{x-\epsilon}^{x+\epsilon} g(y) \, dy | =  | \frac{1}{2 \epsilon} \int_{x-\epsilon}^{x+\epsilon} (g(x) - g(y)) \, dy | \le 
+\frac{1}{2 \epsilon} \int_{x-\epsilon}^{x+\epsilon} |g(x) - g(y)| \, dy  = \frac{ \epsilon^2}{ 2 \epsilon} = \frac{\epsilon}{2} .
+$$
+
+In higher dimensions, similar analysis works. We only prove that $D_u f(x) = \nabla f(c) \cdot u, ||u|| = 1$ gives $|D_u f(x| \le 1$. Without loss of generality, $x=0$, $u = (1,0,...,0)$.  Have $D_u  f(0) = \frac{d}{dt} f(t u)|_{t=0}$. Define the disk $D_\epsilon = \{  x \in \reals^n; x \perp u, ||x|| \le \eps \}$. We compute $f(x)$ in cylindrical coordinates,
+
+$$
+    f(tu) = \frac{1}{|B_\epsilon|} \int_{B_\epsilon + t_u} g(z) \, dz = \frac{1}{|B_\epsilon|} \int_{D_\epsilon} \int_{t - \sqrt{\epsilon^2 - ||y||^2}}^{t + \sqrt{\epsilon^2 - ||y||^2}} g(y+s e_1) \, ds \, dy,
+$$
+
+\noindent
+where $e_1 = (1,0, 0,.)$, so 
+
+$$
+\frac{d}{dt} f(tu) |_{t=0} = \frac{1}{|B_\epsilon|} \left| \int_{D_\epsilon} \left( g(y +  \sqrt{\epsilon^2 + ||y||^2}e_1 ) - g(y +  \sqrt{\epsilon^2 - ||y||^2}e_1 ) \right)  \, dy \right|
+$$
+
+$$
+\le \frac{1}{|B_\epsilon|} \int_{D_\epsilon} 2 \sqrt{ \epsilon^2 - ||y||^2} \, dy = \frac{|B_\epsilon|}{|B_\epsilon|} = 1 \rimply
+$$
+
+$$
+| D_\epsilon f| \le 1, \; \forall \; u \in \textrm{Ball}(\reals^n)
+$$.
+
+
+\noindent
+Moreover, 
+
+$$
+    |f(0) - g(0)| = \frac{1}{|B_\epsilon|}  \left| \int_{D_\epsilon} (g(y) - g(0))\right| \le  \frac{1}{|B_\epsilon|}  \int_{D_\epsilon} |g(x) - g(0)|| \, dy = \frac{ |S^{n-1} |}{|B_\epsilon|} \int_0^\epsilon r^n \, dr  
+$$
+
+$$
+    = \frac{\epsilon^{n+1} }{n+1} \frac{ |S^{n-1}|}{ \epsilon^n |B_1| } = \frac{\epsilon }{n+1} \frac{ |S^{n-1}|}{  |B_1| }  = \frac{ n \epsilon  }{n+1}
+$$
+
+    
+%$D_u f(x) = \nabla f(c) \cdot u, ||u|| = 1$ gives $|D_u|$
+
+\end{proof}
+
+
+Back to concentration, we now know that $f$ concnetrates on a set of large measure, but where? Given an $\epsilon$, and 1-Lipschitz function $f: S^{n-1} \rarw \reals$, then there exists a subspace $V \subset \reals^n$, $\textrm{dim}(V)$ linear in n, s.t. $f_{V \cap S^{n-1}}$ is $\epsilon-$close  to a constant. Note, $S^{n-1}$ is $(n-1)$-sphere, $S^{n-1} \cap V$ is again a unit sphere of dimension $\textrm{dim}(V)-1$.
+
+\begin{thm}
+
+There exists a universal constant, $\kappa >0$, s.t. $\epsilon>0, \forall n \in \nats$, any 1-Lipschitz function $f:S^{n-1} \rarw \reals$ there exists a constant, $C$ (e.g. median or averge) and a subspace $V \subset \reals^n$, s.t. $|f(x) - C| \le \epsilon \forall x \in V \cap S^{n-1}$ and $\textrm{dim}(V) \ge \frac{\kappa \epsilon^2}{\ln(1/ \epsilon)} n$.
+
+\end{thm}
+
+To prove this, we begin with a lemma about equidistributed points on the sphere
+
+\begin{lemma}
+Given $n$-dimensional vector space $W$, with norm $|| \cdot ||$ and $ \Sigma = \{ x \in W; ||x|| = 1 \}$, then $\forall \delta > 0, \exists S \subset \Sigma$ with 
+
+1) $\forall x \in S$, $\inf \{  || y-x||; y \in A, y \not = x \} \le \delta$
+
+2) $|S| \le ( 1 + \frac{2}{\delta})^n$
+
+The same is true for appropriate sets in $\{ x \in W; ||x|| =1 \}$.
+
+\end{lemma}
+
+
+
+
+\end{document}
+

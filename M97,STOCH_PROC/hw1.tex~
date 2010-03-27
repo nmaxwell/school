@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{colonequals}
+
+\setlength\topmargin{-1in}
+\setlength{\oddsidemargin}{-0.5in}
+%\setlength{\evensidemargin}{1.0in}
+
+%\setlength{\parskip}{3pt plus 2pt}
+%\setlength{\parindent}{30pt}
+%\setlength{\marginparsep}{0.75cm}
+%\setlength{\marginparwidth}{2.5cm}
+%\setlength{\marginparpush}{1.0cm}
+\setlength{\textwidth}{7.5in}
+\setlength{\textheight}{10in}
+
+
+\usepackage{listings}
+
+
+
+
+\newcommand{\pset}[1]{ \mathcal{P}(#1) }
+\newcommand{\partset}[1]{ \mathcal{P}^{*}(#1) }
+\newcommand{\st}[0]{ \textrm{ s.t. } }
+\newcommand{\fall}[0] { \textrm{ for all } }
+\newcommand{\wrt}[0] { \textrm{ w.r.t. } }
+\newcommand{\then}[0] { \textrm{ then } }
+
+\newcommand{\nats}[0] { \mathbb{N}}
+\newcommand{\reals}[0] { \mathbb{R}}
+\newcommand{\ints}[0] { \mathbb{Z}}
+\newcommand{\cmplxs}[0] { \mathbb{C}}
+\newcommand{\complexes}[0] { \mathbb{C}}
+\newcommand{\exreals}[0] {  [-\infty,\infty] }
+\newcommand{\eps}[0] {  \epsilon }
+\newcommand{\A}[0] { \mathcal{A} }
+\newcommand{\B}[0] { \mathcal{B} }
+\newcommand{\C}[0] { \mathcal{C} }
+\newcommand{\D}[0] { \mathcal{D} }
+\newcommand{\E}[0] { \mathcal{E} }
+\newcommand{\F}[0] { \mathcal{F} }
+\newcommand{\G}[0] { \mathcal{G} }
+\newcommand{\M}[0] { \mathcal{M} }
+\newcommand{\U}[0] { \mathcal{U} }
+\newcommand{\V}[0] { \mathcal{V} }
+\newcommand{\W}[0] { \mathcal{W} }
+\newcommand{\cS}[0] { \mathcal{S} }
+
+\newcommand{\om}[0] { \omega }
+\newcommand{\Om}[0] { \Omega }
+
+\newcommand{\Bl}[0] { \mathcal{B} \ell }
+
+\newcommand{\Ell}[0] { \mathcal{L} }
+
+
+\renewcommand{\Re}{ \operatorname{Re} }
+\renewcommand{\Im}{ \operatorname{Im} }
+
+\newcommand{\IF}[0] { \; \textrm{if} \; }
+\newcommand{\THEN}[0] { \; \textrm{then} \; }
+\newcommand{\ELSE}[0] { \; \textrm{else} \; }
+\newcommand{\AND}[0]{ \; \textrm{ and } \;  }
+\newcommand{\OR}[0]{ \; \textrm{ or } \; }
+
+\newcommand{\rimply}[0] { \Rightarrow }
+\newcommand{\limply}[0] { \Lefttarrow }
+\newcommand{\rlimply}[0] { \Leftrightarrow }
+\newcommand{\lrimply}[0] { \Leftrightarrow }
+
+\newcommand{\rarw}[0] { \rightarrow }
+\newcommand{\larw}[0] { \leftarrow }
+
+\newcommand{ \defeq }[0] { \colonequals }
+\newcommand{ \eqdef }[0] { \equalscolon }
+%\newcommand{ \cf }[1] { \chi_{_{#1}} }
+\newcommand{ \cf }[1] { \mathbf{1}_{#1} }
+
+
+\begin{document}
+
+$(\Om, \U, P)$ a probability space.
+
+\section*{Problem 1}
+
+$Z: \Om \rarw \{ 0, 1\}$, measurable, $P(Z^{-1}(\{1\})) = P(Z^{-1}(\{0\})) = 0.5 $, so let $A = Z^{-1}(\{1\}), B = A^c$, then $\A \defeq \{ \phi, A, B, A \cup B \}$ is a $\sigma$-algebra, $\Om = A \cup B, A \cap B = \phi$, and $Z$ is $\A$-measurable, so we have $Z = \cf{A}$.\\
+
+\noindent
+Let $X_n : \Om^n \rarw \{ 1,2,...,n\}$, for $\om \in \Om^n$, write $\om = (\om_k)$, then set $X_n( (\om_k) ) = \sum_{k=1}^n Z(\om_k)$. \\
+
+\noindent 
+Then $X_n^{-1}(\{n\}) = A \times A \times ... \times A$, $n$-times. $X_n^{-1}(\{n-1\}) = B \times A \times ... \times A \cup A \times B \times A \times ... \times A \cup ... \cup  A \times A \times ... \times A \times B$, $...$, $X_n^{-1}(\{0\}) = B \times B \times ... \times B$. So for any $0 \le k \le n$, $X_n^{-1}(\{k\})$ is a union of all permutations of cartesian products of $k$ many sets $A$, and $n-k$ many sets $B$, and so is a union of measurable rectangles of sets from $\A$, and so  $X_n^{-1}(\{k\}) \in \A \times \A \times ... \times \A \eqdef \A^n$, the product $\sigma$-algebra.\\
+
+\noindent
+Let $P^n$ be the product measure on $\A^n$,  i.e., $P^n = P \times P \times ... \times P$, $n$-times. Then $E_{P^n}[ f ] = \int_{\Om^n} f \, dP^n$ = 
+$ \int  $. By Fubini's theorem, $E_{P^n}[ \cf{A} ] = \int_\Om \left( ... \left( \int_\Om \cf{A} \, dP  \right) ... \right)  dP  =  \int_\Om \left( ...  \int_\Om  \left( P(A)  \right) dP ... \right)  dP = P(A)  \int_\Om \left( ...  \int_\Om  \left( 1  \right) dP ... \right)  dP $ = $P(A) \cdot 1 = P(A)$. Thus $ E_{P^n}[ X_n ] = \sum_{k=1} ^n  E_{P^n}[ Z ] = \sum_{k=1} ^n  E_{P^n}[ \cf{A} ] =  \sum_{k=1} ^n  P(A) = \frac{1}{2} n $\\
+
+\noindent
+So, with $X(\om', (\om_k)) = \sum_{k=1}^{N(\om')} Z(\om_k)$, where $N(\om') = \sum_{k=1}^4 k \cf{A_k}(\om')$, $P(A_1) = 0.5, P(A_2) = 0.1, P(A_3) = 0.2, P(A_4) = 0.2$, and $\{A_k\}$ are independent events, $\Om = \cup_k A_k$. So $E[X|N] = \sum_{k=1}^4 \frac{1}{P(A_k)} E[\cf{A_k}X] \cf{A_k}$. Now $E[ \cf{A_k}X ] = \int_{\Om \times \Om^4} \cf{A_k}X \,d(P \times P^4)    $ $= \int_{\Om \times \Om^4} \cf{A_k}(\om') \sum_{k=1}^{N(\om')} \cf{A}(\om_k) \,d(P \times P^4)   $
+
+
+\section*{Problem 2}
+
+Consider the discrete stochastic process, $X: \nats \times \Om \rarw \ints$, where $X_0 > 0$, $X_{n+1} = 0$ if $X_n=0$, and if $X_n>0, \then X_{n+1} = X_n \pm 1$ with each half probability.\\
+
+1) $X$ is a non-negative martingale. First, we already have that $X_0$ is positive, suppose that $X_n > 0$, then by definition, $X_{n+1} = X_n \pm 1 > 0$, then and if $X_n = 0$ then $X_{n+1} = 0 \ge 0$, so by induction, $X_n \ge 0 \fall x\in \nats$. 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
