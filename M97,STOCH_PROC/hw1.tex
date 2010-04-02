@@ -51,6 +51,9 @@
 \newcommand{\U}[0] { \mathcal{U} }
 \newcommand{\V}[0] { \mathcal{V} }
 \newcommand{\W}[0] { \mathcal{W} }
+\newcommand{\X}[0] { \mathcal{X} }
+\newcommand{\Y}[0] { \mathcal{Y} }
+\newcommand{\Z}[0] { \mathcal{Z} }
 \newcommand{\cS}[0] { \mathcal{S} }
 
 \newcommand{\om}[0] { \omega }
@@ -108,13 +111,51 @@ So, with $X(\om', (\om_k)) = \sum_{k=1}^{N(\om')} Z(\om_k)$, where $N(\om') = \s
 
 \section*{Problem 2}
 
-Consider the discrete stochastic process, $X: \nats \times \Om \rarw \ints$, where $X_0 > 0$, $X_{n+1} = 0$ if $X_n=0$, and if $X_n>0, \then X_{n+1} = X_n \pm 1$ with each half probability.\\
+Consider the discrete stochastic process, $X: \nats \times \Om \rarw \ints$, where $X_0 > 0$, $X_{n+1} = 0$ if $X_n=0$, and if $X_n>0, \then X_{n+1} = X_n \pm 1$ with each half probability. $X_0$ is a parameter of the process; it is not a random variable.\\
 
-1) $X$ is a non-negative martingale. First, we already have that $X_0$ is positive, suppose that $X_n > 0$, then by definition, $X_{n+1} = X_n \pm 1 > 0$, then and if $X_n = 0$ then $X_{n+1} = 0 \ge 0$, so by induction, $X_n \ge 0 \fall x\in \nats$. 
+1) $X$ is a non-negative martingale. First, we already have that $X_0$ is positive, suppose that $X_n > 0$, then by definition, $X_{n+1} = X_n \pm 1 > 0$, then and if $X_n = 0$ then $X_{n+1} = 0 \ge 0$, so by induction, $X_n(\om) \ge 0 \fall x\in \nats$, $X_n(\om) = |X_n(\om)|$. \\
 
 
- 
 
+
+\section*{Problem 3}
+
+$X:\nats \times \Om \rarw \nats$, let $\mathbb{P}_k = (P_{k,i,j}), P_{k,i,j} = P(\{ X_{k+1} = i \} | \{X_k = j \})$, $x_k = (x_{k,i}), x_{k,i} = P(\{ X_k = i\})$. Claim: $x_{k+1} = \mathbb{P}_k x_k$, so $x_{k+1,i} = \sum_j P_{k,i,j} x_{k,j}$. Proof: $P_{k,i,j}  = P(\{ X_{k+1} = i \} | \{ X_k = j \}) = \frac{ P(\{ X_{k+1} = i\} \cap \{ X_k = j \}) } { P(\{X_k = i  \}) }$, so $ \sum_j P_{k,i,j} x_{k,j} = \sum_j \frac{ P(\{ X_{k+1} = i\} \cap \{ X_k = j \}) } { P(\{X_k = j  \}) } \cdot P(\{X_k = j  \}) $ = $\sum_j P(\{ X_{k+1} = i\} \cap \{ X_k = j \}) $, now  $ \{ X_{k} = j_1\} \cap \{ X_{k} = j_2\} = \phi $ when $i_1 \not = j_2$, becasue inverse images commute with intersections, then  $ \sum_j P_{k,i,j} x_{k,i}  = P \left( \cup_j \left( \{ X_{k+1} = i\} \cap \{ X_k = j \}  \right) \right) =  P \left( \{ X_{k+1} = i \}  \cap \cup_j \{ X_{k} = j\} \right)$, by countable additivity. Now, $\cup_{j \in \nats} \{ X_{k} = j\} = \Om$, so $\sum_j P_{k,i,j} x_{k,i}  =  P \left( \{ X_{k+1} = i \} \right) = x_{k+1} $, and the claim is proved. \\
+
+If $\Om = \cup_k E_k, \{E_k \}$ is disjoint, $A, E_k \in \U$, then $\sum_k P(E_k | A ) = \sum_k \frac{(P(E_k \cap A)}{P(A)} = \frac{1}{P(A)} P \left(  \cup_k (E_k \cap A )\right) = $ 
+$\frac{1}{P(A)} P \left( A \cap \cup_k (E_k  )\right) = \frac{1}{P(A)} P \left( A \cap \Om \right) = 1$. Then, $X_k^{-1}(i), i \in \nats$ generates a measurable disjoint partition of $\Om$, thus $ \sum_{i \in \nats} P_{k,i,j} = \sum_{i \in \nats} P(\{ X_{k+1} = i \} | \{X_k = j \}) = 1$. So the columns of $\mathbb{P}$ are are normalized, i.e. they sum to one. Then, if $x_k$ is normalized in the same sense, so $\sum_i x_i = 1$, and all $x_i \ge 0$, then $x_{k+1} = \mathbb{P} x_k$, $ \sum_i x_{k+1,i} = \sum_i \sum_j P_{k,i,j} x_{k,j} = \sum_j \sum_i P_{k,i,j} x_{k,j} $ $ = \sum_j  x_{k,j} \sum_i P_{k,i,j} $  $ = \sum_j  x_{k,j} \cdot 1 $ $ = 1$, because all pobabilities are non-negative, as are the entries in $x_k$, and clearly $x_{{k+1},i} \ge 0$ for all $i$. This shows that $\mathbb{P}$ preserves normalization, we we'd expect.
+
+
+\section*{Problem 4}
+
+
+\section*{Problem 5}
+
+%Now, $P(\{ \om \in \Om;  X_{n+1}(\om) \le X_n(\om) + 1 \}) = 1$, by hypothesis, then $P(\{ \om \in \Om;  X_{n+1}(\om) > X_n(\om) + 1 \}) = 0$, and so by absolute continuity $E[X_{n+1} \cf{\{ \om \in \Om; X_{n+1}(\om) > X_n(\om) + 1\}} ]=0$. Then, 
+
+%$$
+%E[X_{n+1}] = E[X_{n+1} \cf{\{X_{n+1} \le X_n + 1\}} ] + E[X_{n+1} \cf{\{  X_{n+1}> X_n+ 1\}} ] = E[X_{n+1} \cf{\{  X_{n+1} \le X_n+ 1\}} ] \le 
+%$$
+%$$
+%E \left( \sup(\{ X_{n+1}(\om); \om \in \Om, X_{n+1}(\om) \le X_n(\om) + 1  \}) \cf{\{  \om \in \Om; X_{n+1}(\om) \le X_n(\om) + 1  \}}  \right) =
+%$$
+%$$
+% \sup(\{ X_{n+1}(\om); \om \in \Om, X_{n+1}(\om) \le X_n(\om) + 1  \}) P(  \{ \om \in \Om; X_{n+1}(\om) \le X_n(\om) + 1  \} ) = 
+%$$
+%$$
+%\sup(\{ X_{n+1}(\om); \om \in \Om, X_{n+1}(\om) \le X_n(\om) + 1  \}) 
+%$$
+%$$
+%\sup(\{ X_{n}(\om); \om \in \Om, X_{n}(\om) \le X_{n-1}(\om) + 1  \}) 
+%5$$
+%%\noindent
+%Then, iterating, 
+
+%$$
+%E[X_{n+m}] \le \sup(\{ X_{n+m}(\om); \om \in \Om, X_{n+m}(\om) \le X_n(\om) + m  \}) 
+%$$
+
+%Clearly, $\sup( \{X_{n+1}(\om); \om \in \Om \} ) = X_{n}(\om)+1$, so by induction, $\sup( \{X_n(\om) ; \om \in \Om \} ) = X_0 + n$. Then, $E[X_n] \le E[ \sup(\{X_n(\om); \om \in \Om\}) ] = \sup(\{X_n(\om); \om \in \Om\}) E[ \cf{\Om} ] = \sup(\{X_n(\om); \om \in \Om\}) = X_0 + n < \infty$. 
 
 
 
