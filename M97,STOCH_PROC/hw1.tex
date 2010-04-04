@@ -32,6 +32,8 @@
 \newcommand{\fall}[0] { \textrm{ for all } }
 \newcommand{\wrt}[0] { \textrm{ w.r.t. } }
 \newcommand{\then}[0] { \textrm{ then } }
+%\newcommand{\if}[0] { \textrm{ if } }
+%\newcommand{\else}[0] { \textrm{ else } }
 
 \newcommand{\nats}[0] { \mathbb{N}}
 \newcommand{\reals}[0] { \mathbb{R}}
@@ -123,13 +125,131 @@ Consider the discrete stochastic process, $X: \nats \times \Om \rarw \ints$, whe
 $X:\nats \times \Om \rarw \nats$, let $\mathbb{P}_k = (P_{k,i,j}), P_{k,i,j} = P(\{ X_{k+1} = i \} | \{X_k = j \})$, $x_k = (x_{k,i}), x_{k,i} = P(\{ X_k = i\})$. Claim: $x_{k+1} = \mathbb{P}_k x_k$, so $x_{k+1,i} = \sum_j P_{k,i,j} x_{k,j}$. Proof: $P_{k,i,j}  = P(\{ X_{k+1} = i \} | \{ X_k = j \}) = \frac{ P(\{ X_{k+1} = i\} \cap \{ X_k = j \}) } { P(\{X_k = i  \}) }$, so $ \sum_j P_{k,i,j} x_{k,j} = \sum_j \frac{ P(\{ X_{k+1} = i\} \cap \{ X_k = j \}) } { P(\{X_k = j  \}) } \cdot P(\{X_k = j  \}) $ = $\sum_j P(\{ X_{k+1} = i\} \cap \{ X_k = j \}) $, now  $ \{ X_{k} = j_1\} \cap \{ X_{k} = j_2\} = \phi $ when $i_1 \not = j_2$, becasue inverse images commute with intersections, then  $ \sum_j P_{k,i,j} x_{k,i}  = P \left( \cup_j \left( \{ X_{k+1} = i\} \cap \{ X_k = j \}  \right) \right) =  P \left( \{ X_{k+1} = i \}  \cap \cup_j \{ X_{k} = j\} \right)$, by countable additivity. Now, $\cup_{j \in \nats} \{ X_{k} = j\} = \Om$, so $\sum_j P_{k,i,j} x_{k,i}  =  P \left( \{ X_{k+1} = i \} \right) = x_{k+1} $, and the claim is proved. \\
 
 If $\Om = \cup_k E_k, \{E_k \}$ is disjoint, $A, E_k \in \U$, then $\sum_k P(E_k | A ) = \sum_k \frac{(P(E_k \cap A)}{P(A)} = \frac{1}{P(A)} P \left(  \cup_k (E_k \cap A )\right) = $ 
-$\frac{1}{P(A)} P \left( A \cap \cup_k (E_k  )\right) = \frac{1}{P(A)} P \left( A \cap \Om \right) = 1$. Then, $X_k^{-1}(i), i \in \nats$ generates a measurable disjoint partition of $\Om$, thus $ \sum_{i \in \nats} P_{k,i,j} = \sum_{i \in \nats} P(\{ X_{k+1} = i \} | \{X_k = j \}) = 1$. So the columns of $\mathbb{P}$ are are normalized, i.e. they sum to one. Then, if $x_k$ is normalized in the same sense, so $\sum_i x_i = 1$, and all $x_i \ge 0$, then $x_{k+1} = \mathbb{P} x_k$, $ \sum_i x_{k+1,i} = \sum_i \sum_j P_{k,i,j} x_{k,j} = \sum_j \sum_i P_{k,i,j} x_{k,j} $ $ = \sum_j  x_{k,j} \sum_i P_{k,i,j} $  $ = \sum_j  x_{k,j} \cdot 1 $ $ = 1$, because all pobabilities are non-negative, as are the entries in $x_k$, and clearly $x_{{k+1},i} \ge 0$ for all $i$. This shows that $\mathbb{P}$ preserves normalization, we we'd expect.
+$\frac{1}{P(A)} P \left( A \cap \cup_k (E_k  )\right) = \frac{1}{P(A)} P \left( A \cap \Om \right) = 1$. Then, $X_k^{-1}(\{i\}), i \in \nats$ generates a measurable disjoint partition of $\Om$, thus $ \sum_{i \in \nats} P_{k,i,j} = \sum_{i \in \nats} P(\{ X_{k+1} = i \} | \{X_k = j \}) = 1$. So the columns of $\mathbb{P}$ are are normalized, i.e. they sum to one. Then, if $x_k$ is normalized in the same sense, so $\sum_i x_i = 1$, and all $x_i \ge 0$, then $x_{k+1} = \mathbb{P} x_k$, $ \sum_i x_{k+1,i} = \sum_i \sum_j P_{k,i,j} x_{k,j} = \sum_j \sum_i P_{k,i,j} x_{k,j} $ $ = \sum_j  x_{k,j} \sum_i P_{k,i,j} $  $ = \sum_j  x_{k,j} \cdot 1 $ $ = 1$, because all pobabilities are non-negative, as are the entries in $x_k$, and clearly $x_{{k+1},i} \ge 0$ for all $i$. This shows that $\mathbb{P}$ preserves normalization, as we'd expect.
+
+\vspace{.5in}
+
+Let $\{ Z_k\}: \Om \rarw \nats $ be i.i.d random variables with  $P(\{ Z=0 \})=0.1$, $P(\{ Z=1 \})=0.3$,  $P(\{ Z=2 \})=0.2$,  $P(\{ Z=3 \})=0.4$. Define $X: \nats \times \Om \rarw \nats$ by $X_0 = 0$, and $X_k = \max( \{ Z_1, Z_2, ... , Z_k \} )$. Then $X_{k+1} = \max( \{ Z_1, Z_2, ... , Z_k, Z_{k+1} \} ) = \max( X_k, Z_{k+1} )$. \\
+
+
+If $f,g : X \rarw S$, and $\max(f,g)(x) = \max(f(x),g(x))$, then $\max(f,g)^{-1}(\{s\}) = \{ x \in X; \max(f(x),g(x)) = s\}$ = 
+$\max(f,g)^{-1}(\{s\}) = \{ x \in X; f(x) \ge g(x), f(x) = s \} \cup  \{ x \in X; f(x) < g(x), g(x) = s \} = \{ f \ge g \} \cap \{ f = s \} \cup \{ g > f \} \cap \{ g = s \} $.  \\
+
+$P_{i,j} \defeq P( \{ X_{k+1} = i \} | \{ X_{k} = j \} ) = P( \{ \max(X_k, Z_{k+1})= i \} | \{ X_{k} = j \} ) = P( \{  X_k \ge Z_{k+1} \} \cap \{ X_k= i \} | \{ X_{k} = j \} ) + P( \{  X_k < Z_{k+1} \} \cap \{ Z_{k+1}= i \} | \{ X_{k} = j \} )$, becausue $\{  X_k \ge Z_{k+1} \}$ and $\{  X_k < Z_{k+1} \}$ are disjoint events. \\
+
+Now, $P( \{ X_k = j \} \cap \{  Z_{k+1} \le X_k \} ) = P(\{ X_k=j \AND Z_{k+1} \le X_k \}) = P(\{ X_k=j \} \cap \{ Z_{k+1} \le j \})$ $= P(\{ X_k=j \} ) P( \{ Z_{k+1} \le j \})$, because $Z_k$ are iid. When $i \not = j$, $P( \{ X_k= i \} \cap \{ X_{k} = j \} ) = 0$. So $P( \{  X_k \ge Z_{k+1} \} \cap \{ X_k= i \} | \{ X_{k} = j \} ) = \delta_{i,j} P( \{  Z_{k+1} \le j \}  ) $ \\ 
+
+
+$P( \{  X_k < Z_{k+1} \} \cap \{ Z_{k+1}= i \} | \{ X_{k} = j \} ) = P( \{  X_k < Z_{k+1} \} \cap \{ Z_{k+1}= i \} \cap \{ X_{k} = j \} ) \div P(\{ X_{k} = j \}) $
+$= P( \{  X_k < i,X_{k} = j \}  \cap \{ Z_{k+1}= i \} ) \div P(\{ X_{k} = j \}) $
+$= P( \{  X_k < i,X_{k} = j \} ) P( \{ Z_{k+1}= i \} ) \div P(\{ X_{k} = j \}) $, by iid.  \\
+
+Now $X: \Om \rarw \reals, a,b \in \reals$, then $P( \{ X < a \} | \{ X = b \}) = P( X^{-1} ((\infty,a)) \cap X^{-1}(\{b\})) \div P(\{X=b\}) = P( X^{-1} ((\infty,a) \cap \{b\})) \div P(\{X=b\})$. So if $b > a$, then $(\infty,a) \cap \{b\}) = \phi$ and then $P( \{ X < a \} | \{ X = b \}) = 0$. if $b \le a$, then $(\infty,a) \cap \{b\}) = \{ b \}$, and then $P( \{ X < a \} | \{ X = b \}) = 1$.n \\
+
+\noindent
+So, $P( \{  X_k < Z_{k+1} \} \cap \{ Z_{k+1}= i \} | \{ X_{k} = j \} ) = P( \{ Z_{k+1}= i \} ) $ if $j < i$, and 0 else. \\
+
+\noindent
+$P_{i,j} = P( \{  Z_{k+1} \le j \}  ) $ when $i = j$ and $P_{i,j} = P( \{ Z_{k+1}= i \} ) $ if $j < i$, and $P_{i,j} = 0$ if $i < j$. Computing:
+
+
+$$
+\mathbb{P} = [P_{i,j}] = \left[ \begin{array}{cccc} 
+0.1  & 0  & 0 & 0 \\
+0.3 & 0.4 & 0  & 0  \\
+0.2 & 0.2 & 0.6 & 0 \\
+0.4 & 0.4 & 0.4 & 1.0    \\
+\end{array} \right].
+$$
+
+
 
 
 \section*{Problem 4}
 
+$X: \nats \times \Om \rarw \nats$, $X_k$ is the number of infected at step $k$. Pick two individuals evenly at random, then with probability $X_k/N$ one will already be infected, and $1-X_k/N$ the other won't be. So with probability $X_k(1-X_k/N)$ transmission can occur, then apply a $ \alpha = 0.1$ probability that transission will occur. So,
+
+$$
+X_0 = 1, X_{k+1} = X_k + \left\{ \begin{array}{c}  1, \textrm{ probability } = \alpha ( 1-X_k/N )X_k \\   0  \end{array} \right.  ,
+$$
+
+\noindent
+where $P(A) = 0.05$.
+
+
+
+
+
 
 \section*{Problem 5}
+
+
+
+
+$X: \nats \times \Om \rarw \nats$ a markov chain such that $ \left[ \begin{array}{c} P( \{ X_{k+1} = 0 \} ) \\ P( \{ X_{k+1} =1 \} ) \end{array} \right]  = \mathbb{P}_X \left[ \begin{array}{c} P( \{ X_{k} = 0 \} ) \\ P( \{ X_{k} =1 \} ) \end{array} \right] $ for all $k \in \nats$, where $ \mathbb{P}_X \defeq \left[ \begin{array}{cc} \alpha & 1-\beta \\ 1-\alpha & \beta \end{array} \right]$, $ \; \alpha, \beta \in [0,1]$. Then let $n_0 = (0,0), n_1= (1,0), n_2 = (0,1), n_3 = (1,1)$, and $n_i = (n_{i,1}, n_{i,2})$, and define $Z_k$ as
+
+
+$$
+ Z_k = \left \{ \begin{array}{c}   
+ 0; \; \; \; \IF  (X_{k-1}, X_k) = (0,0) = n_0  \\   
+ 1; \; \; \; \IF  (X_{k-1}, X_k) = (1,0) = n_1  \\ 
+ 2; \; \; \; \IF  (X_{k-1}, X_k) = (0,1) = n_2  \\ 
+ 3; \; \; \; \IF  (X_{k-1}, X_k) = (1,1) = n_3  \\     \end{array} \right.
+$$
+
+\noindent
+Then let $\mathbb{P}_Z = [ P_{i,j} ]$, $P_{i,j} = Pr( \{ Z_{k+1} = i \} | \{ Z_{k} = j  \} )$, then
+
+$$
+P_{i,j} =  \frac{ P( \{ X_k = n_{i,1} \} \cap \{ X_{k+1} = n_{i,2} \} \cap \{ X_{k-1} = n_{j,1} \} \cap \{ X_k = n_{j,2} \}  ) }{ P( \{ X_{k-1} = n_{j,1} \} \cap \{ X_k = n_{j,2} \}  ) }.
+$$
+
+If $n_{i,1} \not = n_{j,2}$ then $\{ X_k = n_{i,1} \} \cap \{ X_k = n_{j,2} \} = \phi $ and then the above numerator is zero, becasue $P(\phi) = 0$, so this forces 
+$P_{0,2} = P_{0,3} = P_{1,0} = P_{1,1} = P_{2,2} = P_{2,3} = P_{3,0} = P_{3,1} = 0$. Assuming $n_{i,1} = n_{j,2}$, then  $\{ X_k = n_{i,1} \} = \{ X_k = n_{j,2} \} $, and so
+
+$$
+P_{i,j} =  \frac{ P( \{ X_{k+1} = n_{i,2} \} \cap \{ X_{k-1} = n_{j,1} \} \cap \{ X_k = n_{j,2} \}  ) }{ P( \{ X_{k-1} = n_{j,1} \} \cap \{ X_k = n_{j,2} \}  ) } = P( \{ X_{k+1} = n_{i,2} \} | \{ X_{k-1} = n_{j,1} \} \cap \{ X_k = n_{j,2} \} ).
+$$
+
+\noindent
+Now applying the Markov property of $X$,
+
+$$
+P_{i,j} =  P( \{ X_{k+1} = n_{i,2} \} | \{ X_k = n_{j,2} \} ).
+$$
+
+\noindent
+So,
+
+$$
+\begin{array}{c} 
+P_{0,0} = P( \{ X_{k+1} = 0 \} | \{ X_k = 0 \} ) = (\mathbb{P}_X)_{0,0} = \alpha  \\  
+P_{0,1} = P( \{ X_{k+1} = 0 \} | \{ X_k = 0 \} ) = (\mathbb{P}_X)_{0,0} =  \alpha  \\  
+P_{1,2} = P( \{ X_{k+1} = 0 \} | \{ X_k = 1 \} ) = (\mathbb{P}_X)_{0,1} =  1-\beta  \\  
+P_{1,3} = P( \{ X_{k+1} = 0 \} | \{ X_k = 1 \} ) = (\mathbb{P}_X)_{0,1} =  1-\beta  \\  
+P_{2,0} = P( \{ X_{k+1} = 1 \} | \{ X_k = 0 \} ) = (\mathbb{P}_X)_{1,0} =  1-\alpha  \\  
+P_{2,1} = P( \{ X_{k+1} = 1 \} | \{ X_k = 0 \} ) = (\mathbb{P}_X)_{1,0} =  1-\alpha  \\  
+P_{3,2} = P( \{ X_{k+1} = 1 \} | \{ X_k = 1 \} ) = (\mathbb{P}_X)_{1,1} =  \beta  \\  
+P_{3,3} = P( \{ X_{k+1} = 1 \} | \{ X_k = 1 \} ) = (\mathbb{P}_X)_{1,1} =  \beta,   \\  
+\end{array} 
+$$
+
+\noindent
+and all together,
+
+$$
+\mathbb{P}_Z = \left[ \begin{array}{cccc} 
+\alpha  & \alpha  & 0 & 0 \\
+0 & 0 & 1-\beta  & 1-\beta  \\
+1-\alpha & 1-\alpha & 0 & 0 \\
+0 & 0 & \beta & \beta \\
+\end{array} \right].
+$$
+
+
+
+%\left[ \begin{array}{c} \alpha  \\  \end{array} \right]
+
 
 %Now, $P(\{ \om \in \Om;  X_{n+1}(\om) \le X_n(\om) + 1 \}) = 1$, by hypothesis, then $P(\{ \om \in \Om;  X_{n+1}(\om) > X_n(\om) + 1 \}) = 0$, and so by absolute continuity $E[X_{n+1} \cf{\{ \om \in \Om; X_{n+1}(\om) > X_n(\om) + 1\}} ]=0$. Then, 
 

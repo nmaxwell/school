@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.3.11)  2 APR 2010 17:32
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.3.11)  4 APR 2010 03:51
 entering extended mode
  file:line:error style messages enabled.
  %&-line parsing enabled.
@@ -162,49 +162,49 @@ Package: listings 2004/10/17 1.3b (Carsten Heinz)
  (./hw1.aux)
 \openout1 = `hw1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Try loading font information for U+msa on input line 92.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Try loading font information for U+msa on input line 94.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 92.
+LaTeX Font Info:    Try loading font information for U+msb on input line 94.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 92.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 94.
 
 (/usr/share/texmf/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--100
+Underfull \hbox (badness 10000) in paragraph at lines 100--102
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--103
+Underfull \hbox (badness 10000) in paragraph at lines 103--105
 
  []
 
 
-Overfull \hbox (29.5558pt too wide) in paragraph at lines 104--107
+Overfull \hbox (29.5558pt too wide) in paragraph at lines 106--109
 \OT1/cmr/m/n/12 Fu-bini's the-o-rem, $\OML/cmm/m/it/12 E[]\OT1/cmr/m/n/12 [\OT1
 /cmr/bx/n/12 1[]\OT1/cmr/m/n/12 ] = [][] [] \OML/cmm/m/it/12 dP \OT1/cmr/m/n/12
  = [][] [] \OML/cmm/m/it/12 dP \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 P\OT1/cmr/m/n
@@ -212,12 +212,7 @@ Overfull \hbox (29.5558pt too wide) in paragraph at lines 104--107
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--107
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 106--109
 
  []
 
@@ -227,13 +222,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--117
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
 [1
 
-{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./hw1.aux) ) 
+{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
+
+ []
+
+
+Overfull \hbox (11.06383pt too wide) in paragraph at lines 135--137
+[]\OT1/cmr/m/n/12 If $\OML/cmm/m/it/12 f; g \OT1/cmr/m/n/12 : \OML/cmm/m/it/12 
+X \OMS/cmsy/m/n/12 ! \OML/cmm/m/it/12 S$\OT1/cmr/m/n/12 , and $[](\OML/cmm/m/it
+/12 f; g\OT1/cmr/m/n/12 )(\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = [](\OML/cmm/m/i
+t/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; g\
+OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ))$, then $[](\OML/cmm/m/it/1
+2 f; g\OT1/cmr/m/n/12 )[](\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 s\OMS/cmsy/m/n/12 
+g\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 2 \O
+ML/cmm/m/it/12 X\OT1/cmr/m/n/12 ; [](\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cm
+m/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; g\OT1/cmr/m/n/12 (\OML/cmm/m/it/
+12 x\OT1/cmr/m/n/12 )) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--137
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--151
+
+ []
+
+[2] [3] (./hw1.aux) ) 
 Here is how much of TeX's memory you used:
  2723 strings out of 256216
  34647 string characters out of 1917072
@@ -241,20 +290,19 @@ Here is how much of TeX's memory you used:
  5996 multiletter control sequences out of 10000+200000
  10146 words of font info for 40 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 27i,6n,32p,1065b,218s stack positions out of 5000i,500n,6000p,200000b,15000s
-</usr/s
-hare/texmf/fonts/type1/bluesky/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/blue
-sky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/sha
-re/texmf/fonts/type1/bluesky/cm/cmmi6.pfb></usr/share/texmf/fonts/type1/bluesky
-/cm/cmmi8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/te
-xmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cm
-r8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fo
-nts/type1/bluesky/cm/cmsy6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8.p
-fb></usr/share/texmf/fonts/type1/bluesky/ams/msbm10.pfb></usr/share/texmf/fonts
-/type1/bluesky/ams/msbm7.pfb>
-Output written on hw1.pdf (2 pages, 62825 bytes).
+ 27i,9n,32p,1065b,218s stack positions out of 5000i,500n,6000p,200000b,15000s
+</usr/share/texmf/fonts/type1/bluesky/cm/cmbx12.pfb></usr/
+share/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/blu
+esky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi6.pfb></usr/sha
+re/texmf/fonts/type1/bluesky/cm/cmmi8.pfb></usr/share/texmf/fonts/type1/bluesky
+/cm/cmr12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/tex
+mf/fonts/type1/bluesky/cm/cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cms
+y10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy6.pfb></usr/share/texmf/fo
+nts/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msbm10
+.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msbm7.pfb>
+Output written on hw1.pdf (3 pages, 76085 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
+ 64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
