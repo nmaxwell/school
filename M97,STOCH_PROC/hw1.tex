@@ -167,16 +167,35 @@ $$
 
 \section*{Problem 4}
 
-$X: \nats \times \Om \rarw \nats$, $X_k$ is the number of infected at step $k$. Pick two individuals evenly at random, then with probability $X_k/N$ one will already be infected, and $1-X_k/N$ the other won't be. So with probability $X_k(1-X_k/N)$ transmission can occur, then apply a $ \alpha = 0.1$ probability that transission will occur. So,
+$X: \nats \times \Om \rarw \nats$, $X_k$ is the number of infected at step $k$. Pick two individuals evenly at random, then with probability $X_k/N$ one will already be infected, and $1-X_k/N$ the other won't be. So with probability $(X_k/N)(1-X_k/N)$ transmission can occur, then apply a $ \alpha = 0.1$ probability that transmission will occur. So,
 
 $$
-X_0 = 1, X_{k+1} = X_k + \left\{ \begin{array}{c}  1, \textrm{ probability } = \alpha ( 1-X_k/N )X_k \\   0  \end{array} \right.  ,
+X_0 = 1, X_{k+1} = X_k + \cf{E_k} ,
 $$
 
 \noindent
-where $P(A) = 0.05$.
+where $P(E_k) =  (X_k/N) (1-X_k/N) \alpha $. $P_{i,j} \defeq P( \{ X_{k+1} = i\} | \{ X_k = j \} ) = P( \{  X_k + \cf{E_k} = i\} | \{ X_k = j \} )$ $ = P( \{  j + \cf{E_k} = i\} | \{ X_k = j \} ) = P( \{  \cf{E_k} = i - j \} | \{ X_k = j \} )$.  So $P_{i,j} = 0$ unless $\cf{E_k} = i-j$ which occurs when $i-j = 0$ or $i-j = 1$.   If $i = j$, then $P_{i,j} = P( \{  X_k + \cf{E_k} = i\} | \{ X_k = j \} ) = P( \{  X_k + \cf{E_k} = X_k\} | \{ X_k = j \} ) =  P( \{ \cf{E_k} = 0\} | \{ X_k = j \} )  = 1- (j/N) (1-j/N) \alpha $. If $i = j+1$ then $P_{i,j} =  P( \{  j + \cf{E_k} = j+1\} | \{ X_k = j \} ) = P( \{ \cf{E_k} = 1\} | \{ X_k = j \} ) = (j/N) (1-j/N) \alpha $ \\
+
+So the transition matrix is $1- (j/N) (1-j/N) \alpha$ on the diagonal, and $ (j/N) (1-j/N) \alpha$ on the subdiagonal, and zeros otherwise. \\
 
 
+
+
+$$
+\mathbb{P} = [P_{i,j}] = \left[ \begin{array}{cccc} 
+0.1  & 0  & 0 & 0 \\
+0.3 & 0.4 & 0  & 0  \\
+0.2 & 0.2 & 0.6 & 0 \\
+0.4 & 0.4 & 0.4 & 1.0    \\
+\end{array} \right].
+$$
+
+
+
+
+
+
+%$ P_{i,j} = P( \{  X_k + \cf{E_k} = i\} | \{ X_k = j \} ) = P( \{  j + \cf{E_k} = i\} | \{ X_k = j \} ) = P( \{  \cf{E_k} = i - j \} | \{ X_k = j \} ) $.
 
 
 
