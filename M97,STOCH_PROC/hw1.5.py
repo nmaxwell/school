@@ -44,7 +44,7 @@ p = transition_matrix( Z_paths, 4, state_map )
 
 
 for k in range(1,2):
-    print around(p[k],2), '\n'  
+    print 'computed transition matrix: \n', around(p[k],2), '\n'  
 
 
 

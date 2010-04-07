@@ -11,7 +11,7 @@ Z = lambda : random_variable( distribution, values )
 
 
 len_path = 20
-n_paths = 20000
+n_paths = 2000
 
 X_paths = [ zeros(len_path) for n in range(n_paths) ]
 
@@ -25,7 +25,7 @@ p = transition_matrix( X_paths, 4 )
 
 
 for k in range(1,2):
-    print around(p[k],2), '\n'  
+    print 'computed transition matrix: \n', around(p[k],2), '\n'  
 
 
 
